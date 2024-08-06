@@ -1,7 +1,6 @@
 /* PlayerController.cs
  * 
  *  This script controls all of the movement and interaction from the player
- *
  */
 
 using System.Collections;
@@ -10,11 +9,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
+    [Header("References")]
     Rigidbody rb;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed = 10f;
-
+    #endregion
 
     private void Awake()
     {

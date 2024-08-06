@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+
+    #region Variables
+
+    [Header("References")]
     public static InputManager Instance;
     public PlayerInputs Inputs;
 
     [Space]
+    [Header("Movements")]
     [SerializeField] public Vector2 moveInput;
 
+    [Header("Delegates")]
     public delegate void PlayerHandler();
     public event PlayerHandler Interacted;
+    #endregion
 
     private void Awake()
     {
@@ -24,6 +31,7 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
+        //Subscriptions
         Inputs.Player.Interact.performed += x => Interact();
     }
 
@@ -36,7 +44,6 @@ public class InputManager : MonoBehaviour
     { 
         Interacted?.Invoke();
     }
-
 
     Vector2 GetMoveAxis()
     {

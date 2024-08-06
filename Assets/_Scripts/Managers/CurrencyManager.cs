@@ -26,7 +26,7 @@ public class CurrencyManager : MonoBehaviour
 
     #region Functions
 
-    public bool Buy(float price)
+    public bool Purchase(float price)
     {
         if(currency>= price)//Enough money
         {
@@ -56,7 +56,7 @@ public class CurrencyManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
-            Debug.LogWarning("Another instance of GameLobbyManager was destroyed on creation!");
+            Debug.LogWarning("Another instance of CurrencyManager was destroyed on creation!");
             return;
         }
 

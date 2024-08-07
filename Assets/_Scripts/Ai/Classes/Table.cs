@@ -41,12 +41,22 @@ public class Table : MonoBehaviour
     {
         if (currentCustomers < maxCapacity)
         {
-            // Assign customer to a chair (this assumes chairs are already set up in the inspector)
+            //Get chair
             GameObject chair = chairs[currentCustomers];
-            customer.transform.position = chair.transform.position; // Place customer at the chair position
+
+            //Spawn at chair
+            GameObject obj = Instantiate(customer, chair.transform.position,Quaternion.identity);
+
+            //Increase num
             currentCustomers++;
         }
     }
+
+    #endregion
+
+    #region GetSte
+
+    public int GetMaxCapacity(){ return maxCapacity; }
 
     #endregion
 }

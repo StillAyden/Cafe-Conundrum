@@ -37,15 +37,14 @@ public class AiSpawner : MonoBehaviour
             if (availableTable != null && !availableTable.IsFull())
             {
                 // Determine the number of customers to spawn (1-4)
-                int numberOfCustomers = Random.Range(1, 5);
+                int numberOfCustomers = Random.Range(1, availableTable.GetMaxCapacity() + 1);
 
                 availableTable.OccupyTable(numberOfCustomers);
 
                 for (int i = 0; i < numberOfCustomers; i++)
                 {
                     // Spawn a customer and add to the table
-                    GameObject customer = Instantiate(customerPrefab);
-                    availableTable.AddCustomer(customer);
+                    availableTable.AddCustomer(customerPrefab);
                 }
             }
         }

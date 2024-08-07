@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -11,13 +9,14 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance;
     public PlayerInputs Inputs;
 
+    //[Header("Delegates")]
+    public delegate void PlayerHandler();
+    public event PlayerHandler Interacted;
+    
     [Space]
     [Header("Movements")]
     [SerializeField] public Vector2 moveInput;
 
-    [Header("Delegates")]
-    public delegate void PlayerHandler();
-    public event PlayerHandler Interacted;
     #endregion
 
     private void Awake()

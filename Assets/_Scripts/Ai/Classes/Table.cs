@@ -7,45 +7,54 @@ public class Table : MonoBehaviour
     [Header("Table Settings")]
     [SerializeField] private List<GameObject> chairs = new List<GameObject>(); // List of chairs of this table
     [SerializeField] private int maxCapacity = 4; // Maximum number of people the table can hold
-    [SerializeField] private bool isOccupied = false; // Showes if the table is taken
     [SerializeField] private int currentCustomers = 0; // Showes the current amount of customers
+
+    //Button 
+    [SerializeField] private bool CalculateChairs = false;
     #endregion
+
+    private void Start()
+    {
+        InitializeChairs();
+    }
+
+    private void OnValidate()
+    {
+        InitializeChairs();
+        CalculateChairs = false;
+    }
 
     #region Functions
 
+    private void InitializeChairs() //Add chairs auto to make easier
+    {
+        chairs.Clear(); 
+        foreach (Transform child in transform)
+        {
+            chairs.Add(child.gameObject);
+        }
+        maxCapacity = chairs.Count;
+    }
+
     public bool IsFull() // Function to check if the table is full
     {
-        if (isOccupied && currentCustomers >= 1)
-        {
-            return true;
-        }
-        else
-        {
-            return false; 
-        }
-    }
- 
-    public void OccupyTable(int numberOfCustomers) // Function to occupy the table
-    {
-        isOccupied = true;
-        currentCustomers = numberOfCustomers;
+        return currentCustomers >= 1 ? true: false;
     }
 
     public void FreeTable() // Function to free the table
     {
-        isOccupied = false;
         currentCustomers = 0;
     }
 
-    public void AddCustomer(GameObject customer)
+    public void AddCustomers(GameObject customerPrefab, int numberOfCustomers)
     {
-        if (currentCustomers < maxCapacity)
+        for (int i = 0; i < numberOfCustomers && currentCustomers < maxCapacity; i++)
         {
             //Get chair
             GameObject chair = chairs[currentCustomers];
 
             //Spawn at chair
-            GameObject obj = Instantiate(customer, chair.transform.position,Quaternion.identity);
+            Instantiate(customerPrefab, chair.transform.position,Quaternion.identity);
 
             //Increase num
             currentCustomers++;

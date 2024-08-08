@@ -8,46 +8,66 @@ public class AiSpawner : MonoBehaviour
     private TableManager tableManager; 
 
     [Header("Spawn Settings")]
-    [SerializeField] private float minSpawnInterval = 1f;
-    [SerializeField] private float maxSpawnInterval = 5f;
+    [SerializeField][Range(1,15)] private float minSpawnInterval = 1f;
+    [SerializeField][Range(15, 60)] private float maxSpawnInterval = 5f;
+    [SerializeField] private int totalCustomers = 10; // Total number of customers to spawn
+
+    [Space]
+    [Header("Customer Prefab")]
     [SerializeField] private GameObject customerPrefab;
+
+    private float spawnTimer = 0f;
 
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        //Find Manager
         tableManager = FindObjectOfType<TableManager>();
 
-        StartCoroutine(SpawnCustomerRoutine());
+        //Start Timer
+        ResetSpawnTimer();
+    }
+
+    private void FixedUpdate()
+    {
+        if (totalCustomers > 0)
+        {
+            spawnTimer -= Time.fixedDeltaTime;
+            if (spawnTimer <= 0f)
+            {
+                StartCoroutine(SpawnCustomer());
+                ResetSpawnTimer();
+            }
+            
+        }
     }
 
     #region Functions
 
-    // Coroutine to spawn customers at random intervals
-    private IEnumerator SpawnCustomerRoutine()
+    private void ResetSpawnTimer()
     {
-        while (true)
+        spawnTimer = Random.Range(minSpawnInterval, maxSpawnInterval);
+       // Debug.Log("Timer: "+spawnTimer);
+    }
+
+    private IEnumerator SpawnCustomer()
+    {
+        // Find an available table
+        Table availableTable = tableManager.FindAvailableTable();
+  
+        if (availableTable != null && !availableTable.IsFull())
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
+            // Determine the number of customers to spawn (1-4)
+            int numberOfCustomers = Random.Range(1, availableTable.GetMaxCapacity()+1);
+            Debug.Log("Customers: " + numberOfCustomers);
 
-            // Find an available table
-            Table availableTable = tableManager.FindAvailableTable();
+            // Spawn the customers and add to the table
+            availableTable.AddCustomers(customerPrefab,numberOfCustomers);
 
-            if (availableTable != null && !availableTable.IsFull())
-            {
-                // Determine the number of customers to spawn (1-4)
-                int numberOfCustomers = Random.Range(1, availableTable.GetMaxCapacity() + 1);
-
-                availableTable.OccupyTable(numberOfCustomers);
-
-                for (int i = 0; i < numberOfCustomers; i++)
-                {
-                    // Spawn a customer and add to the table
-                    availableTable.AddCustomer(customerPrefab);
-                }
-            }
+            totalCustomers--;
         }
+        yield return null;
     }
 
 

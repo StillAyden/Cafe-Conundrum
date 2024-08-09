@@ -8,9 +8,8 @@ public class Table : MonoBehaviour
     [SerializeField] private List<GameObject> chairs = new List<GameObject>(); // List of chairs of this table
     [SerializeField] private int maxCapacity = 4; // Maximum number of people the table can hold
     [SerializeField] private int currentCustomers = 0; // Showes the current amount of customers
+    [SerializeField] private List<Customer> customers = new List<Customer>(); // List of customers at the table
 
-    //Button 
-    [SerializeField] private bool CalculateChairs = false;
     #endregion
 
     private void Start()
@@ -21,12 +20,11 @@ public class Table : MonoBehaviour
     private void OnValidate()
     {
         InitializeChairs();
-        CalculateChairs = false;
     }
 
     #region Functions
 
-    private void InitializeChairs() //Add chairs auto to make easier
+    public void InitializeChairs() //Add chairs auto to make easier
     {
         chairs.Clear(); 
         foreach (Transform child in transform)
@@ -41,9 +39,46 @@ public class Table : MonoBehaviour
         return currentCustomers >= 1 ? true: false;
     }
 
-    public void FreeTable() // Function to free the table
+    public bool ClearTable()
     {
-        currentCustomers = 0;
+        // Check if all customers are done eating
+        foreach (Customer cus in customers)
+        {
+            if (cus != null && !cus.GetIsDoneEating())
+            {
+                return false; // Return false if any customer is not done eating
+            }
+        }
+
+        // If all customers are done eating
+        foreach (Customer cus in customers)
+        {
+            if (cus != null)
+            {
+                Destroy(cus.gameObject); // Destroy the customer GameObject
+            }
+        }
+
+        // Clear the list of customers & Reset the customer count
+        customers.Clear(); 
+        currentCustomers = 0; 
+
+        return true; // Return true if the table was cleared
+    }
+
+    public void ForceClearTable()
+    {
+        foreach (Customer cus in customers)
+        {
+            if (cus != null)
+            {
+                Destroy(cus.gameObject); // Destroy the customer GameObject
+            }
+        }
+
+        // Clear the list of customers & Reset the customer count
+        customers.Clear(); 
+        currentCustomers = 0; 
     }
 
     public void AddCustomers(GameObject customerPrefab, int numberOfCustomers)
@@ -53,8 +88,12 @@ public class Table : MonoBehaviour
             //Get chair
             GameObject chair = chairs[currentCustomers];
 
-            //Spawn at chair
-            Instantiate(customerPrefab, chair.transform.position,Quaternion.identity);
+            //Spawn customer at chair
+            GameObject obj = Instantiate(customerPrefab, chair.transform.position,Quaternion.identity);
+
+            //Add customer to customers List
+            Customer cus = obj.GetComponent<Customer>();
+            customers.Add(cus);
 
             //Increase num
             currentCustomers++;

@@ -690,9 +690,8 @@ MonoBehaviour:
   - {fileID: 336508405}
   - {fileID: 1595131316}
   maxCapacity: 3
-  isOccupied: 0
   currentCustomers: 0
-  CalculateChairs: 0
+  customers: []
 --- !u!4 &413462197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 53880ebd469b4634483519580d58b97c,
@@ -2001,9 +2000,8 @@ MonoBehaviour:
   - {fileID: 1941921565}
   - {fileID: 975840734}
   maxCapacity: 3
-  isOccupied: 0
   currentCustomers: 0
-  CalculateChairs: 0
+  customers: []
 --- !u!1001 &1386859382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2147,9 +2145,8 @@ MonoBehaviour:
   - {fileID: 1550461860}
   - {fileID: 460518396}
   maxCapacity: 4
-  isOccupied: 0
   currentCustomers: 0
-  CalculateChairs: 0
+  customers: []
 --- !u!1 &1389157372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,9 +2398,8 @@ MonoBehaviour:
   - {fileID: 756519376}
   - {fileID: 609840616}
   maxCapacity: 2
-  isOccupied: 0
   currentCustomers: 0
-  CalculateChairs: 0
+  customers: []
 --- !u!1001 &1476021018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2657,9 +2653,8 @@ MonoBehaviour:
   - {fileID: 918217989}
   - {fileID: 1476021019}
   maxCapacity: 4
-  isOccupied: 0
   currentCustomers: 0
-  CalculateChairs: 0
+  customers: []
 --- !u!1001 &1550461859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3468,7 +3463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpawnInterval: 1
-  maxSpawnInterval: 5
+  maxSpawnInterval: 15
+  totalCustomers: 10
   customerPrefab: {fileID: 8734203729337020057, guid: ea87cdbcda339194ab9d7ab52e3dc440,
     type: 3}
 --- !u!1001 &1811893339

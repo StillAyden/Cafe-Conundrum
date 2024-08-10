@@ -5,14 +5,7 @@ public class Customer : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private Food orders = Food.None;
-    public enum Food
-    {
-        None,
-        Chips,
-        Burger,
-        Pizza
-    }
+    [SerializeField] public Order order;
 
     [SerializeField] private Image image;
     [SerializeField] private bool isDoneEating = false;
@@ -26,31 +19,16 @@ public class Customer : MonoBehaviour
 
     private void Awake()
     {
-        int num = Random.Range(1, System.Enum.GetValues(typeof(Food)).Length);
-
-        switch (num) //Select Random Food Item
-        {
-            case 1:
-                orders = Food.Chips;
-                image.color = Chips;
-            break;
-
-            case 2:
-                orders = Food.Burger;
-                image.color = Burger;
-            break;
-
-            case 3:
-                orders = Food.Pizza;
-                image.color = Pizza;
-            break;
-
-        }
+        order = new Order();
     }
 
     #region GetSet
 
-    public bool GetIsDoneEating() { return isDoneEating; }
+    public bool IsDoneEating
+    {
+        get { return isDoneEating; }
+        set { isDoneEating = value; }
+    }
 
     #endregion
 }

@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orders: 0
   image: {fileID: 8437431053077944932}
+  isDoneEating: 0
   Chips: {r: 1, g: 0.88037235, b: 0, a: 1}
   Burger: {r: 1, g: 0.44920295, b: 0, a: 1}
   Pizza: {r: 0.31216645, g: 1, b: 0, a: 1}

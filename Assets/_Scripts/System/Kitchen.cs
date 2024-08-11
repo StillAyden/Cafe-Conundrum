@@ -26,7 +26,7 @@ public class Kitchen : MonoBehaviour
         while (kitchenOrders.Count > 0)
         {
             Debug.Log("Next List");
-            List<Order> currentOrderList = kitchenOrders[0];
+            List<Order> currentOrderList = new List<Order>(kitchenOrders[0]);
 
             for (int i = 0; i < currentOrderList.Count; i++)
             {

@@ -28,9 +28,10 @@ public class Kitchen : MonoBehaviour
             Debug.Log("Next List");
             List<Order> currentOrderList = kitchenOrders[0];
 
-            foreach (Order order in currentOrderList)
+            for (int i = 0; i < currentOrderList.Count; i++)
             {
-                yield return new WaitForSeconds(foodPrepTime); //Wait for 3 seconds
+                Debug.Log(i.ToString()); 
+                yield return new WaitForSecondsRealtime(foodPrepTime); //Wait for 3 seconds
                 SpawnFood(); //Call SpawnFood function
             }
 

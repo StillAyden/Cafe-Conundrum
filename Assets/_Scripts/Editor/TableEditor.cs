@@ -5,7 +5,6 @@ using UnityEditor;
 
 public class TableEditor : Editor 
 {
-
     public override void OnInspectorGUI()
     {
         Table table = (Table)target;

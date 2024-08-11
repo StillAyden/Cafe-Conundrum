@@ -160,19 +160,19 @@ public class PlayerController : MonoBehaviour
                         if (table.customers[k].order.food == Food.Chips )           //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Chips"
                         {
                             Destroy(item);
-                            table.customers[k].IsDoneEating = false;
+                            table.customers[k].HasGottenFood = false;
                             isHoldingItem = false;
                         }
                         else if (table.customers[k].order.food == Food.Burger)      //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Burger"
                         {
                             Destroy(item);
-                            table.customers[k].IsDoneEating = false;
+                            table.customers[k].HasGottenFood = false;
                             isHoldingItem = false;
                         }
                         else if (table.customers[k].order.food == Food.Pizza)       //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Pizza"
                         {
                             Destroy(item);
-                            table.customers[k].IsDoneEating = false;
+                            table.customers[k].HasGottenFood = false;
                             isHoldingItem = false;
                         }
                     }

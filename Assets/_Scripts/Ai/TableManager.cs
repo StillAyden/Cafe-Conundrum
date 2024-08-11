@@ -9,15 +9,6 @@ public class TableManager : MonoBehaviour
 
     #endregion
 
-    #region Unity Methods
-
-    private void FixedUpdate()
-    {
-        ClearFinishedCustomerTables();
-    }
-
-    #endregion
-
     #region Functions
 
     public Table FindAvailableTable() // Function to find an available table
@@ -30,14 +21,6 @@ public class TableManager : MonoBehaviour
             }
         }
         return null; // No available table found
-    }
-
-    public void ClearFinishedCustomerTables()
-    { 
-        foreach (Table table in tables)
-        {
-            table.ClearTable();
-        }
     }
 
     #endregion

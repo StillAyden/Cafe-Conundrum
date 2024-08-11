@@ -6,9 +6,10 @@ public class Customer : MonoBehaviour
     #region Variables
 
     [SerializeField] public Order order;
+    [SerializeField] private Table table = null;
 
     [SerializeField] private Image image;
-    [SerializeField] private bool isDoneEating = false;
+    [SerializeField] private bool hasGottenFood = false;
 
     //Temp Vars
     [SerializeField] private Color Chips;
@@ -24,11 +25,20 @@ public class Customer : MonoBehaviour
 
     #region GetSet
 
-    public bool IsDoneEating
+    public bool HasGottenFood
     {
-        get { return isDoneEating; }
-        set { isDoneEating = value; }
+        get { return hasGottenFood; }
+        set 
+        {           
+            hasGottenFood = value;
+
+            if (value) { table.TableClearTimer(); }
+        }
     }
+
+    public void SetTable(Table t) {table = t;}
+
+
 
     #endregion
 }

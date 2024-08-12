@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ public class Table : Interactable
     [SerializeField] private int maxCapacity = 4; // Maximum number of people the table can hold
     [SerializeField] private int currentCustomers = 0; // Showes the current amount of customers
     [SerializeField] public List<Customer> customers = new List<Customer>(); // List of customers at the table
+
+    [Space]
+    [Header("Timer Settings")]
+    [SerializeField][Range(1,10)] private float clearTimerDuration = 5f; // Duration for the clear timer
+    private Coroutine clearTimerCoroutine;
 
     #endregion
 
@@ -44,7 +50,7 @@ public class Table : Interactable
         // Check if all customers are done eating
         foreach (Customer cus in customers)
         {
-            if (cus != null && !cus.IsDoneEating)
+            if (cus != null && !cus.HasGottenFood)
             {
                 return false; // Return false if any customer is not done eating
             }
@@ -95,9 +101,39 @@ public class Table : Interactable
             Customer cus = obj.GetComponent<Customer>();
             customers.Add(cus);
 
+            //Add C=table to customer.cs var's
+            cus.SetTable(this.gameObject.GetComponent<Table>());
+
             //Increase num
             currentCustomers++;
         }
+    }
+
+    public void TableClearTimer()
+    {
+        foreach (Customer cus in customers) //Will break loop if one customer hasGottenFood
+        {
+            if (cus != null && !cus.HasGottenFood)
+            {
+                return;
+            }
+        }
+
+
+        //If loop is done, that means all cus has food
+        if (clearTimerCoroutine != null)
+        {
+            StopCoroutine(clearTimerCoroutine); // Stop any previous timer
+        }
+        Debug.Log("Timer started for table");
+        clearTimerCoroutine = StartCoroutine(ClearTableAfterTime(clearTimerDuration));
+    }
+
+    private IEnumerator ClearTableAfterTime(float duration)
+    {
+        yield return new WaitForSeconds(duration); 
+
+        ClearTable(); 
     }
 
     #endregion

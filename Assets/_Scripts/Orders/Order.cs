@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Order : MonoBehaviour
+public class Order  
 {
     public Food food = Food.None;
 

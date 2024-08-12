@@ -157,23 +157,31 @@ public class PlayerController : MonoBehaviour
 
                     for (int k = 0; k < table.customers.Count; k++)
                     {
-                        if (table.customers[k].order.food == Food.Chips )           //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Chips"
+                        if (!table.customers[k].HasGottenFood)
                         {
-                            Destroy(item);
-                            table.customers[k].IsDoneEating = false;
-                            isHoldingItem = false;
-                        }
-                        else if (table.customers[k].order.food == Food.Burger)      //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Burger"
-                        {
-                            Destroy(item);
-                            table.customers[k].IsDoneEating = false;
-                            isHoldingItem = false;
-                        }
-                        else if (table.customers[k].order.food == Food.Pizza)       //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Pizza"
-                        {
-                            Destroy(item);
-                            table.customers[k].IsDoneEating = false;
-                            isHoldingItem = false;
+
+                            if (table.customers[k].order.food == Food.Chips)           //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Chips"
+                            {
+                                Destroy(item);
+                                table.customers[k].HasGottenFood = true;
+                                isHoldingItem = false;
+                                break;
+                            }
+                            else if (table.customers[k].order.food == Food.Burger)      //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Burger"
+                            {
+                                Destroy(item);
+                                table.customers[k].HasGottenFood = true;
+                                isHoldingItem = false;
+                                break;
+                            }
+                            else if (table.customers[k].order.food == Food.Pizza)       //Add  ->    "&& item.GetComponent<FoodItem>().food == Food.Pizza"
+                            {
+                                Destroy(item);
+                                table.customers[k].HasGottenFood = true;
+                                isHoldingItem = false;
+                                break;
+                            }
+
                         }
                     }
                 }

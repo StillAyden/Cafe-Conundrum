@@ -1,18 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Variables
+
+    [SerializeField] public Order order;
+    [SerializeField] private Table table = null;
+
+    [SerializeField] private Image image;
+    [SerializeField] private bool hasGottenFood = false;
+
+    //Temp Vars
+    [SerializeField] private Color Chips;
+    [SerializeField] private Color Burger;
+    [SerializeField] private Color Pizza;
+
+    #endregion
+
+    private void Awake()
     {
-        
+        order = new Order();
     }
 
-    // Update is called once per frame
-    void Update()
+    #region GetSet
+
+    public bool HasGottenFood
     {
-        
+        get { return hasGottenFood; }
+        set 
+        {           
+            hasGottenFood = value;
+
+            if (value) { table.TableClearTimer(); }
+        }
     }
+
+    public void SetTable(Table t) {table = t;}
+
+
+
+    #endregion
 }

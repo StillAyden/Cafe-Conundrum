@@ -32,7 +32,11 @@ public class Customer : MonoBehaviour
         {           
             hasGottenFood = value;
 
-            if (value) { table.TableClearTimer(); }
+            if (value) 
+            { 
+                table.TableClearTimer(); 
+                image.gameObject.SetActive(false);
+            }
         }
     }
 

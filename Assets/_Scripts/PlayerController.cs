@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [Header("Pick Up")]
     [SerializeField] bool isHoldingItem = false;
     [SerializeField] Transform itemHolder;
+
+    [Header("POS System")]
+    [SerializeField] Canvas canvas_POS;
     #endregion
 
     private void Awake()
@@ -104,6 +107,16 @@ public class PlayerController : MonoBehaviour
             {
                 //If has food item -> give to table
                 DeliverOrder(activeInteraction.GetComponent<Table>());
+            }
+
+            if (activeInteraction.GetComponent<OrderingSystem>())
+            {
+                Debug.Log("Interacting with POS system");
+                if (canvas_POS.gameObject.activeSelf == false)
+                {
+                    canvas_POS.gameObject.SetActive(true);
+                }             
+                else canvas_POS.gameObject.SetActive(false);
             }
             
             //if (activeInteraction.GetComponent<Interactable>() != null)

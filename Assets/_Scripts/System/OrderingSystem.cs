@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OrderingSystem : MonoBehaviour
+public class OrderingSystem : Interactable
 {
     #region Variables
     //Classes

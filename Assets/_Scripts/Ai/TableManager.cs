@@ -9,6 +9,15 @@ public class TableManager : MonoBehaviour
 
     #endregion
 
+    #region Unity Methods
+
+    private void Start()
+    {
+        AddAllTablesToList();
+    }
+
+    #endregion
+
     #region Functions
 
     public Table FindAvailableTable() // Function to find an available table
@@ -21,6 +30,27 @@ public class TableManager : MonoBehaviour
             }
         }
         return null; // No available table found
+    }
+
+    private void AddAllTablesToList()
+    {
+        // Find all GameObjects with the tag "Table"
+        GameObject[] tableObjects = GameObject.FindGameObjectsWithTag("Table");
+
+        // Loop through each GameObject
+        foreach (GameObject tableObject in tableObjects)
+        {
+            // Check if the GameObject is on the "Table" layer
+            if (tableObject.layer == LayerMask.NameToLayer("Table"))
+            {
+                // Get the Table component and add it to the list
+                Table tableComponent = tableObject.GetComponent<Table>();
+                if (tableComponent != null)
+                {
+                    tables.Add(tableComponent);
+                }
+            }
+        }
     }
 
     #endregion

@@ -328,9 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238076cbe35d56149978eb86f495ebb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orders: 0
+  table: {fileID: 0}
   image: {fileID: 8437431053077944932}
-  isDoneEating: 0
+  hasGottenFood: 0
   Chips: {r: 1, g: 0.88037235, b: 0, a: 1}
   Burger: {r: 1, g: 0.44920295, b: 0, a: 1}
   Pizza: {r: 0.31216645, g: 1, b: 0, a: 1}

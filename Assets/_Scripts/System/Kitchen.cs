@@ -1,19 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Kitchen : MonoBehaviour
 {
     #region Variables
 
-    // List to store all orders
+    //List to store all orders
     [HideInInspector] public List<List<Order>> kitchenOrders = new List<List<Order>>();
     [SerializeField][Range(1,6)] private float foodPrepTime = 3;
-
     private bool isProcessingOrders = false;
 
+    //Food stuff
     [SerializeField] Transform foodSpawnLocation;
-    [SerializeField] GameObject foodPrefab;
+    [SerializeField] private GameObject foodPrefab;
 
     #endregion
 
@@ -32,7 +34,7 @@ public class Kitchen : MonoBehaviour
             {
                 Debug.Log(i.ToString()); 
                 yield return new WaitForSecondsRealtime(foodPrepTime); //Wait for 3 seconds
-                SpawnFood(); //Call SpawnFood function
+                SpawnFood(currentOrderList[i]); //Call SpawnFood function
             }
 
             Debug.Log("List is done");
@@ -43,11 +45,15 @@ public class Kitchen : MonoBehaviour
         isProcessingOrders = false; //All orders have been processed
     }
 
-    private void SpawnFood()
+    private void SpawnFood(Order order)
     {
-        Debug.Log("Food spawned");
+        //Spawn the prefab
+        GameObject spawnedFood = Instantiate(foodPrefab, foodSpawnLocation.position, Quaternion.identity);
 
-        GameObject food = Instantiate(foodPrefab, foodSpawnLocation.position, Quaternion.identity);
+        //Select which prefab to spawn based on the food type
+        spawnedFood.GetComponent<FoodItem>().SetFoodType(order.food);
+
+        Debug.Log("Food spawned");
     }
 
     #endregion
@@ -56,7 +62,7 @@ public class Kitchen : MonoBehaviour
 
     public void AddOrder(List<Order> orders)
     {
-        kitchenOrders.Add(orders);
+        kitchenOrders.Add(new List<Order>(orders));
 
         if (!isProcessingOrders)
         {

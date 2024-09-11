@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class OrderingSystem : Interactable
@@ -9,8 +9,13 @@ public class OrderingSystem : Interactable
     private Kitchen kitchen;
 
     //Vars
-    public string orderText;
     public List<Order> orders = new List<Order>();
+
+    // String to represent the order on the POS machine
+    private string orderDisplay = "";
+
+    // Reference to UI Text to display the order on screen (if needed)
+    public TMP_Text orderTextDisplay;
 
     #endregion
 
@@ -18,52 +23,88 @@ public class OrderingSystem : Interactable
 
     void Start()
     {
-        orderText = "";
         kitchen = FindObjectOfType<Kitchen>();
+        UpdateOrderDisplay();
     }
 
     #endregion
 
     #region Public Methods
 
-    public void AddChipsOrder()
-    {
-        AddToOrder("Chips");
-        orders.Add(new Order());
-    }
-
     public void AddBurgerOrder()
     {
-        AddToOrder("Burger");
-        orders.Add(new Order());
+        Order newOrder = new Order();
+        newOrder.SetFoodType(Food.Burger);
+        orders.Add(newOrder);
+        UpdateOrderDisplay();
     }
 
     public void AddPizzaOrder()
     {
-        AddToOrder("Pizza");
-        orders.Add(new Order());
+        Order newOrder = new Order();
+        newOrder.SetFoodType(Food.Pizza);
+        orders.Add(newOrder);
+        UpdateOrderDisplay();
+    }
+
+    public void AddChipsOrder()
+    {
+        Order newOrder = new Order();
+        newOrder.SetFoodType(Food.Chips);
+        orders.Add(newOrder);
+        UpdateOrderDisplay();
+    }
+
+    public void CancelOrder()
+    {
+        orders.Clear();
+        orderDisplay = ""; 
+        UpdateOrderDisplay(); 
     }
 
     public void PlaceOrder()
     {
-        Debug.Log("Order placed: " + orderText);
+        //Add order to Kitchen List
         kitchen.AddOrder(orders);
         orders.Clear();
+        orderDisplay = "";
+        UpdateOrderDisplay();
     }
 
     #endregion
 
     #region Private Methods
 
-    private void AddToOrder(string orderItem)
+    private void UpdateOrderDisplay()
     {
-        if (!string.IsNullOrEmpty(orderText))
+        // Reset the order display string
+        orderDisplay = "";
+
+        // Loop through each order and format it into the orderDisplay string
+        foreach (Order order in orders)
         {
-            orderText += "\n";
+            switch (order.GetFoodType())
+            {
+                case Food.Burger:
+                    orderDisplay += "Burger\n";
+                    break;
+                case Food.Pizza:
+                    orderDisplay += "Pizza\n";
+                    break;
+                case Food.Chips:
+                    orderDisplay += "Chips\n";
+                    break;
+                default:
+                    orderDisplay += "Unknown Item\n";
+                    break;
+            }
         }
 
-        orderText += orderItem;
-
+        // Update the UI Text if it's assigned
+        if (orderTextDisplay != null)
+        {
+            orderTextDisplay.text = orderDisplay;
+        }
     }
 
     #endregion

@@ -7,6 +7,8 @@ public class TableManager : MonoBehaviour
     #region Variables
     public List<Table> tables = new List<Table>(); // List of all tables in the game
 
+    [SerializeField][Range(0f,10f)] private float SpriteDistance = 2;
+
     #endregion
 
     #region Unity Methods
@@ -14,6 +16,14 @@ public class TableManager : MonoBehaviour
     private void Start()
     {
         AddAllTablesToList();
+    }
+
+    private void OnValidate()
+    {
+        foreach (Table table in tables)
+        {
+            table.SetSpriteDistance(SpriteDistance);
+        }
     }
 
     #endregion

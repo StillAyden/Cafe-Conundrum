@@ -20,6 +20,8 @@ public class AiSpawner : MonoBehaviour
 
     #endregion
 
+    #region Unity Methods
+
     private void Awake()
     {
         //Find Manager
@@ -42,6 +44,7 @@ public class AiSpawner : MonoBehaviour
             
         }
     }
+    #endregion
 
     #region Functions
 

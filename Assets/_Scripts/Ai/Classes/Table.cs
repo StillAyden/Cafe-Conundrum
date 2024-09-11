@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Table : Interactable
 {
@@ -10,17 +11,35 @@ public class Table : Interactable
     [SerializeField] private int maxCapacity = 4; // Maximum number of people the table can hold
     [SerializeField] private int currentCustomers = 0; // Showes the current amount of customers
     [SerializeField] public List<Customer> customers = new List<Customer>(); // List of customers at the table
+    [SerializeField] private bool orderTaken = false; 
 
     [Space]
     [Header("Timer Settings")]
-    [SerializeField][Range(1,10)] private float clearTimerDuration = 5f; // Duration for the clear timer
+    [SerializeField][Range(1, 10)] private float clearTimerDuration = 5f; // Duration for the clear timer
     private Coroutine clearTimerCoroutine;
+
+    [Space]
+    [Header("Sprite Settings")]
+    [SerializeField] private Image tableSprite;
+    [SerializeField] private Sprite takeOrder;
+    [SerializeField] private Sprite WaitingForOrder;
+    [SerializeField][Range(0f, 10f)] private float SpriteDistance = 2f;    //Distance at which the table sprite is shown
+    [SerializeField][Range(0f, 20f)] private float maxSpriteDistance = 4f; //Maximum distance after the sprite is hidden
+
+    private bool showTableSprite = true;
+    private Transform playerTransform;
 
     #endregion
 
+    #region Unity Methods
     private void Start()
     {
+        //Chairs 
         InitializeChairs();
+
+        //Sprits
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(CheckDistanceCoroutine());
     }
 
     private void OnValidate()
@@ -28,21 +47,28 @@ public class Table : Interactable
         InitializeChairs();
     }
 
+    #endregion
+
     #region Functions
 
     public void InitializeChairs() //Add chairs auto to make easier
     {
-        chairs.Clear(); 
+        chairs.Clear();
+        maxCapacity = 0;
+
         foreach (Transform child in transform)
         {
-            chairs.Add(child.gameObject);
+            if (child.CompareTag("Chair"))
+            {
+                chairs.Add(child.gameObject);
+                maxCapacity++;
+            }
         }
-        maxCapacity = chairs.Count;
     }
 
     public bool IsFull() // Function to check if the table is full
     {
-        return currentCustomers >= 1 ? true: false;
+        return currentCustomers >= 1 ? true : false;
     }
 
     public bool ClearTable()
@@ -66,8 +92,12 @@ public class Table : Interactable
         }
 
         // Clear the list of customers & Reset the customer count
-        customers.Clear(); 
-        currentCustomers = 0; 
+        customers.Clear();
+        currentCustomers = 0;
+        orderTaken = false;
+
+        SetTableSprite(false);
+        SetCustomerSprites(false);
 
         return true; // Return true if the table was cleared
     }
@@ -83,8 +113,12 @@ public class Table : Interactable
         }
 
         // Clear the list of customers & Reset the customer count
-        customers.Clear(); 
-        currentCustomers = 0; 
+        customers.Clear();
+        currentCustomers = 0;
+        orderTaken = false;
+
+        SetTableSprite(false);
+        SetCustomerSprites(false);
     }
 
     public void AddCustomers(GameObject customerPrefab, int numberOfCustomers)
@@ -95,7 +129,7 @@ public class Table : Interactable
             GameObject chair = chairs[currentCustomers];
 
             //Spawn customer at chair
-            GameObject obj = Instantiate(customerPrefab, chair.transform.position,Quaternion.identity);
+            GameObject obj = Instantiate(customerPrefab, chair.transform.position, Quaternion.identity);
 
             //Add customer to customers List
             Customer cus = obj.GetComponent<Customer>();
@@ -125,22 +159,90 @@ public class Table : Interactable
         {
             StopCoroutine(clearTimerCoroutine); // Stop any previous timer
         }
-        Debug.Log("Timer started for table");
         clearTimerCoroutine = StartCoroutine(ClearTableAfterTime(clearTimerDuration));
     }
 
     private IEnumerator ClearTableAfterTime(float duration)
     {
-        yield return new WaitForSeconds(duration); 
+        yield return new WaitForSeconds(duration);
 
-        ClearTable(); 
+        ClearTable();
+    }
+    #endregion
+
+    #region Sprites
+
+    private IEnumerator CheckDistanceCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+
+            float distance = Vector3.Distance(transform.position, playerTransform.position);
+
+            if (distance > maxSpriteDistance)
+            {
+                // Player is too far; hide all sprites
+                SetTableSprite(false);
+                SetCustomerSprites(false);
+            }
+            else if (!orderTaken && currentCustomers > 0)
+            {
+                // Order has not been taken, show "Take Order" icon
+                SetTableSprite(true);
+                tableSprite.sprite = takeOrder; // Set to "Take Order" sprite
+                SetCustomerSprites(false); // Hide customer sprites
+            }
+            else if (orderTaken && distance <= SpriteDistance)
+            {
+                // Order is taken and player is within spriteDistance; show customer sprites
+                SetTableSprite(false); // Hide table sprite
+                SetCustomerSprites(true); // Show customer sprites
+            }
+            else if (orderTaken && distance > SpriteDistance)
+            {
+                // Order is taken but player is outside spriteDistance; show "Waiting for Order" icon
+                SetTableSprite(true);
+                tableSprite.sprite = WaitingForOrder; // Set to "Waiting for Order" sprite
+                SetCustomerSprites(false); // Hide customer sprites
+            }
+        }
+    }
+
+    private void SetTableSprite(bool show)
+    {
+        showTableSprite = show;
+        tableSprite.gameObject.SetActive(show);
+    }
+
+    private void SetCustomerSprites(bool show)
+    {
+        foreach (Customer customer in customers)
+        {
+            if (customer != null)
+            {
+                customer.SetShowSprite(show);
+            }
+        }
     }
 
     #endregion
 
     #region GetSet
 
-    public int GetMaxCapacity(){ return maxCapacity; }
+    public int GetMaxCapacity() { return maxCapacity; }
 
+    public void SetSpriteDistance(float dis) { SpriteDistance = dis; }
+
+    public bool IsOrderTaken
+    {
+        get { return orderTaken; }
+        set
+        {
+            orderTaken = value;
+            tableSprite.sprite = orderTaken ? WaitingForOrder : takeOrder; // Change sprite based on order status
+            SetCustomerSprites(orderTaken); // Update customer sprites visibility }
+        }
+    }
     #endregion
 }

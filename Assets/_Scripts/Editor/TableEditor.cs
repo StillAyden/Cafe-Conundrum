@@ -1,9 +1,9 @@
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(Table))]
 
-public class TableEditor : Editor 
+public class TableEditor : Editor
 {
     public override void OnInspectorGUI()
     {
@@ -20,9 +20,9 @@ public class TableEditor : Editor
             table.ClearTable();
         }
 
-        if (GUILayout.Button("FORCE Clear Table"))
+        if (GUILayout.Button("Take Order"))
         {
-            table.ForceClearTable();
+            table.IsOrderTaken = true;
         }
         EditorGUILayout.EndHorizontal();
 

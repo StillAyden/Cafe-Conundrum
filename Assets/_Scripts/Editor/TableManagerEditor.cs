@@ -9,7 +9,6 @@ public class TableManagerEditor : Editor
     {
         TableManager tb = (TableManager)target;
 
-
         base.OnInspectorGUI();
     }
 

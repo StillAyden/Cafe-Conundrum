@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Order  
@@ -16,20 +17,31 @@ public class Order
         switch (num) //Select Random Food Item
         {
             case 1: 
-                //image.color = Chips;
                 return Food.Chips;
                 
             case 2: 
-                //image.color = Burger;
                 return Food.Burger;
                 
             case 3: 
-                //image.color = Pizza;
                 return Food.Pizza;
 
             default: return Food.None;
         }
     }
+
+    #region GetSet
+
+    public void SetFoodType(Food type)
+    {
+        food = type;
+    }
+
+    public Food GetFoodType()
+    {
+        return food; 
+    }
+
+    #endregion
 }
 
 public enum Food

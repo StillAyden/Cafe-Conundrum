@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Table
+  - Chair
   layers:
   - Default
   - TransparentFX

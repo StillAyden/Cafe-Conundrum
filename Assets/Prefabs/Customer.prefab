@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 4812049593484304496}
   - component: {fileID: 8677457242435393887}
   - component: {fileID: 8437431053077944932}
+  - component: {fileID: 2973823646021108603}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4812049593484304496
 RectTransform:
   m_ObjectHideFlags: 0
@@ -75,6 +76,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2973823646021108603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119779289452570287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad1242a61ae56f41bb85f41cd2529c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxUpwardAngle: 45
 --- !u!1 &5220673298411115397
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3214017230543890593}
   - component: {fileID: 876699020979484967}
+  - component: {fileID: 558531065512551877}
   m_Layer: 0
   m_Name: Customer
   m_TagString: Untagged
@@ -328,9 +343,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238076cbe35d56149978eb86f495ebb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orders: 0
+  table: {fileID: 0}
   image: {fileID: 8437431053077944932}
-  isDoneEating: 0
-  Chips: {r: 1, g: 0.88037235, b: 0, a: 1}
-  Burger: {r: 1, g: 0.44920295, b: 0, a: 1}
-  Pizza: {r: 0.31216645, g: 1, b: 0, a: 1}
+  hasGottenFood: 0
+  Chips: {fileID: 21300000, guid: 1e10346fe7794854194cbe6589157803, type: 3}
+  Burger: {fileID: 21300000, guid: 0708dc992a379014f9f6619aecc08de1, type: 3}
+  Pizza: {fileID: 21300000, guid: b7c8c6c0de9853d43abb9a312e6b62d8, type: 3}
+--- !u!65 &558531065512551877
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734203729337020057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3, y: 1.2601124, z: 1.3}
+  m_Center: {x: 0, y: 0.6298676, z: 0}

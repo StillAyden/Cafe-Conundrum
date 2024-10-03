@@ -44,10 +44,4 @@ public class Order
     #endregion
 }
 
-public enum Food
-{
-    None,
-    Chips,
-    Burger,
-    Pizza
-}
+

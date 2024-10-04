@@ -52,7 +52,7 @@ public class Kitchen : MonoBehaviour
         // Find the corresponding prefab in foodData.items based on the food type
         GameObject foodPrefab = null;
 
-        foreach (item foodItem in food.items)
+        foreach (foodItems foodItem in food.items)
         {
             if (foodItem.type == order)
             {

@@ -23,7 +23,7 @@ public class OrderingSystem : Interactable
     void Start()
     {
         kitchen = FindObjectOfType<Kitchen>();
-        UpdateOrderDisplay();
+        ClearOrderDisplay();
     }
 
     #endregion
@@ -33,44 +33,44 @@ public class OrderingSystem : Interactable
     public void AddPizzaOrder()
     {
         orders.Add(Food.Pizza);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.Pizza);
     }
     public void AddSandwichOrder()
     {
         orders.Add(Food.Sandwich);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.Sandwich);
     }
     public void AddBreadStickOrder()
     {
         orders.Add(Food.BreadSticks);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.BreadSticks);
     }
     public void AddBurittoOrder()
     {
         orders.Add(Food.Burrito);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.Burrito);
     }
     public void AddMuffinOrder()
     {
         orders.Add(Food.Muffin);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.Muffin);
     }
     public void AddCakeOrder()
     {
         orders.Add(Food.Cake);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.Cake);
     }
     public void AddCookieOrder()
     {
         orders.Add(Food.Cookie);
-        UpdateOrderDisplay();
+        UpdateOrderDisplay(Food.Cookie);
     }
 
     public void CancelOrder()
     {
         orders.Clear();
         orderDisplay = "";
-        UpdateOrderDisplay();
+        ClearOrderDisplay();
     }
 
     public void PlaceOrder()
@@ -79,21 +79,28 @@ public class OrderingSystem : Interactable
         kitchen.AddOrder(orders);
         orders.Clear();
         orderDisplay = "";
-        UpdateOrderDisplay();
+        ClearOrderDisplay();
     }
 
     #endregion
 
     #region Private Methods
 
-    private void UpdateOrderDisplay()
+    private void ClearOrderDisplay()
     {
+        orderDisplay = "";
 
-        // Loop through each order and format it into the orderDisplay string
-        foreach (Food order in orders)
+        // Update the UI Text if it's assigned
+        if (orderTextDisplay != null)
         {
-            orderDisplay += order.ToString() + "\n"; 
+            orderTextDisplay.text = orderDisplay;
         }
+    }
+
+    private void UpdateOrderDisplay(Food food)
+    {
+         orderDisplay += food.ToString() + "\n";
+        
 
         // Update the UI Text if it's assigned
         if (orderTextDisplay != null)

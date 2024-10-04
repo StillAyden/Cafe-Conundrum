@@ -1,15 +1,14 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu]
 public class foodData : ScriptableObject
 {
-    public item[] items;
+    public foodItems[] items;
 }
 
 [Serializable]
-public struct item
+public struct foodItems
 {
     public Food type;
     public GameObject prefab;

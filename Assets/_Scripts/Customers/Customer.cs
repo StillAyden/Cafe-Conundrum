@@ -40,7 +40,7 @@ public class Customer : MonoBehaviour
     private void DisplayOrderSprite()
     {
 
-        foreach (item foodItem in food.items)
+        foreach (foodItems foodItem in food.items)
         {
             if (foodItem.type == foodOrder)
             {

@@ -5,21 +5,25 @@ using UnityEngine.UI;
 [CreateAssetMenu]
 public class foodData : ScriptableObject
 {
-    [SerializeField] item[] items;
+    public item[] items;
 }
 
 [Serializable]
-struct item
+public struct item
 {
-    [SerializeField] Food type;
-    [SerializeField] GameObject prefab;
-    [SerializeField] Image image;
+    public Food type;
+    public GameObject prefab;
+    public Sprite image;
 }
 
 public enum Food
 {
-    None,
-    Chips,
-    Burger,
-    Pizza
+    None = -1,
+    Pizza,
+    Sandwich,
+    BreadSticks,
+    Burrito,
+    Muffin,
+    Cake,
+    Cookie
 }

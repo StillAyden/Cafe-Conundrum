@@ -33,7 +33,7 @@ public class OrderingSystem : Interactable
     public void AddBurgerOrder()
     {
         Order newOrder = new Order();
-        newOrder.SetFoodType(Food.Burger);
+        //newOrder.SetFoodType(Food.);
         orders.Add(newOrder);
         UpdateOrderDisplay();
     }
@@ -41,7 +41,7 @@ public class OrderingSystem : Interactable
     public void AddPizzaOrder()
     {
         Order newOrder = new Order();
-        newOrder.SetFoodType(Food.Pizza);
+        //newOrder.SetFoodType(Food.Pizza);
         orders.Add(newOrder);
         UpdateOrderDisplay();
     }
@@ -49,7 +49,7 @@ public class OrderingSystem : Interactable
     public void AddChipsOrder()
     {
         Order newOrder = new Order();
-        newOrder.SetFoodType(Food.Chips);
+        //newOrder.SetFoodType(Food.Chips);
         orders.Add(newOrder);
         UpdateOrderDisplay();
     }
@@ -84,18 +84,18 @@ public class OrderingSystem : Interactable
         {
             switch (order.GetFoodType())
             {
-                case Food.Burger:
-                    orderDisplay += "Burger\n";
-                    break;
-                case Food.Pizza:
-                    orderDisplay += "Pizza\n";
-                    break;
-                case Food.Chips:
-                    orderDisplay += "Chips\n";
-                    break;
-                default:
-                    orderDisplay += "Unknown Item\n";
-                    break;
+                //case Food.Burger:
+                //    orderDisplay += "Burger\n";
+                //    break;
+                //case Food.Pizza:
+                //    orderDisplay += "Pizza\n";
+                //    break;
+                //case Food.Chips:
+                //    orderDisplay += "Chips\n";
+                //    break;
+                //default:
+                //    orderDisplay += "Unknown Item\n";
+                //    break;
             }
         }
 

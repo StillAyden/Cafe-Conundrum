@@ -28,22 +28,22 @@ public class FoodItem : Interactable
         //Spawn the new food prefab as a child
         switch (food)
         { 
-            //Burger
-            case Food.Burger:
-                newChild = Instantiate(burger, transform.position,Quaternion.identity, transform);
-                break;
-            //Pizza
-            case Food.Pizza:
-                newChild = Instantiate(pizza, transform.position, Quaternion.identity, transform);
-                break;
-            //Chips
-            case Food.Chips:
-                newChild = Instantiate(chips, transform.position, Quaternion.identity, transform);
-                break;
-            //None
-            default:
-                Debug.LogWarning("Invalid food type selected.");
-                break;
+            ////Burger
+            //case Food.Burger:
+            //    newChild = Instantiate(burger, transform.position,Quaternion.identity, transform);
+            //    break;
+            ////Pizza
+            //case Food.Pizza:
+            //    newChild = Instantiate(pizza, transform.position, Quaternion.identity, transform);
+            //    break;
+            ////Chips
+            //case Food.Chips:
+            //    newChild = Instantiate(chips, transform.position, Quaternion.identity, transform);
+            //    break;
+            ////None
+            //default:
+            //    Debug.LogWarning("Invalid food type selected.");
+            //    break;
         }
     }
 

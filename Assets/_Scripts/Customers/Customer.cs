@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Customer : MonoBehaviour
 {
     #region Variables
-    [SerializeField] public Order order;
+    [SerializeField] public Food foodOrder = Food.None;
     [SerializeField] private Table table = null;
 
     [Space]
@@ -17,39 +17,40 @@ public class Customer : MonoBehaviour
     [SerializeField] private Sprite Burger;
     [SerializeField] private Sprite Pizza;
 
+    //Food Data
+    [SerializeField] private foodData food;
+    
     #endregion
 
     private void Awake()
     {
-        order = new Order();
+        foodOrder = GetRandomOrder();
         DisplayOrderSprite();
         hasGottenFood = false;
     }
 
     #region Functions
 
+    private Food GetRandomOrder()
+    {
+        int randomIndex = Random.Range(0, food.items.Length);
+        return food.items[randomIndex].type;
+    }
+
     private void DisplayOrderSprite()
     {
-        switch (order.food)
+
+        foreach (item foodItem in food.items)
         {
-            //Chips
-            case Food.Chips:
-                image.sprite = Chips;
-                break;
-            //Burger
-            case Food.Burger:
-                image.sprite = Burger;
-                break;
-            //Pizza
-            case Food.Pizza:
-                image.sprite = Pizza;
-                break;
-            //None
-            default:
-                image.color = Color.red;
-                break;
+            if (foodItem.type == foodOrder)
+            {
+                image.sprite = foodItem.image;
+                return;
+            }
         }
 
+        // if no food sprite is found
+        image.color = Color.red;
     }
 
     #endregion
@@ -80,7 +81,7 @@ public class Customer : MonoBehaviour
         if (hasGottenFood)
         {
             image.gameObject.SetActive(false);
-            order.food = Food.None; // Reset order to none
+            foodOrder = Food.None; // Reset order to none
             return; //Exit to not shown the image
         }
 

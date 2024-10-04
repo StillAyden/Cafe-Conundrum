@@ -17,10 +17,10 @@ public class Order
         switch (num) //Select Random Food Item
         {
             case 1: 
-                return Food.Chips;
+                //return Food.Chips;
                 
             case 2: 
-                return Food.Burger;
+                //return Food.Burger;
                 
             case 3: 
                 return Food.Pizza;

@@ -14,11 +14,14 @@ public struct TutorialNode
     [TextArea] public string actorDialogue;
 
     public Image tutorialImage;
+
     public bool hasEventTriggererd;
+    public string taskText;
 }
 
 public enum TutorialNodeType
 {
+    None = -1,
     Dialogue,
     TutorialPanel,
     Event

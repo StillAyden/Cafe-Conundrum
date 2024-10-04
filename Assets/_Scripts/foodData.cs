@@ -16,6 +16,7 @@ public struct item
     public Sprite image;
 }
 
+[Serializable]
 public enum Food
 {
     None = -1,

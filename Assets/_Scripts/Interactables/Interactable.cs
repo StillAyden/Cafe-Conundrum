@@ -15,33 +15,33 @@ public class Interactable : MonoBehaviour
    but this is just an example.
 
  */
-interface IInteractable
-{
-    public void Interact();
-}
+//interface IInteractable
+//{
+//    public void Interact();
+//}
 
-interface IPickupable
-{
-    public void Pickup();
-}
+//interface IPickupable
+//{
+//    public void Pickup();
+//}
 
-interface IDroppable
-{
-    public void Drop();
-}
+//interface IDroppable
+//{
+//    public void Drop();
+//}
 
-/*public*/ class OrderingSystem2 : IInteractable
-{
-    public void Interact()
-    {
-        //Show the ordering interface
-    }
+///*public*/ class OrderingSystem2 : IInteractable
+//{
+//    public void Interact()
+//    {
+//        //Show the ordering interface
+//    }
 
-    public class Burger : FoodItem, IPickupable
-    {
-        public void Pickup()
-        {
-            //Pickup the burger
-        }
-    }
-} 
+//    public class Burger : FoodItem, IPickupable
+//    {
+//        public void Pickup()
+//        {
+//            //Pickup the burger
+//        }
+//    }
+//} 

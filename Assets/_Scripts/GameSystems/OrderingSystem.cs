@@ -28,11 +28,41 @@ public class OrderingSystem : Interactable
 
     #endregion
 
-    #region Public Methods
+    #region Public Order Methods
 
-    public void AddOrder(Food food)
+    public void AddPizzaOrder()
     {
-        orders.Add(food);
+        orders.Add(Food.Pizza);
+        UpdateOrderDisplay();
+    }
+    public void AddSandwichOrder()
+    {
+        orders.Add(Food.Sandwich);
+        UpdateOrderDisplay();
+    }
+    public void AddBreadStickOrder()
+    {
+        orders.Add(Food.BreadSticks);
+        UpdateOrderDisplay();
+    }
+    public void AddBurittoOrder()
+    {
+        orders.Add(Food.Burrito);
+        UpdateOrderDisplay();
+    }
+    public void AddMuffinOrder()
+    {
+        orders.Add(Food.Muffin);
+        UpdateOrderDisplay();
+    }
+    public void AddCakeOrder()
+    {
+        orders.Add(Food.Cake);
+        UpdateOrderDisplay();
+    }
+    public void AddCookieOrder()
+    {
+        orders.Add(Food.Cookie);
         UpdateOrderDisplay();
     }
 

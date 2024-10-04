@@ -17,23 +17,7 @@ public class OrderingSystemEdit : Editor
 
         GUILayout.BeginVertical();
 
-        if (GUILayout.Button("CHIPS", GUILayout.Height(30)))
-        {
-            order.AddChipsOrder();
-            orderTexts += "Chips\n";
-        }
 
-        if (GUILayout.Button("BURGER", GUILayout.Height(30)))
-        {
-            order.AddBurgerOrder();
-            orderTexts += "Burger\n";
-        }
-
-        if (GUILayout.Button("PIZZA", GUILayout.Height(30)))
-        {
-            order.AddPizzaOrder();
-            orderTexts += "Pizza\n";
-        }
 
         GUILayout.EndVertical();
 

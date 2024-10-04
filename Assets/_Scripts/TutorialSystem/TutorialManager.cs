@@ -5,19 +5,25 @@ public class TutorialManager : MonoBehaviour
 {
     static TutorialManager Instance;
 
-    [SerializeField] TutorialScript_SO[] allScripts;
-    [Space]
     [SerializeField] TutorialScript_SO currentScript;
 
-    [Header("Dialogue System")]
-    [SerializeField] GameObject pnlDialogue;
-    [SerializeField] Text txtName;
-    [SerializeField] Text txtDialogue;
     int index;
 
-    [Header("Tutorial System")]
+    [Header("Dialogue Components")]
+    [SerializeField] GameObject pnlDialogue;
+    [SerializeField] GameObject pnlTutorialPrompt;
+    [SerializeField] GameObject pnlTaskList;
+
+    [Header("Dialogue")]
+    [SerializeField] Text txtName;
+    [SerializeField] Text txtDialogue;
+
+    [Header("TutorialPrompt")]
     [SerializeField] Image imgTutorial;
 
+    //[Header("Task")]
+
+    
     private void Awake()
     {
         Instance = this;
@@ -31,47 +37,67 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    //Method to start a dialogue
+
     public void StartDialogue(TutorialScript_SO _script)
     {
         GetComponent<Canvas>().gameObject.SetActive(true);
         currentScript = _script;
         index = 0;
-
-        //Update UI
-        if (currentScript.tutorialNodes[index].type == TutorialNodeType.Dialogue)
+        
+        if (currentScript.node[index].type == TutorialNodeType.Dialogue)
         {
-            pnlDialogue.gameObject.SetActive(true);
-            imgTutorial.gameObject.SetActive(false);
+            ShowPanel(TutorialNodeType.Dialogue);
 
-            txtName.text = currentScript.tutorialNodes[index].actorName;
-            txtDialogue.text = currentScript.tutorialNodes[index].actorDialogue;
+            txtName.text = currentScript.node[index].actorName;
+            txtDialogue.text = currentScript.node[index].actorDialogue;
         }
-        else if (currentScript.tutorialNodes[index].type == TutorialNodeType.TutorialPanel)
+        else if (currentScript.node[index].type == TutorialNodeType.TutorialPanel)
         {
-            //TODO Pause Gameplay
-            pnlDialogue.gameObject.SetActive(false);
-            imgTutorial.gameObject.SetActive(true);
+            ShowPanel(TutorialNodeType.TutorialPanel);
 
+            imgTutorial = currentScript.node[index].tutorialImage;
         }
+        else if (currentScript.node[index].type == TutorialNodeType.Event)
+        {
+            ShowPanel(TutorialNodeType.Event);
+        }
+
+
+
+        ////Update UI
+        //if (currentScript.node[index].type == TutorialNodeType.Dialogue)
+        //{
+        //    pnlDialogue.gameObject.SetActive(true);
+        //    imgTutorial.gameObject.SetActive(false);
+
+        //    txtName.text = currentScript.node[index].actorName;
+        //    txtDialogue.text = currentScript.node[index].actorDialogue;
+        //}
+        //else if (currentScript.node[index].type == TutorialNodeType.TutorialPanel)
+        //{
+        //    //TODO Pause Gameplay
+        //    pnlDialogue.gameObject.SetActive(false);
+        //    imgTutorial.gameObject.SetActive(true);
+
+        //}
     }
 
     public void NextDialogue() 
     {
-        if (index <= currentScript.tutorialNodes.Length)
+        if (index <= currentScript.node.Length)
         {
             index++;
 
             //Update UI
-            if (currentScript.tutorialNodes[index].type == TutorialNodeType.Dialogue)
+            if (currentScript.node[index].type == TutorialNodeType.Dialogue)
             {
                 pnlDialogue.gameObject.SetActive(true);
                 imgTutorial.gameObject.SetActive(false);
 
-                txtName.text = currentScript.tutorialNodes[index].actorName;
-                txtDialogue.text = currentScript.tutorialNodes[index].actorDialogue;
+                txtName.text = currentScript.node[index].actorName;
+                txtDialogue.text = currentScript.node[index].actorDialogue;
             }
-            else if (currentScript.tutorialNodes[index].type == TutorialNodeType.TutorialPanel)
+            else if (currentScript.node[index].type == TutorialNodeType.TutorialPanel)
             {
                 //TODO Pause Gameplay
                 pnlDialogue.gameObject.SetActive(false);
@@ -87,5 +113,33 @@ public class TutorialManager : MonoBehaviour
             //TODO Unpause Gameplay
         }
 
+    }
+
+    void ShowPanel(TutorialNodeType type)
+    {
+        switch (type)
+        {
+            case TutorialNodeType.Dialogue:
+                {
+                    pnlDialogue.SetActive(true);
+                    pnlTutorialPrompt.SetActive(false);
+                    pnlTaskList.SetActive(false);
+                    break;
+                }
+            case TutorialNodeType.TutorialPanel:
+                {
+                    pnlDialogue.SetActive(false);
+                    pnlTutorialPrompt.SetActive(true);
+                    pnlTaskList.SetActive(false);
+                    break;
+                }
+            case TutorialNodeType.Event:
+                {
+                    pnlDialogue.SetActive(false);
+                    pnlTutorialPrompt.SetActive(false);
+                    pnlTaskList.SetActive(true);
+                    break;
+                }
+        }   
     }
 }

@@ -8,7 +8,7 @@ public class OrderingSystem : Interactable
     private Kitchen kitchen;
 
     //Vars
-    public List<Order> orders = new List<Order>();
+    private List<Food> orders = new List<Food>();
 
     // String to represent the order on the POS machine
     private string orderDisplay = "";
@@ -30,35 +30,17 @@ public class OrderingSystem : Interactable
 
     #region Public Methods
 
-    public void AddBurgerOrder()
+    public void AddOrder(Food food)
     {
-        Order newOrder = new Order();
-        //newOrder.SetFoodType(Food.);
-        orders.Add(newOrder);
-        UpdateOrderDisplay();
-    }
-
-    public void AddPizzaOrder()
-    {
-        Order newOrder = new Order();
-        //newOrder.SetFoodType(Food.Pizza);
-        orders.Add(newOrder);
-        UpdateOrderDisplay();
-    }
-
-    public void AddChipsOrder()
-    {
-        Order newOrder = new Order();
-        //newOrder.SetFoodType(Food.Chips);
-        orders.Add(newOrder);
+        orders.Add(food);
         UpdateOrderDisplay();
     }
 
     public void CancelOrder()
     {
         orders.Clear();
-        orderDisplay = ""; 
-        UpdateOrderDisplay(); 
+        orderDisplay = "";
+        UpdateOrderDisplay();
     }
 
     public void PlaceOrder()
@@ -76,27 +58,11 @@ public class OrderingSystem : Interactable
 
     private void UpdateOrderDisplay()
     {
-        // Reset the order display string
-        orderDisplay = "";
 
         // Loop through each order and format it into the orderDisplay string
-        foreach (Order order in orders)
+        foreach (Food order in orders)
         {
-            switch (order.GetFoodType())
-            {
-                //case Food.Burger:
-                //    orderDisplay += "Burger\n";
-                //    break;
-                //case Food.Pizza:
-                //    orderDisplay += "Pizza\n";
-                //    break;
-                //case Food.Chips:
-                //    orderDisplay += "Chips\n";
-                //    break;
-                //default:
-                //    orderDisplay += "Unknown Item\n";
-                //    break;
-            }
+            orderDisplay += order.ToString() + "\n"; 
         }
 
         // Update the UI Text if it's assigned

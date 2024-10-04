@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<OrderingSystem>())
             {
-                Debug.Log("Interacting with POS system");
+                //Debug.Log("Interacting with POS system");
                 if (canvas_POS.gameObject.activeSelf == false)
                 {
                     canvas_POS.gameObject.SetActive(true);

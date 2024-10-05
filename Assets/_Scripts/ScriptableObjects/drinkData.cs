@@ -2,11 +2,12 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class drinkData : MonoBehaviour
+public class drinkData : ScriptableObject
 {
     public drinkItems[] items;
 }
 
+[Serializable]
 public struct drinkItems
 {
     public Drink type;

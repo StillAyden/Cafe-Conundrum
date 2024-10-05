@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
 
     [Header("Movement")]
-    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] bool enableSmoothMove;
+    [SerializeField] float moveSpeed = 200f;
 
     [Header("Interactions")]
     [SerializeField] List<GameObject> interactionsInRange = new List<GameObject>();
@@ -38,10 +39,9 @@ public class PlayerController : MonoBehaviour
         InputManager.Instance.Interacted += Interact;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Move();
-
         ValidateInteractions();
     }
 
@@ -82,9 +82,22 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = new Vector3(InputManager.Instance.moveInput.x * moveSpeed * Time.fixedDeltaTime,
-                                  rb.velocity.y,
-                                  InputManager.Instance.moveInput.y * moveSpeed * Time.fixedDeltaTime);
+        if (!enableSmoothMove)
+        {
+            rb.velocity = new Vector3(InputManager.Instance.moveInput.x * moveSpeed * Time.fixedDeltaTime,
+                                        rb.velocity.y,
+                                            InputManager.Instance.moveInput.y * moveSpeed * Time.fixedDeltaTime);
+
+        }
+        else if (enableSmoothMove)
+        {
+            if (rb.velocity.magnitude < moveSpeed/50)
+            {
+                Debug.Log("Smooth Movement");
+                rb.AddForce(new Vector3(InputManager.Instance.moveInput.x * 1000f  * Time.deltaTime, 0,
+                                            InputManager.Instance.moveInput.y * 1000f  * Time.deltaTime), ForceMode.Force);
+            }
+        }
     }
 
     void Interact()
@@ -128,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<OrderingSystem>())
             {
-                Debug.Log("Interacting with POS system");
+                //Debug.Log("Interacting with POS system");
                 if (canvas_POS.gameObject.activeSelf == false)
                 {
                     canvas_POS.gameObject.SetActive(true);
@@ -155,9 +168,9 @@ public class PlayerController : MonoBehaviour
     }
 
     #region Pickup Systems
-    //Used to pick up an item into the ItemHolder
     void PickupItem(GameObject item)
     {
+        //Used to pick up an item into the ItemHolder
         //Debug.Log("Picking Up Item");
 
         item.transform.parent = itemHolder;
@@ -167,9 +180,9 @@ public class PlayerController : MonoBehaviour
         interactionsInRange.Remove(item);
     }
 
-    //Drop item on nearest available spot
     void DropItem(Transform dropPosition)
     {
+        //Drop item on nearest available spot
         Debug.Log("Dropping Item");
 
         GameObject item = itemHolder.GetChild(0).gameObject;
@@ -246,7 +259,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (!currentTable.customers[k].HasGottenFood) // Check if the customer hasn't gotten their food
                     {
-                        if (currentTable.customers[k].order.food == playerFoodItem.food) // Check if the customer's order matches the player's food item
+                        if (currentTable.customers[k].foodOrder == playerFoodItem.food) // Check if the customer's order matches the player's food item
                         {
                             Destroy(item); // Remove the food item from the player
                             currentTable.customers[k].HasGottenFood = true; // Mark the customer as having received their food

@@ -76,7 +76,7 @@ public class Table : Interactable
         // Check if all customers are done eating
         foreach (Customer cus in customers)
         {
-            if (cus != null && !cus.HasGottenFood)
+            if (cus != null && (!cus.HasGottenFood || !cus.HasGottenDrink))
             {
                 return false; // Return false if any customer is not done eating
             }
@@ -129,7 +129,7 @@ public class Table : Interactable
             GameObject chair = chairs[currentCustomers];
 
             //Spawn customer at chair
-            GameObject obj = Instantiate(customerPrefab, chair.transform.position, Quaternion.identity);
+            GameObject obj = Instantiate(customerPrefab, chair.transform.position, Quaternion.identity, this.transform);
 
             //Add customer to customers List
             Customer cus = obj.GetComponent<Customer>();
@@ -147,7 +147,7 @@ public class Table : Interactable
     {
         foreach (Customer cus in customers) //Will break loop if one customer hasGottenFood
         {
-            if (cus != null && !cus.HasGottenFood)
+            if (cus != null && (!cus.HasGottenFood || !cus.HasGottenDrink))
             {
                 return;
             }
@@ -221,7 +221,8 @@ public class Table : Interactable
         {
             if (customer != null)
             {
-                customer.SetShowSprite(show);
+                customer.SetShowFoodSprite(show);
+                customer.SetShowDrinkSprite(show);
             }
         }
     }

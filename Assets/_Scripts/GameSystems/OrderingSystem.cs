@@ -8,7 +8,7 @@ public class OrderingSystem : Interactable
     private Kitchen kitchen;
 
     //Vars
-    public List<Order> orders = new List<Order>();
+    private List<Food> orders = new List<Food>();
 
     // String to represent the order on the POS machine
     private string orderDisplay = "";
@@ -23,42 +23,54 @@ public class OrderingSystem : Interactable
     void Start()
     {
         kitchen = FindObjectOfType<Kitchen>();
-        UpdateOrderDisplay();
+        ClearOrderDisplay();
     }
 
     #endregion
 
-    #region Public Methods
-
-    public void AddBurgerOrder()
-    {
-        Order newOrder = new Order();
-        newOrder.SetFoodType(Food.Burger);
-        orders.Add(newOrder);
-        UpdateOrderDisplay();
-    }
+    #region Public Order Methods
 
     public void AddPizzaOrder()
     {
-        Order newOrder = new Order();
-        newOrder.SetFoodType(Food.Pizza);
-        orders.Add(newOrder);
-        UpdateOrderDisplay();
+        orders.Add(Food.Pizza);
+        UpdateOrderDisplay(Food.Pizza);
     }
-
-    public void AddChipsOrder()
+    public void AddSandwichOrder()
     {
-        Order newOrder = new Order();
-        newOrder.SetFoodType(Food.Chips);
-        orders.Add(newOrder);
-        UpdateOrderDisplay();
+        orders.Add(Food.Sandwich);
+        UpdateOrderDisplay(Food.Sandwich);
+    }
+    public void AddBreadStickOrder()
+    {
+        orders.Add(Food.BreadSticks);
+        UpdateOrderDisplay(Food.BreadSticks);
+    }
+    public void AddBurittoOrder()
+    {
+        orders.Add(Food.Burrito);
+        UpdateOrderDisplay(Food.Burrito);
+    }
+    public void AddMuffinOrder()
+    {
+        orders.Add(Food.Muffin);
+        UpdateOrderDisplay(Food.Muffin);
+    }
+    public void AddCakeOrder()
+    {
+        orders.Add(Food.Cake);
+        UpdateOrderDisplay(Food.Cake);
+    }
+    public void AddCookieOrder()
+    {
+        orders.Add(Food.Cookie);
+        UpdateOrderDisplay(Food.Cookie);
     }
 
     public void CancelOrder()
     {
         orders.Clear();
-        orderDisplay = ""; 
-        UpdateOrderDisplay(); 
+        orderDisplay = "";
+        ClearOrderDisplay();
     }
 
     public void PlaceOrder()
@@ -67,37 +79,28 @@ public class OrderingSystem : Interactable
         kitchen.AddOrder(orders);
         orders.Clear();
         orderDisplay = "";
-        UpdateOrderDisplay();
+        ClearOrderDisplay();
     }
 
     #endregion
 
     #region Private Methods
 
-    private void UpdateOrderDisplay()
+    private void ClearOrderDisplay()
     {
-        // Reset the order display string
         orderDisplay = "";
 
-        // Loop through each order and format it into the orderDisplay string
-        foreach (Order order in orders)
+        // Update the UI Text if it's assigned
+        if (orderTextDisplay != null)
         {
-            switch (order.GetFoodType())
-            {
-                case Food.Burger:
-                    orderDisplay += "Burger\n";
-                    break;
-                case Food.Pizza:
-                    orderDisplay += "Pizza\n";
-                    break;
-                case Food.Chips:
-                    orderDisplay += "Chips\n";
-                    break;
-                default:
-                    orderDisplay += "Unknown Item\n";
-                    break;
-            }
+            orderTextDisplay.text = orderDisplay;
         }
+    }
+
+    private void UpdateOrderDisplay(Food food)
+    {
+         orderDisplay += food.ToString() + "\n";
+        
 
         // Update the UI Text if it's assigned
         if (orderTextDisplay != null)

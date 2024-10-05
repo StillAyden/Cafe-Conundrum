@@ -454,8 +454,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScript: {fileID: 0}
   pnlDialogue: {fileID: 7870310276138210724}
+  pnlTutorialPrompt: {fileID: 2622161539910139542}
+  pnlTaskList: {fileID: 3094265950487146864}
   txtName: {fileID: 3734803562115344307}
   txtDialogue: {fileID: 7595582078554089364}
+  txtTask: {fileID: 1095697395292699939}
   imgTutorial: {fileID: 4613110492767735026}
 --- !u!1 &7755155827647011221
 GameObject:

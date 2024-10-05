@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class TutorialScript_SO : ScriptableObject
     public TutorialNode[] node;
 }
 
+[Serializable]
 public struct TutorialNode
 {
     public TutorialNodeType type;

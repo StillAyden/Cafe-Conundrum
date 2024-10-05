@@ -130,6 +130,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2481254316690239344, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: currentScript
+      value: 
+      objectReference: {fileID: 11400000, guid: 48a9664340f33be40bc0bd550432ad95,
+        type: 2}
     - target: {fileID: 6673419261103611796, guid: 074505617b1506f498d3e8b65ca9f482,
         type: 3}
       propertyPath: m_Name
@@ -371,6 +377,7 @@ GameObject:
   - component: {fileID: 1077453586}
   - component: {fileID: 1077453585}
   - component: {fileID: 1077453588}
+  - component: {fileID: 1077453590}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -508,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21ca7f7896902f418912d4b44578c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1450173010}
   xOffset: 0
   yOffset: 6.15
   zOffset: -5.6
@@ -516,6 +523,19 @@ MonoBehaviour:
   yEulerRotation: 0
   zEulerRotation: 0
   moveSpeed: 10
+--- !u!114 &1077453590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077453584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795aea68d5bc07c4c8897f43295b79d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInput: {x: 0, y: 0}
 --- !u!1 &1450173006
 GameObject:
   m_ObjectHideFlags: 0

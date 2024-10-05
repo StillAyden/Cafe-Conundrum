@@ -7,7 +7,7 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] TutorialScript_SO currentScript;
 
-    int index;
+    [SerializeField] int index;
 
     [Header("Dialogue Components")]
     [SerializeField] GameObject pnlDialogue;
@@ -36,12 +36,16 @@ public class TutorialManager : MonoBehaviour
         {
             Debug.LogWarning("There are multiple instances of the " + this.name + " class. Please ensure there is only one!");
         }
+
+        StartDialogue(currentScript);
+
     }
 
 
     public void StartDialogue(TutorialScript_SO _script)
     {
-        InputManager.Instance.Interacted += NextDialogue;
+        EnableUIInput();
+        InputManager.Instance.Selected += NextDialogue;
 
         GetComponent<Canvas>().gameObject.SetActive(true);
         currentScript = _script;
@@ -49,54 +53,52 @@ public class TutorialManager : MonoBehaviour
         
         if (currentScript.node[index].type == TutorialNodeType.Dialogue)
         {
+            EnableUIInput();
+            //TODO: Pause Gameplay
             ShowPanel(TutorialNodeType.Dialogue);
-
-            txtName.text = currentScript.node[index].actorName;
-            txtDialogue.text = currentScript.node[index].actorDialogue;
-
-            //TODO: Pause Game Here
+            UpdateTutorialNode(TutorialNodeType.Dialogue);
         }
         else if (currentScript.node[index].type == TutorialNodeType.TutorialPanel)
         {
+            EnableUIInput();
+            //TODO: Pause Gameplay
             ShowPanel(TutorialNodeType.TutorialPanel);
-
-            imgTutorial = currentScript.node[index].tutorialImage;
-
-            //TODO: Pause Game Here
+            UpdateTutorialNode(TutorialNodeType.Dialogue);
         }
         else if (currentScript.node[index].type == TutorialNodeType.Event)
         {
+            DisableUIInput();
+            //TODO: Unpause Game Here
             ShowPanel(TutorialNodeType.Event);
+            UpdateTutorialNode(TutorialNodeType.Dialogue);
         }
     }
 
     public void NextDialogue() 
     {
-        if (index <= currentScript.node.Length)
+        if (index < currentScript.node.Length - 1)
         {
             index++;
-
             //Update UI
             if (currentScript.node[index].type == TutorialNodeType.Dialogue)
             {
+                EnableUIInput();
                 //TODO: Pause Gameplay
                 ShowPanel(TutorialNodeType.Dialogue);
-
                 UpdateTutorialNode(TutorialNodeType.Dialogue);
             }
             else if (currentScript.node[index].type == TutorialNodeType.TutorialPanel)
             {
+                EnableUIInput();
                 //TODO: Pause Gameplay
                 ShowPanel(TutorialNodeType.TutorialPanel);
-
                 UpdateTutorialNode(TutorialNodeType.Dialogue);
             }
             else if (currentScript.node[index].type == TutorialNodeType.Event)
             {
+                DisableUIInput();               //Call NextDialogue() when a task is complete
                 //TODO: Unpause Game Here
-
                 ShowPanel(TutorialNodeType.Event);
-
                 UpdateTutorialNode(TutorialNodeType.Dialogue);
             }
         }
@@ -104,9 +106,10 @@ public class TutorialManager : MonoBehaviour
         {
             GetComponent<Canvas>().gameObject.SetActive(false);
             ShowPanel(TutorialNodeType.None);
-            //TODO Unpause Gameplay
 
-            InputManager.Instance.Interacted -= NextDialogue;
+            //TODO Unpause Gameplay
+            InputManager.Instance.Selected -= NextDialogue;
+            DisableUIInput();
         }
 
     }
@@ -155,12 +158,26 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_type == TutorialNodeType.TutorialPanel)
         {
-            imgTutorial = currentScript.node[index].tutorialImage;
+            imgTutorial.sprite = currentScript.node[index].tutorialImage.sprite;
         }
         else if (_type == TutorialNodeType.Event)
         {
             txtTask.text = currentScript.node[index].taskText;
         }
         else Debug.LogWarning("Tutorial Node Type not found");
+    }
+
+    void EnableUIInput()
+    {
+        InputManager.Instance.Inputs.Player.Disable();
+        InputManager.Instance.Inputs.UI.Enable();
+        //InputManager.Instance.Selected += NextDialogue;
+    }
+
+    void DisableUIInput()
+    {
+        //InputManager.Instance.Selected -= NextDialogue;
+        InputManager.Instance.Inputs.UI.Disable();
+        InputManager.Instance.Inputs.Player.Enable();
     }
 }

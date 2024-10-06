@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             if (!interactionsInRange.Contains(interactable.gameObject))
             {
                 interactionsInRange.Add(interactable.gameObject); // Add the new interaction to the list
-                Debug.Log($"Added {interactable.gameObject.name} to interactions list.");
+                //Debug.Log($"Added {interactable.gameObject.name} to interactions list.");
             }
 
             GetMostRelevantInteraction(); // Update the most relevant interaction
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
             if (interactionsInRange.Contains(interactable.gameObject))
             {
                 interactionsInRange.Remove(interactable.gameObject); // Remove the interaction from the list
-                Debug.Log($"Removed {interactable.gameObject.name} from interactions list.");
+                //Debug.Log($"Removed {interactable.gameObject.name} from interactions list.");
             }
 
             // Check and update activeInteraction if it is the one that was removed

@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     Camera cam;
+    [SerializeField] CamTypes type;
+    [Space]
     [SerializeField] Transform target;
     [Space]
     [SerializeField] float xOffset = 0;
@@ -23,7 +25,26 @@ public class CameraManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (type == CamTypes.Follow)
+            FollowCam();
+        else if (type == CamTypes.LookAt)
+            LookAtCam();
+    }
+
+    void FollowCam()
+    {
         cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.position.x + xOffset, yOffset, target.position.z + zOffset), moveSpeed * Time.deltaTime);
         cam.transform.localRotation = Quaternion.Euler(xEulerRotation, yEulerRotation, zEulerRotation);
     }
+
+    void LookAtCam()
+    {
+        cam.transform.LookAt(target);
+    }
+}
+
+enum CamTypes
+{
+    Follow,
+    LookAt
 }

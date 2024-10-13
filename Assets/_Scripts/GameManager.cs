@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private void Start()
+    private IEnumerator Start()
     {
         //Debug.unityLogger.logEnabled = false;                 //Uncomment to disable all "Debug.Log()"
 
         UX_Fade.Instance?.FadeIn();
+        yield return new WaitForSeconds(2f);
+        //TutorialManager.Instance.StartDialogue();
     }
 }

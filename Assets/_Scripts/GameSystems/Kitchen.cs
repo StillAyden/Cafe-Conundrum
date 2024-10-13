@@ -6,10 +6,11 @@ using UnityEngine;
 public class Kitchen : MonoBehaviour
 {
     #region Variables
+    public static Kitchen Instance;
 
     //List to store all orders
     [HideInInspector] public List<List<Food>> kitchenOrders = new List<List<Food>>();
-    [SerializeField][Range(1,6)] private float foodPrepTime = 3;
+    [SerializeField][Range(1,6)] public float foodPrepTime = 3;
     private bool isProcessingOrders = false;
 
     //Food stuff
@@ -23,6 +24,10 @@ public class Kitchen : MonoBehaviour
 
     #region Private Methods
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     private IEnumerator ProcessOrders()
     {
         isProcessingOrders = true;

@@ -1,21 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UpgradeSystem : Interactable
 {
-    #region Variables
-    
-    #endregion
+    public bool shoesUpgraded = false;
+    public bool chefUpgraded = false;
+    public bool baristaUpgraded = false;
+    public bool sodaMachineUpgraded = false;
+    public bool generatorUpgraded = false;
+    public bool bodyguardHired = false;
+    //public bool sewerageFixed = false;
+    //public bool roadFixed = false;
+    //public bool refuseRemoved = false;
 
     public void UpgradeShoes()
     {
-        //Increase movement speed
+        if (shoesUpgraded == false)
+        {
+            shoesUpgraded = true;
+
+            //Increase movement speed
+            GameObject.FindWithTag("Player").GetComponent<PlayerController>().moveSpeed = 300f;
+        }
     }
 
     public void UpgradeChef()
     {
-        //Faster food preparation
+        if (chefUpgraded == false)
+        {
+            chefUpgraded = true;
+
+            //Faster food preparation
+            Kitchen.Instance.foodPrepTime /= 2;
+        }
     }
 
     public void UpgradeBaristaMachine()

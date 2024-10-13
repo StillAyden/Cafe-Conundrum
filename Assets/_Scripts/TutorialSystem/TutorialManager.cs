@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    static TutorialManager Instance;
+    public static TutorialManager Instance;
 
     [SerializeField] TutorialScript_SO currentScript;
 
@@ -41,7 +41,36 @@ public class TutorialManager : MonoBehaviour
 
     }
 
+    public void StartDialogue()
+    {
+        EnableUIInput();
+        InputManager.Instance.Selected += NextDialogue;
 
+        GetComponent<Canvas>().gameObject.SetActive(true);
+        index = 0;
+
+        if (currentScript.node[index].type == TutorialNodeType.Dialogue)
+        {
+            EnableUIInput();
+            //TODO: Pause Gameplay
+            ShowPanel(TutorialNodeType.Dialogue);
+            UpdateTutorialNode(TutorialNodeType.Dialogue);
+        }
+        else if (currentScript.node[index].type == TutorialNodeType.TutorialPanel)
+        {
+            EnableUIInput();
+            //TODO: Pause Gameplay
+            ShowPanel(TutorialNodeType.TutorialPanel);
+            UpdateTutorialNode(TutorialNodeType.Dialogue);
+        }
+        else if (currentScript.node[index].type == TutorialNodeType.Event)
+        {
+            DisableUIInput();
+            //TODO: Unpause Game Here
+            ShowPanel(TutorialNodeType.Event);
+            UpdateTutorialNode(TutorialNodeType.Dialogue);
+        }
+    }
     public void StartDialogue(TutorialScript_SO _script)
     {
         EnableUIInput();

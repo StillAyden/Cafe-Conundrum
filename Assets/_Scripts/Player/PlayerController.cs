@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] bool enableSmoothMove;
-    [SerializeField] float moveSpeed = 200f;
+    [SerializeField] public float moveSpeed = 200f;
 
     [Header("Interactions")]
     [SerializeField] List<GameObject> interactionsInRange = new List<GameObject>();
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
                 if (isHoldingItem)
                 {
                     //Drop currently held item
-                    DropItem(activeInteraction.GetComponent<DropLocation>().gameObject.transform);
+                    DropItem(activeInteraction.GetComponent<DropLocation>().gameObject.transform, activeInteraction.GetComponent<DropLocation>().offset);
                 }
             }
 
@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
         interactionsInRange.Remove(item);
     }
 
-    void DropItem(Transform dropPosition)
+    void DropItem(Transform dropPosition, Vector3 offset)
     {
         //Drop item on nearest available spot
         Debug.Log("Dropping Item");
@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         GameObject item = itemHolder.GetChild(0).gameObject;
 
         item.transform.parent = null;
-        item.transform.position = dropPosition.position;
+        item.transform.position = dropPosition.position + offset;
         isHoldingItem = false;
 
         //InteractionsInRange.Add(item);
@@ -287,7 +287,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        activeInteraction = interactionsInRange[0];
+        activeInteraction = interactionsInRange[0];     //What if there are 2 interactions right next to each other (e.g. OrderingSystem and DropLocation)????
 
         #region OldCode
         ////Searches through all available interactions and chooses one that is relevant to current position

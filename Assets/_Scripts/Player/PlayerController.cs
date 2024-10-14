@@ -3,6 +3,7 @@
  *  This script controls all of the movement and interaction from the player
  */
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -77,6 +78,8 @@ public class PlayerController : MonoBehaviour
                 GetMostRelevantInteraction(); // Update the most relevant interaction
             }
         }
+
+        canvas_POS.gameObject.SetActive(false);
     }
     #endregion
 
@@ -122,7 +125,6 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            //Take the Order at the table
             if (activeInteraction.GetComponent<Table>())
             {
                 Table table = activeInteraction.GetComponent<Table>();
@@ -164,10 +166,37 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("No food item to throw away.");
                 }
             }
+
+            if (activeInteraction.GetComponent<BaristaMachine>())
+            {
+                if (!isHoldingItem)
+                {
+                    GetItem(GameManager.Instance.drink.items[(int)Drink.Coffee].prefab);
+                }
+            }
+
+            if (activeInteraction.GetComponent<MiniFridge>())
+            {
+
+            }
+
+            if (activeInteraction.GetComponent<Telephone>())
+            {
+
+            }
         }
     }
 
     #region Pickup Systems
+    GameObject GetItem(GameObject item)
+    {
+        //Used to get items out of MiniFridge, CoffeeMachine, etc
+        isHoldingItem = true;
+        GameObject temp = Instantiate(item, itemHolder);
+        temp.transform.localPosition = Vector3.zero;
+        interactionsInRange.Remove(item);
+        return temp;
+    }
     void PickupItem(GameObject item)
     {
         //Used to pick up an item into the ItemHolder
@@ -245,7 +274,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region NewCode
-        Debug.Log("Delivering Order to Table");
+        Debug.Log("Attempting to Deliver Order to Table");
 
         if (isHoldingItem)
         {
@@ -287,45 +316,65 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        activeInteraction = interactionsInRange[0];     //What if there are 2 interactions right next to each other (e.g. OrderingSystem and DropLocation)????
+        //activeInteraction = interactionsInRange[0];     //What if there are 2 interactions right next to each other (e.g. OrderingSystem and DropLocation)????
 
         #region OldCode
         ////Searches through all available interactions and chooses one that is relevant to current position
-        //if (isHoldingItem)
-        //{
-        //    for (int k = 0; k < interactionsInRange.Count; k++)
-        //    {
-        //        if (interactionsInRange[k].GetComponent<DropLocation>())
-        //        {
-        //            activeInteraction = interactionsInRange[k];
-        //            break;
-        //        }
-        //        else if (interactionsInRange[k].GetComponent<Table>())
-        //        {
-        //            activeInteraction = interactionsInRange[k];
-        //            break;
-        //        }
-        //        else
-        //        {
-        //            continue;
-        //        }
-        //    }
-        //}
-        //else if (!isHoldingItem)
-        //{
-        //    for (int k = 0; k < interactionsInRange.Count; k++)
-        //    {
-        //        if (interactionsInRange[k].GetComponent<FoodItem>())
-        //        {
-        //            activeInteraction = interactionsInRange[k];
-        //            break;
-        //        }
-        //        else
-        //        {
-        //            continue;
-        //        }
-        //    }
-        //}
+        if (isHoldingItem)
+        {
+            for (int k = 0; k < interactionsInRange.Count; k++)
+            {
+                if (interactionsInRange[k].GetComponent<DropLocation>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<Table>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        else if (!isHoldingItem)
+        {
+            for (int k = 0; k < interactionsInRange.Count; k++)
+            {
+                if (interactionsInRange[k].GetComponent<OrderingSystem>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<FoodItem>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<BaristaMachine>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<MiniFridge>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<Telephone>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
 
         //if (interactionsInRange.Count <= 0)
         //    activeInteraction = null;

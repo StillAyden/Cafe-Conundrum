@@ -32,15 +32,18 @@ public class CustomerSpawnManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (totalCustomers > 0)
+        if (GameManager.Instance.startSpawningCustomers)
         {
-            spawnTimer -= Time.fixedDeltaTime;
-            if (spawnTimer <= 0f)
+            if (totalCustomers > 0)
             {
-                StartCoroutine(SpawnCustomer());
-                ResetSpawnTimer();
-            }
+                spawnTimer -= Time.fixedDeltaTime;
+                if (spawnTimer <= 0f)
+                {
+                    StartCoroutine(SpawnCustomer());
+                    ResetSpawnTimer();
+                }
             
+            }
         }
     }
     #endregion

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu]
+[Serializable]
 public class foodData : ScriptableObject
 {
     public foodItems[] items;
@@ -18,7 +19,7 @@ public struct foodItems
 [Serializable]
 public enum Food
 {
-    None = -1,
+    None,
     Pizza,
     Sandwich,
     BreadSticks,

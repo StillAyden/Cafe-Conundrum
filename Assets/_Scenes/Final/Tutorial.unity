@@ -291,7 +291,7 @@ PrefabInstance:
     - target: {fileID: 3997428172790204417, guid: 68338ccdff422c245b70007bbbeb2f65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.3909616
+      value: -2.89
       objectReference: {fileID: 0}
     - target: {fileID: 3997428172790204417, guid: 68338ccdff422c245b70007bbbeb2f65,
         type: 3}
@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 3997428172790204417, guid: 68338ccdff422c245b70007bbbeb2f65,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.1579151
+      value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: 3997428172790204417, guid: 68338ccdff422c245b70007bbbeb2f65,
         type: 3}
@@ -1128,7 +1128,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop (21)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5688936066628109473, guid: 4a8973f64ba3ddb42bdbf96bcbf93688, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1510,7 +1511,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop (27)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5688936066628109473, guid: 4a8973f64ba3ddb42bdbf96bcbf93688, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1622,7 +1624,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop (13)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5688936066628109473, guid: 4a8973f64ba3ddb42bdbf96bcbf93688, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1696,7 +1699,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop (24)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5688936066628109473, guid: 4a8973f64ba3ddb42bdbf96bcbf93688, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1776,7 +1780,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CounterTop (14)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5688936066628109473, guid: 4a8973f64ba3ddb42bdbf96bcbf93688, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2365,6 +2370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0555e5dd75de4db478e2600f678bc0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 11400000, guid: 8f0c34f07804a0248b1f26ad06269f8a, type: 2}
+  drink: {fileID: 11400000, guid: 556e1ceb4f7cf694ab4c4535ae53cfc8, type: 2}
+  startSpawningCustomers: 0
 --- !u!114 &1654003956
 MonoBehaviour:
   m_ObjectHideFlags: 0

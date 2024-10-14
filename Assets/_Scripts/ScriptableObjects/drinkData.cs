@@ -18,7 +18,7 @@ public struct drinkItems
 [Serializable]
 public enum Drink
 {
-    None = -1,
+    None = 0,
     Soda,
     Coffee
 }

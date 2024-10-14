@@ -14,10 +14,6 @@ public class Customer : MonoBehaviour
     [SerializeField] private Image imageDrink;
     [SerializeField] private bool hasGottenFood = false;
     [SerializeField] private bool hasGottenDrink = false;
-
-    //Food Data
-    [SerializeField] private foodData food;
-    [SerializeField] private drinkData drink;
     
     #endregion
 
@@ -32,20 +28,20 @@ public class Customer : MonoBehaviour
 
     private Food GetRandomFoodOrder()
     {
-        int randomIndex = Random.Range(0, food.items.Length);
-        return food.items[randomIndex].type;
+        int randomIndex = Random.Range(1, GameManager.Instance.food.items.Length);
+        return GameManager.Instance.food.items[randomIndex].type;
     }
 
     private Drink GetRandomDrinkOrder()
     {
-        int randomIndex = Random.Range(-1, drink.items.Length);
-        return drink.items[randomIndex].type;
+        int randomIndex = Random.Range(1, GameManager.Instance.drink.items.Length);
+        return GameManager.Instance.drink.items[randomIndex].type;
     }
 
     private void DisplayOrderSprite() 
     {
         //Food
-        foreach (foodItems foodItem in food.items)
+        foreach (foodItems foodItem in GameManager.Instance.food.items)
         {
             if (foodItem.type == foodOrder)
             {
@@ -62,7 +58,7 @@ public class Customer : MonoBehaviour
         }
         else
         {
-            foreach (drinkItems drinkItem in drink.items)
+            foreach (drinkItems drinkItem in GameManager.Instance.drink.items)
             {
                 if (drinkItem.type == drinkOrder)
                 {

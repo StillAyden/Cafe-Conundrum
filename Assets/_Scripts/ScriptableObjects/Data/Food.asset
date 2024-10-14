@@ -13,29 +13,33 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   items:
+  - type: 0
+    prefab: {fileID: 0}
+    image: {fileID: 0}
   - type: 1
+    prefab: {fileID: 9101346486322584581, guid: 5ce28b7d83c707a458f51f2edf7bec07,
+      type: 3}
+    image: {fileID: 21300000, guid: 2e63aad596a7bd642b00e46606ef258d, type: 3}
+  - type: 2
     prefab: {fileID: 1659199757745901638, guid: 354d8b1edbe108d4b8390203b943048e,
       type: 3}
     image: {fileID: 21300000, guid: aec061916c40ef44f856d382660a1c94, type: 3}
-  - type: 2
+  - type: 3
     prefab: {fileID: 3942072089333834461, guid: 3f94e39920537374a8a19335df55a055,
       type: 3}
     image: {fileID: 21300000, guid: 8b9f90721af76bc488a00dbdbd90cf2f, type: 3}
-  - type: 3
+  - type: 4
     prefab: {fileID: 99627462360569629, guid: f29e50882888c8646a15105105a98e6e, type: 3}
     image: {fileID: 21300000, guid: 0b78e82b54cf9af41bce42742dddeacc, type: 3}
-  - type: 4
+  - type: 5
     prefab: {fileID: 6233643927618316077, guid: 942c754f2e697084c8575a8c79e54ae5,
       type: 3}
     image: {fileID: 21300000, guid: 5860f4aa9b0bd4e4abfd950df7c6dab5, type: 3}
-  - type: 5
+  - type: 6
     prefab: {fileID: 3068922257273079416, guid: 926509095c425f74881ab25ae7a61c44,
       type: 3}
     image: {fileID: 21300000, guid: e262204f7f1709340aa448cbf057abd0, type: 3}
-  - type: 6
+  - type: 7
     prefab: {fileID: 3846009013614901895, guid: ec786c54bc240784b8a6f081bd7ff9a6,
       type: 3}
     image: {fileID: 21300000, guid: b486b00ea90779e4e838293118f174fa, type: 3}
-  - type: 7
-    prefab: {fileID: 0}
-    image: {fileID: 0}

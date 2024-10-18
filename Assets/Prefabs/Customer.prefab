@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0708dc992a379014f9f6619aecc08de1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0708dc992a379014f9f6619aecc08de1, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -462,13 +462,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodOrder: -1
+  drinkOrder: -1
   table: {fileID: 0}
-  image: {fileID: 8437431053077944932}
+  imageFood: {fileID: 8437431053077944932}
+  imageDrink: {fileID: 3247258267455256287}
   hasGottenFood: 0
-  Chips: {fileID: 21300000, guid: 1e10346fe7794854194cbe6589157803, type: 3}
-  Burger: {fileID: 21300000, guid: 0708dc992a379014f9f6619aecc08de1, type: 3}
-  Pizza: {fileID: 21300000, guid: b7c8c6c0de9853d43abb9a312e6b62d8, type: 3}
+  hasGottenDrink: 0
   food: {fileID: 11400000, guid: 8f0c34f07804a0248b1f26ad06269f8a, type: 2}
+  drink: {fileID: 11400000, guid: 556e1ceb4f7cf694ab4c4535ae53cfc8, type: 2}
 --- !u!65 &558531065512551877
 BoxCollider:
   m_ObjectHideFlags: 0

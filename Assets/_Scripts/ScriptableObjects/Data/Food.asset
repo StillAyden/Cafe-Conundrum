@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: Food
   m_EditorClassIdentifier: 
   items:
+  - type: 0
+    prefab: {fileID: 0}
+    image: {fileID: 21300000, guid: 403c3d182549977418d196aed54fc82c, type: 3}
   - type: 1
     prefab: {fileID: 0}
-    image: {fileID: 21300000, guid: e73e4e1abcfee8d489df78e44934ed9a, type: 3}
+    image: {fileID: 21300000, guid: 534a2d7ddb23f8e46bb2a8d2dbaa2b66, type: 3}
   - type: 2
     prefab: {fileID: 0}
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 192995af12df31a478fffbf66968591c, type: 3}
   - type: 3
     prefab: {fileID: 0}
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 86327427c64ea174ea35d3cd04aa77ed, type: 3}
   - type: 4
     prefab: {fileID: 0}
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 7e962d4fa53037946ac07eafcc85304b, type: 3}
   - type: 5
     prefab: {fileID: 0}
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 0d48566a58f319141a57faec7563199a, type: 3}
   - type: 6
     prefab: {fileID: 0}
-    image: {fileID: 0}
-  - type: 7
-    prefab: {fileID: 0}
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 32297d70836301e41b72d70114ede0e6, type: 3}

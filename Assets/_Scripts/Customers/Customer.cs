@@ -38,8 +38,16 @@ public class Customer : MonoBehaviour
 
     private Drink GetRandomDrinkOrder()
     {
-        int randomIndex = Random.Range(-1, drink.items.Length);
-        return drink.items[randomIndex].type;
+        int totalOptions = drink.items.Length + 1; // +1 to include 'None' option
+        int randomIndex = Random.Range(0, totalOptions); // 0 to totalOptions - 1
+        if (randomIndex == drink.items.Length)
+        {
+            return Drink.None;
+        }
+        else
+        {
+            return drink.items[randomIndex].type;
+        }
     }
 
     private void DisplayOrderSprite() 
@@ -50,7 +58,7 @@ public class Customer : MonoBehaviour
             if (foodItem.type == foodOrder)
             {
                 imageFood.sprite = foodItem.image;
-                return;
+                break;
             }
         }
 

@@ -29,11 +29,48 @@ public class Table : Interactable
     private bool showTableSprite = true;
     private Transform playerTransform;
 
+    [Space]
+    [Header("Patience Timer Settings")]
+    [SerializeField] private Image patienceProgressBar;
+    private float patienceTimer;
+    private float maxPatienceTimer;
+
+    [Space]
+    [Header("Progress Bar Colors")]
+    [SerializeField] private Color greenColor = Color.green;
+    [SerializeField] private Color orangeColor = new Color(1f, 0.64f, 0f); // Orange color
+    [SerializeField] private Color redColor = Color.red;
+    [SerializeField][Range(0f, 1f)] private float orangeThreshold = 0.5f; // 50%
+    [SerializeField][Range(0f, 1f)] private float redThreshold = 0.2f; // 20%
+
+    [Space]
+    [Header("Extra Time Settings")]
+    [SerializeField][Range(0f, 10f)] private float extraTimePerSecond = 1f; // Makes last seconds last longer
+    [SerializeField][Range(1f, 5f)] private float extraTimeStartThreshold = 2f; // Start extra time when remaining time is less than this
+
+    [Space]
+    [Header("Reputation and Currency Penalties")]
+    [SerializeField][Range(1f, 10f)] private int reputationPenaltyMin = 1;
+    [SerializeField][Range(1f, 10f)] private int reputationPenaltyMax = 5;
+
+    [Space]
+    [Header("Reputation and Currency Rewards")]
+    [SerializeField][Range(1f, 10f)] private int reputationRewardMin = 1;
+    [SerializeField][Range(1f, 10f)] private int reputationRewardMax = 5;
+    [SerializeField][Range(1f, 100f)] private int currencyRewardMin = 10;
+    [SerializeField][Range(1f, 100f)] private int currencyRewardMax = 50;
+
+    private bool isPatienceTimerRunning = false;
+    private TableManager tableManager;
+
     #endregion
 
     #region Unity Methods
     private void Start()
     {
+        //Script
+        tableManager = FindObjectOfType<TableManager>();
+
         //Chairs 
         InitializeChairs();
 
@@ -82,6 +119,8 @@ public class Table : Interactable
             }
         }
 
+        int customerCount = customers.Count;
+
         // If all customers are done eating
         foreach (Customer cus in customers)
         {
@@ -91,6 +130,14 @@ public class Table : Interactable
             }
         }
 
+        // Calculate rewards
+        int reputationReward = Random.Range(reputationRewardMin, reputationRewardMax + 1) * customerCount;
+        int currencyReward = Random.Range(currencyRewardMin, currencyRewardMax + 1) * customerCount;
+
+        // Add rewards
+        ReputationManager.Instance.AddReputation(reputationReward);
+        CurrencyManager.Instance.AddCurrency(currencyReward);
+
         // Clear the list of customers & Reset the customer count
         customers.Clear();
         currentCustomers = 0;
@@ -99,11 +146,17 @@ public class Table : Interactable
         SetTableSprite(false);
         SetCustomerSprites(false);
 
+        // Stop the patience timer
+        isPatienceTimerRunning = false;
+        patienceProgressBar.gameObject.SetActive(false);
+
         return true; // Return true if the table was cleared
     }
 
     public void ForceClearTable()
     {
+        int customerCount = customers.Count;
+
         foreach (Customer cus in customers)
         {
             if (cus != null)
@@ -112,6 +165,13 @@ public class Table : Interactable
             }
         }
 
+        // Calculate penalties
+        int reputationPenalty = Random.Range(reputationPenaltyMin, reputationPenaltyMax + 1) * customerCount;
+
+        // Apply penalties
+        ReputationManager.Instance.RemoveReputation(reputationPenalty);
+
+
         // Clear the list of customers & Reset the customer count
         customers.Clear();
         currentCustomers = 0;
@@ -119,6 +179,11 @@ public class Table : Interactable
 
         SetTableSprite(false);
         SetCustomerSprites(false);
+
+        // Stop the patience timer
+        isPatienceTimerRunning = false;
+        patienceProgressBar.gameObject.SetActive(false);
+
     }
 
     public void AddCustomers(GameObject customerPrefab, int numberOfCustomers)
@@ -141,6 +206,7 @@ public class Table : Interactable
             //Increase num
             currentCustomers++;
         }
+
     }
 
     public void TableClearTimer()
@@ -162,12 +228,76 @@ public class Table : Interactable
         clearTimerCoroutine = StartCoroutine(ClearTableAfterTime(clearTimerDuration));
     }
 
+    private void StartPatienceTimer()
+    {
+        // Get random patience time from TableManager
+        float minTime = tableManager.GetMinPatienceTime();
+        float maxTime = tableManager.GetMaxPatienceTime();
+        maxPatienceTimer = Random.Range(minTime, maxTime);
+        patienceTimer = maxPatienceTimer;
+        isPatienceTimerRunning = true;
+        patienceProgressBar.gameObject.SetActive(true); // Show progress bar
+        StartCoroutine(PatienceTimerCoroutine());
+    }
+
+    private void UpdateProgressBar()
+    {
+        float fillAmount = patienceTimer / maxPatienceTimer;
+        patienceProgressBar.fillAmount = fillAmount;
+
+        // Change color based on thresholds
+        if (fillAmount > orangeThreshold)
+        {
+            patienceProgressBar.color = greenColor;
+        }
+        else if (fillAmount > redThreshold)
+        {
+            patienceProgressBar.color = orangeColor;
+        }
+        else
+        {
+            patienceProgressBar.color = redColor;
+        }
+    }
+
     private IEnumerator ClearTableAfterTime(float duration)
     {
         yield return new WaitForSeconds(duration);
 
         ClearTable();
     }
+
+    private IEnumerator PatienceTimerCoroutine()
+    {
+        while (isPatienceTimerRunning && patienceTimer > 0f)
+        {
+            UpdateProgressBar();
+
+            // Check if we need to apply extra time
+            if (patienceTimer <= extraTimeStartThreshold)
+            {
+                patienceTimer -= Time.deltaTime / extraTimePerSecond;
+            }
+            else
+            {
+                patienceTimer -= Time.deltaTime;
+            }
+
+            yield return null;
+        }
+
+        if (patienceTimer <= 0f)
+        {
+            // Timer ran out
+            isPatienceTimerRunning = false;
+            ForceClearTable();
+
+            // Apply reputation penalty
+            int penalty = Random.Range(reputationPenaltyMin, reputationPenaltyMax + 1);
+            ReputationManager.Instance.RemoveReputation(penalty);
+        }
+    }
+
     #endregion
 
     #region Sprites
@@ -185,6 +315,7 @@ public class Table : Interactable
                 // Player is too far; hide all sprites
                 SetTableSprite(false);
                 SetCustomerSprites(false);
+                patienceProgressBar.gameObject.SetActive(false);
             }
             else if (!orderTaken && currentCustomers > 0)
             {
@@ -192,12 +323,14 @@ public class Table : Interactable
                 SetTableSprite(true);
                 tableSprite.sprite = takeOrder; // Set to "Take Order" sprite
                 SetCustomerSprites(false); // Hide customer sprites
+                patienceProgressBar.gameObject.SetActive(false);
             }
             else if (orderTaken && distance <= SpriteDistance)
             {
                 // Order is taken and player is within spriteDistance; show customer sprites
                 SetTableSprite(false); // Hide table sprite
                 SetCustomerSprites(true); // Show customer sprites
+                patienceProgressBar.gameObject.SetActive(true);
             }
             else if (orderTaken && distance > SpriteDistance)
             {
@@ -205,6 +338,7 @@ public class Table : Interactable
                 SetTableSprite(true);
                 tableSprite.sprite = WaitingForOrder; // Set to "Waiting for Order" sprite
                 SetCustomerSprites(false); // Hide customer sprites
+                patienceProgressBar.gameObject.SetActive(true);
             }
         }
     }
@@ -243,6 +377,7 @@ public class Table : Interactable
             orderTaken = value;
             tableSprite.sprite = orderTaken ? WaitingForOrder : takeOrder; // Change sprite based on order status
             SetCustomerSprites(orderTaken); // Update customer sprites visibility }
+            StartPatienceTimer();
         }
     }
     #endregion

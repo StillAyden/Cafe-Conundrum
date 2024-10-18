@@ -77,8 +77,18 @@ public class ReputationManager : MonoBehaviour
     //Followers
     public float GetReputation() { return reputation; }
     public void SetReputation(float value) { reputation = value; }
-    public void AddReputation(float reputationAdded) { reputation += reputationAdded; }
-    public void RemoveReputation(float reputationRemoved) { reputation -= reputationRemoved; }
+    public void AddReputation(float reputationAdded)
+    {
+        reputation += reputationAdded;
+
+        reputation = Mathf.Clamp(reputation, 0f, 100f);
+    }
+    public void RemoveReputation(float reputationRemoved)
+    { 
+        reputation -= reputationRemoved;
+
+        reputation = Mathf.Clamp(reputation, 0f, 100f);
+    }
     #endregion
 
     #region Singleton

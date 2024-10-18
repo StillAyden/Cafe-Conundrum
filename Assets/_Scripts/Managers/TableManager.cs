@@ -5,9 +5,15 @@ using UnityEngine;
 public class TableManager : MonoBehaviour
 {
     #region Variables
+    [Header("Table List")]
     public List<Table> tables = new List<Table>(); // List of all tables in the game
 
+    [Header("Sprite Distance")]
     [SerializeField][Range(0f,10f)] private float SpriteDistance = 2;
+
+    [Header("Patience Timer Settings")]
+    [SerializeField][Range(5f, 60f)] private float minPatienceTime = 30f;
+    [SerializeField][Range(5f, 60f)] private float maxPatienceTime = 60f;
 
     #endregion
 
@@ -62,6 +68,13 @@ public class TableManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region GetSet
+
+    public float GetMinPatienceTime() { return minPatienceTime; }
+    public float GetMaxPatienceTime() { return maxPatienceTime; }
 
     #endregion
 }

@@ -109,10 +109,12 @@ public class PlayerController : MonoBehaviour
         {
             if (activeInteraction.GetComponent<DropLocation>())
             {
-                if (isHoldingItem)
+                //TODO: Get a better/cleaner way to do this
+                if (isHoldingItem && activeInteraction.GetComponent<DropLocation>().occupied == false)
                 {
                     //Drop currently held item
                     DropItem(activeInteraction.GetComponent<DropLocation>().gameObject.transform, activeInteraction.GetComponent<DropLocation>().offset);
+                    activeInteraction.GetComponent<DropLocation>().occupied = true;
                 }
             }
 
@@ -171,7 +173,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (!isHoldingItem)
                 {
-                    GetItem(GameManager.Instance.drink.items[(int)Drink.Coffee].prefab);
+                    //GetItem(GameManager.Instance.drink.items[(int)Drink.Coffee].prefab);
+                    GetItem(activeInteraction.GetComponent<BaristaMachine>().Interact());
                 }
             }
 
@@ -179,7 +182,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (!isHoldingItem)
                 {
-                    GetItem(GameManager.Instance.drink.items[(int)Drink.Soda].prefab);
+                    GetItem(activeInteraction.GetComponent<MiniFridge>().Interact());
                 }
             }
 
@@ -194,11 +197,16 @@ public class PlayerController : MonoBehaviour
     GameObject GetItem(GameObject item)
     {
         //Used to get items out of MiniFridge, CoffeeMachine, etc
-        isHoldingItem = true;
-        GameObject temp = Instantiate(item, itemHolder);
-        temp.transform.localPosition = Vector3.zero;
-        interactionsInRange.Remove(item);
-        return temp;
+
+        if (item != null)
+        {
+            isHoldingItem = true;
+            GameObject temp = Instantiate(item, itemHolder);
+            temp.transform.localPosition = Vector3.zero;
+            interactionsInRange.Remove(item);
+            return temp;
+        }
+        else return null;
     }
     void PickupItem(GameObject item)
     {
@@ -328,7 +336,12 @@ public class PlayerController : MonoBehaviour
             for (int k = 0; k < interactionsInRange.Count; k++)
             {
                 //NB: Order is IMPORTANT... Higher up takes priority
-                if (interactionsInRange[k].GetComponent<DropLocation>())
+                if (interactionsInRange[k].GetComponent<Dustbin>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                if (interactionsInRange[k].GetComponent<DropLocation>() && interactionsInRange[k].GetComponent<DropLocation>()?.occupied == false)
                 {
                     activeInteraction = interactionsInRange[k];
                     break;
@@ -340,6 +353,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
+                    activeInteraction = null;
                     continue;
                 }
             }
@@ -360,6 +374,11 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
                 else if (interactionsInRange[k].GetComponent<FoodItem>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<DrinkItem>())
                 {
                     activeInteraction = interactionsInRange[k];
                     break;

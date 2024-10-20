@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
                 {
                     //Drop currently held item
                     DropItem(activeInteraction.GetComponent<DropLocation>().gameObject.transform, activeInteraction.GetComponent<DropLocation>().offset);
-                    activeInteraction.GetComponent<DropLocation>().occupied = true;
+                    //activeInteraction.GetComponent<DropLocation>().occupied = true;
                 }
             }
 

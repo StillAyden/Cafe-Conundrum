@@ -16,11 +16,11 @@ MonoBehaviour:
   - type: -1
     prefab: {fileID: 0}
     image: {fileID: 0}
-  - type: 0
+  - type: 1
     prefab: {fileID: 4541640669362229629, guid: 9d951bfe505d8ad498ff62e89dc671ee,
       type: 3}
-    image: {fileID: 21300000, guid: 9eb1522c05e55a146ae0f5410f1c73e5, type: 3}
-  - type: 1
+    image: {fileID: 21300000, guid: c9a8d5a5eb6684a478bb0e74adbc112d, type: 3}
+  - type: 2
     prefab: {fileID: 4774606181274656690, guid: fa7a32800c64bda41a21c46b91131ab4,
       type: 3}
-    image: {fileID: 21300000, guid: 9eb1522c05e55a146ae0f5410f1c73e5, type: 3}
+    image: {fileID: 21300000, guid: dcdb5f89e88511340a3b823ca60d0f9d, type: 3}

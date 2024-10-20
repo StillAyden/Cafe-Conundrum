@@ -41,14 +41,16 @@ public class Customer : MonoBehaviour
     private void DisplayOrderSprite() 
     {
         //Food
-        foreach (foodItems foodItem in GameManager.Instance.food.items)
-        {
-            if (foodItem.type == foodOrder)
-            {
-                imageFood.sprite = foodItem.image;
-                return;
-            }
-        }
+        imageFood.sprite = GameManager.Instance.food.items[(int)foodOrder].image;
+
+        //foreach (foodItems foodItem in GameManager.Instance.food.items)
+        //{
+        //    if (foodItem.type == foodOrder)
+        //    {
+        //        imageFood.sprite = foodItem.image;
+        //        return;
+        //    }
+        //}
 
         //Drink
         if (drinkOrder == Drink.None)
@@ -58,16 +60,20 @@ public class Customer : MonoBehaviour
         }
         else
         {
-            foreach (drinkItems drinkItem in GameManager.Instance.drink.items)
-            {
-                if (drinkItem.type == drinkOrder)
-                {
-                    imageDrink.sprite = drinkItem.image;
-                    imageDrink.gameObject.SetActive(true); // Show drink image
-                    hasGottenDrink = false;
-                    break;
-                }
-            }
+            imageDrink.sprite = GameManager.Instance.drink.items[(int)drinkOrder].image;
+            imageDrink.gameObject.SetActive(true); // Show drink image
+            hasGottenDrink = false;
+
+            //foreach (drinkItems drinkItem in GameManager.Instance.drink.items)
+            //{
+            //    if (drinkItem.type == drinkOrder)
+            //    {
+            //        imageDrink.sprite = drinkItem.image;
+            //        imageDrink.gameObject.SetActive(true); // Show drink image
+            //        hasGottenDrink = false;
+            //        break;
+            //    }
+            //}
         }
     }
 

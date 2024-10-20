@@ -135,8 +135,8 @@ public class Table : Interactable
         int currencyReward = Random.Range(currencyRewardMin, currencyRewardMax + 1) * customerCount;
 
         // Add rewards
-        ReputationManager.Instance.AddReputation(reputationReward);
-        CurrencyManager.Instance.AddCurrency(currencyReward);
+        ReputationManager.Instance?.AddReputation(reputationReward);
+        CurrencyManager.Instance?.AddCurrency(currencyReward);
 
         // Clear the list of customers & Reset the customer count
         customers.Clear();

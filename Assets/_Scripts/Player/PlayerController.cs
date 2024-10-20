@@ -127,6 +127,15 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            if (activeInteraction.GetComponent<DrinkItem>())
+            {
+                //If item is drink -> Pick up
+                if (!isHoldingItem)
+                {
+                    PickupItem(activeInteraction);
+                }
+            }
+
             if (activeInteraction.GetComponent<Table>())
             {
                 Table table = activeInteraction.GetComponent<Table>();
@@ -310,9 +319,28 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+            else if (item.GetComponent<DrinkItem>())
+            {
+                DrinkItem playerDrinkItem = item.GetComponent<DrinkItem>();
+
+                for (int k = 0; k < currentTable.customers.Count; k++)
+                {
+                    if (!currentTable.customers[k].HasGottenDrink) // Check if the customer hasn't gotten their food
+                    {
+                        if (currentTable.customers[k].drinkOrder == playerDrinkItem.drink) // Check if the customer's order matches the player's food item
+                        {
+                            Destroy(item); // Remove the food item from the player
+                            currentTable.customers[k].HasGottenDrink = true; // Mark the customer as having received their food
+                            isHoldingItem = false; // Update holding status
+                            Debug.Log("Correct Drink delivered to the customer!");
+                            break;
+                        }
+                    }
+                }
+            }
             else
             {
-                Debug.LogWarning("Held item is not a FoodItem.");
+                Debug.LogWarning("Held item is not a FoodItem or a DrinkItem");
             }
         }
         #endregion

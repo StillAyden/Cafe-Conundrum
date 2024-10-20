@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3997428172790204417}
   - component: {fileID: 8956156037870577761}
+  - component: {fileID: 664109740260709634}
   m_Layer: 0
   m_Name: Mini_Fridge
   m_TagString: Untagged
@@ -54,6 +55,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.79, y: 0.93, z: 0.64}
   m_Center: {x: 0, y: 0.46, z: -0.01}
+--- !u!114 &664109740260709634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626283214366536048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21277cbbd16b13a45999b350d5895e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4999876474118392474
 PrefabInstance:
   m_ObjectHideFlags: 0

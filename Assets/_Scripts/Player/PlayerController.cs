@@ -177,7 +177,10 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<MiniFridge>())
             {
-
+                if (!isHoldingItem)
+                {
+                    GetItem(GameManager.Instance.drink.items[(int)Drink.Soda].prefab);
+                }
             }
 
             if (activeInteraction.GetComponent<Telephone>())
@@ -324,6 +327,7 @@ public class PlayerController : MonoBehaviour
         {
             for (int k = 0; k < interactionsInRange.Count; k++)
             {
+                //NB: Order is IMPORTANT... Higher up takes priority
                 if (interactionsInRange[k].GetComponent<DropLocation>())
                 {
                     activeInteraction = interactionsInRange[k];
@@ -344,7 +348,13 @@ public class PlayerController : MonoBehaviour
         {
             for (int k = 0; k < interactionsInRange.Count; k++)
             {
+                //NB: Order is IMPORTANT... Higher up takes priority
                 if (interactionsInRange[k].GetComponent<OrderingSystem>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<Table>())
                 {
                     activeInteraction = interactionsInRange[k];
                     break;

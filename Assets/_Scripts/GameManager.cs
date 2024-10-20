@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
         UX_Fade.Instance?.FadeIn();
         yield return new WaitForSeconds(2f);
-        //TutorialManager.Instance.StartDialogue();
+        TutorialManager.Instance?.StartDialogue();
+        yield return new WaitForSeconds(2f);
+        startSpawningCustomers = true;
     }
 }

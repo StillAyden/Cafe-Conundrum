@@ -1878,7 +1878,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentScript
       value: 
-      objectReference: {fileID: 11400000, guid: 48a9664340f33be40bc0bd550432ad95,
+      objectReference: {fileID: 11400000, guid: 53c1e7d202fa79a46b28d7e277e68be1,
         type: 2}
     - target: {fileID: 6673419261103611796, guid: 074505617b1506f498d3e8b65ca9f482,
         type: 3}
@@ -2298,6 +2298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452795127}
+  - component: {fileID: 1452795128}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2323,6 +2324,20 @@ Transform:
   - {fileID: 440556253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452795128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452795126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4d6d9d5ad4b1b24eb9efd458ce75d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OrderingInterface: {fileID: 1766379713}
+  UpgradesInterface: {fileID: 0}
 --- !u!1 &1654003953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,7 +2387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: {fileID: 11400000, guid: 8f0c34f07804a0248b1f26ad06269f8a, type: 2}
   drink: {fileID: 11400000, guid: 556e1ceb4f7cf694ab4c4535ae53cfc8, type: 2}
-  startSpawningCustomers: 0
+  startSpawningCustomers: 1
 --- !u!114 &1654003956
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [CreateAssetMenu]
 public class TutorialScript_SO : ScriptableObject
 {
-    public TutorialNode[] node;
+    public TutorialNode[] node = new TutorialNode[1];
 }
 
 [Serializable]

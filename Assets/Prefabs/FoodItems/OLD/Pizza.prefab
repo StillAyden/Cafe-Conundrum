@@ -115,6 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4740065835176076500}
   - component: {fileID: 5778690286357714885}
+  - component: {fileID: 3813518564962470863}
   m_Layer: 0
   m_Name: Pizza
   m_TagString: Untagged
@@ -146,3 +147,15 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9101346486322584581}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3813518564962470863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101346486322584581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0e3b62da5cc55419051a7c0ae26fd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

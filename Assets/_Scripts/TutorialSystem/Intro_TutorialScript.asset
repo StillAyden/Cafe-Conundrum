@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfed35921b01df242a05b3b08d84c675, type: 3}
+  m_Name: Intro_TutorialScript
+  m_EditorClassIdentifier: 
+  node:
+  - type: 0
+    actorName: NPC
+    actorDialogue: "Ok, there\u2019s our first customer, lets go over the basics
+      again."
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: Player
+    actorDialogue: Alright. Remind me of what I need to do again.
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: NPC
+    actorDialogue: First off, go to that customer over there and collect her order
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 1
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: Player
+    actorDialogue: 'Ok, got it. '
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 2
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 1
+    taskText: Go to the customer and take their order usign "E"
+  - type: 0
+    actorName: NPC
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 

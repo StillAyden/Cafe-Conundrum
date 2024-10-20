@@ -25,8 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isHoldingItem = false;
     [SerializeField] Transform itemHolder;
 
-    [Header("POS System")]
-    [SerializeField] Canvas canvas_POS;
+    //[Header("POS System")]
+    //[SerializeField] Canvas canvas_POS;
 
     #endregion
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        canvas_POS.gameObject.SetActive(false);
+        UIManager.Instance.HideOrderingInterface();
     }
     #endregion
 
@@ -146,11 +146,9 @@ public class PlayerController : MonoBehaviour
             if (activeInteraction.GetComponent<OrderingSystem>())
             {
                 //Debug.Log("Interacting with POS system");
-                if (canvas_POS.gameObject.activeSelf == false)
-                {
-                    canvas_POS.gameObject.SetActive(true);
-                }
-                else canvas_POS.gameObject.SetActive(false);
+                if (UIManager.Instance.isOrderingInterfaceActive == false)
+                    UIManager.Instance.ShowOrderingInterface();
+                else UIManager.Instance.HideOrderingInterface();
             }
 
             if (activeInteraction.GetComponent<Dustbin>())
@@ -188,7 +186,9 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<Telephone>())
             {
-
+                if (UIManager.Instance.isUpgradesInterfaceActive == false)
+                    UIManager.Instance.ShowUpgradesInterface();
+                else UIManager.Instance.HideUpgradesInterface();
             }
         }
     }

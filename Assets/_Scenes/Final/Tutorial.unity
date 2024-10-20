@@ -2411,6 +2411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d6d9d5ad4b1b24eb9efd458ce75d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOrderingInterfaceActive: 0
+  isUpgradesInterfaceActive: 0
   OrderingInterface: {fileID: 1766379713}
   UpgradesInterface: {fileID: 0}
 --- !u!1 &1654003953
@@ -2463,6 +2465,11 @@ MonoBehaviour:
   food: {fileID: 11400000, guid: 8f0c34f07804a0248b1f26ad06269f8a, type: 2}
   drink: {fileID: 11400000, guid: 556e1ceb4f7cf694ab4c4535ae53cfc8, type: 2}
   startSpawningCustomers: 1
+  isLoadshedding: 0
+  isWaterShortage: 0
+  isSewerageProblem: 0
+  roadDurabilty: 1
+  refuseLevel: 0
 --- !u!114 &1654003956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3740,6 +3747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tables: []
   SpriteDistance: 2
+  minPatienceTime: 30
+  maxPatienceTime: 60
 --- !u!114 &2133802581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3755,7 +3764,7 @@ MonoBehaviour:
   minSpawnInterval: 1
   maxSpawnInterval: 15
   totalCustomers: 10
-  customerPrefab: {fileID: 8734203729337020057, guid: ea87cdbcda339194ab9d7ab52e3dc440,
+  customerPrefab: {fileID: 8734203729337020057, guid: 625aee1b245f27148a00349a010bd1f2,
     type: 3}
 --- !u!1 &2144961567
 GameObject:

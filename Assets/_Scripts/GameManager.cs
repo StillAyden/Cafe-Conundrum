@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
     [Header("Customer Spawning")]
     public bool startSpawningCustomers = false;
 
+    [Header("Challenge Variables")]
+    public bool isLoadshedding = false;
+    public bool isWaterShortage = false;
+    public bool isSewerageProblem = false;
+    public float roadDurabilty = 1f;
+    public float refuseLevel = 0f;
+
     private void Awake()
     {
         Instance = this;

@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4821552366213246321}
+  - {fileID: 8998982400538528091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8956156037870577761
@@ -67,6 +68,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21277cbbd16b13a45999b350d5895e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  drinksLeft: 50
+--- !u!1001 &4482315289006004192
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3997428172790204417}
+    m_Modifications:
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5400004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304532816085009409, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+        type: 3}
+      propertyPath: m_Name
+      value: Mini Fridge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd, type: 3}
+--- !u!4 &8998982400538528091 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4816226866251046587, guid: df7d6bc9a7e258d4a96e8d2dd1d7ccfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4482315289006004192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4999876474118392474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -129,6 +210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: New Mini Fridge Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 044f1230111822346a51c9a0c1f34bd2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

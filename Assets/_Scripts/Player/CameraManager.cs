@@ -23,7 +23,7 @@ public class CameraManager : MonoBehaviour
         cam = GetComponent<Camera>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (type == CamTypes.Follow)
             FollowCam();

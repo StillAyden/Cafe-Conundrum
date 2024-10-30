@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a21ca7f7896902f418912d4b44578c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   target: {fileID: 0}
   xOffset: 0
-  yOffset: 9.55
-  zOffset: -0.76
-  xEulerRotation: 89.6
+  yOffset: 3.55
+  zOffset: -3.29
+  xEulerRotation: 37.1
   yEulerRotation: 0
   zEulerRotation: 0
   moveSpeed: 10

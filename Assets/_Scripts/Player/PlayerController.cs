@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     [SerializeField] bool enableSmoothMove;
     [SerializeField] public float moveSpeed = 200f;
+    Vector3 moveDirection = Vector3.zero;
+    [SerializeField] float rotateSpeed = 1f;
 
     [Header("Interactions")]
     [SerializeField] List<GameObject> interactionsInRange = new List<GameObject>();
@@ -87,22 +89,42 @@ public class PlayerController : MonoBehaviour
     {
         if (!enableSmoothMove)
         {
-            rb.velocity = new Vector3(InputManager.Instance.moveInput.x * moveSpeed * Time.fixedDeltaTime,
+            moveDirection = new Vector3(InputManager.Instance.moveInput.x * moveSpeed * Time.fixedDeltaTime,
                                         rb.velocity.y,
                                             InputManager.Instance.moveInput.y * moveSpeed * Time.fixedDeltaTime);
+
+            rb.velocity = moveDirection;
+
+            if (moveDirection != Vector3.zero)
+            {
+                Quaternion rotateTo = Quaternion.LookRotation(new Vector3(moveDirection.x, 0, moveDirection.z), Vector3.up);
+
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
+            }
 
         }
         else if (enableSmoothMove)
         {
             if (rb.velocity.magnitude < moveSpeed/50)
             {
-                Debug.Log("Smooth Movement");
-                rb.AddForce(new Vector3(InputManager.Instance.moveInput.x * 1000f  * Time.deltaTime, 0,
-                                            InputManager.Instance.moveInput.y * 1000f  * Time.deltaTime), ForceMode.Force);
+                moveDirection = new Vector3(InputManager.Instance.moveInput.x * 1000f * Time.deltaTime, 0,
+                                            InputManager.Instance.moveInput.y * 1000f * Time.deltaTime);
+
+                rb.AddForce(moveDirection, ForceMode.Force);
+
+                if (moveDirection != Vector3.zero)
+                {
+                    Quaternion rotateTo = Quaternion.LookRotation(moveDirection, Vector3.up);
+
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
+                }
             }
         }
     }
+    void RotateToMove()
+    {
 
+    }
     void Interact()
     {
         if (activeInteraction != null)

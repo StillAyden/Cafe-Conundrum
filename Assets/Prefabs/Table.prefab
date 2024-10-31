@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxUpwardAngle: 45
+  flipped: 1
 --- !u!1 &5997068562778247813
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +229,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.36899996}
-  m_SizeDelta: {x: 1.5, y: 0.1}
+  m_SizeDelta: {x: 1.2, y: 0.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &165059725748485964
 CanvasRenderer:
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31cb63ef58916ea429aa15dfa29425f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1fcf8d93ab81f5748930ca226057e021, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxUpwardAngle: 45
+  flipped: 1
 --- !u!1001 &257898044017059791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,8 +449,8 @@ MonoBehaviour:
   orderTaken: 0
   clearTimerDuration: 5
   tableSprite: {fileID: 677256753608033473}
-  takeOrder: {fileID: 21300000, guid: 70945f3771bf30646903a87d77611f33, type: 3}
-  WaitingForOrder: {fileID: 21300000, guid: 39cd0e4cabdb3714d9ee67c789445ea4, type: 3}
+  takeOrder: {fileID: 21300000, guid: 66a4b3aa6b8671b48875591c1e5c7efe, type: 3}
+  WaitingForOrder: {fileID: 21300000, guid: 781165549ee1bb74e97d875838b9b96b, type: 3}
   SpriteDistance: 2.5
   maxSpriteDistance: 4
   patienceProgressBar: {fileID: 2163949172118032266}

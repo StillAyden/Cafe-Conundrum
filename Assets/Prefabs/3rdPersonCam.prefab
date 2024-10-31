@@ -50,9 +50,9 @@ MonoBehaviour:
   type: 0
   target: {fileID: 0}
   xOffset: 0
-  yOffset: 3.55
-  zOffset: -3.29
-  xEulerRotation: 37.1
+  yOffset: 4.66
+  zOffset: -2.39
+  xEulerRotation: 55.9
   yEulerRotation: 0
   zEulerRotation: 0
   moveSpeed: 10

@@ -3,7 +3,8 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField]private float maxUpwardAngle = 45f;
+    [SerializeField] private float maxUpwardAngle = 45f;
+    [SerializeField] bool flipped = false;
 
     //private
     private Camera mainCamera;
@@ -16,22 +17,44 @@ public class Billboard : MonoBehaviour
 
     void LateUpdate()
     {
-        //sprite face the camera
-        Vector3 directionToCamera = mainCamera.transform.position - transform.position;
-        Quaternion targetRotation = Quaternion.LookRotation(directionToCamera);
-
-        //Get the rotation angles
-        Vector3 targetEulerAngles = targetRotation.eulerAngles;
-
-        //Clamp the upward angle to the maxUpwardAngle
-        if (targetEulerAngles.x > 180f)
+        if (!flipped)
         {
-            targetEulerAngles.x -= 360f; 
-        }
-        targetEulerAngles.x = Mathf.Clamp(targetEulerAngles.x, -maxUpwardAngle, maxUpwardAngle);
+            //sprite face the camera
+            Vector3 directionToCamera = mainCamera.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(directionToCamera);
 
-        // Apply the rotation
-        transform.rotation = Quaternion.Euler(targetEulerAngles.x, targetEulerAngles.y, 0f);
+            //Get the rotation angles
+            Vector3 targetEulerAngles = targetRotation.eulerAngles;
+
+            //Clamp the upward angle to the maxUpwardAngle
+            if (targetEulerAngles.x > 180f)
+            {
+                targetEulerAngles.x -= 360f;
+            }
+            targetEulerAngles.x = Mathf.Clamp(targetEulerAngles.x, -maxUpwardAngle, maxUpwardAngle);
+
+            // Apply the rotation
+            transform.rotation = Quaternion.Euler(targetEulerAngles.x, targetEulerAngles.y, 0f);
+        }
+        else
+        {
+            //sprite face the camera
+            Vector3 directionToCamera = mainCamera.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(-directionToCamera);
+
+            //Get the rotation angles
+            Vector3 targetEulerAngles = targetRotation.eulerAngles;
+
+            //Clamp the upward angle to the maxUpwardAngle
+            if (targetEulerAngles.x > 180f)
+            {
+                targetEulerAngles.x -= 360f;
+            }
+            targetEulerAngles.x = Mathf.Clamp(targetEulerAngles.x, -maxUpwardAngle, maxUpwardAngle);
+
+            // Apply the rotation
+            transform.rotation = Quaternion.Euler(targetEulerAngles.x, targetEulerAngles.y, 0f);
+        }
     }
     #endregion
 }

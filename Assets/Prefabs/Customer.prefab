@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0.35, y: 0.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8677457242435393887
 CanvasRenderer:
@@ -316,7 +316,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: -0.3
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -360,7 +360,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0.35, y: 0.35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &162938776878780634
 CanvasRenderer:
@@ -468,8 +468,6 @@ MonoBehaviour:
   imageDrink: {fileID: 3247258267455256287}
   hasGottenFood: 0
   hasGottenDrink: 0
-  food: {fileID: 11400000, guid: 8f0c34f07804a0248b1f26ad06269f8a, type: 2}
-  drink: {fileID: 11400000, guid: 556e1ceb4f7cf694ab4c4535ae53cfc8, type: 2}
 --- !u!65 &558531065512551877
 BoxCollider:
   m_ObjectHideFlags: 0

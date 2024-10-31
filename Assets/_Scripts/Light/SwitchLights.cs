@@ -11,8 +11,6 @@ public class SwitchLights : MonoBehaviour
 
     private LightmapData[] darkLightmap, brightLightmap;
 
-    public bool lightsOn = true;
-
     private void Start()
     {
         Instance = this;
@@ -48,18 +46,6 @@ public class SwitchLights : MonoBehaviour
 
         brightLightmap = blightmap.ToArray();
 
-    }
-
-    private void OnValidate()
-    {
-        if(lightsOn)
-        {
-            LightsOn();
-        }
-        else
-        {
-            LightsOff();
-        }
     }
 
     public void LightsOn()

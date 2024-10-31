@@ -915,22 +915,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   darkLightmapDir:
-  - {fileID: 2800000, guid: 45588378b7f9d694393e0da9b9c41c47, type: 3}
-  - {fileID: 2800000, guid: 55d37711d11cc664ca54786cfbb7cdf1, type: 3}
-  - {fileID: 2800000, guid: 93e53e58b63f46c44b2889858ef9e879, type: 3}
+  - {fileID: 2800000, guid: 5c7a0e2ca3b088f49ad2d486f95e7848, type: 3}
+  - {fileID: 2800000, guid: 86930a5697906c343affab9c4b96b2d1, type: 3}
+  - {fileID: 2800000, guid: eb93e550b56203f4aa1897b7b6d28121, type: 3}
   darkLightmapColor:
-  - {fileID: 2800000, guid: 04259baa2ba93ab42be1733f9571a1f7, type: 3}
-  - {fileID: 2800000, guid: 8819766c6e082bf49b6fb1a80081875d, type: 3}
-  - {fileID: 2800000, guid: cd90d047bd5f2b14e8c794d1386e40e7, type: 3}
+  - {fileID: 2800000, guid: 34113abc4c2e3a94c9be780dd506f9aa, type: 3}
+  - {fileID: 2800000, guid: 1e4a7bf7b9fdc0e498bf3c236de42420, type: 3}
+  - {fileID: 2800000, guid: 1f4a61d9ad2b00e4fa8c0d1ca8445511, type: 3}
   brightLightmapDir:
-  - {fileID: 2800000, guid: 308c1b538fa05fb41bfbf01d9095e312, type: 3}
-  - {fileID: 2800000, guid: c50ff0c84c0b6cf40a6f3f8cd90efdee, type: 3}
-  - {fileID: 2800000, guid: 10ee6006131c8464f8b51ca122c797f1, type: 3}
+  - {fileID: 2800000, guid: 7dcd24fbd4691c448aa8417fa5957859, type: 3}
+  - {fileID: 2800000, guid: f6b61ac5340dc974aad051e70318340d, type: 3}
+  - {fileID: 2800000, guid: c0b5e367cc0f88345b706aec87bd5374, type: 3}
   brightLightmapColor:
-  - {fileID: 2800000, guid: 10578762cc4ed8c4fbde2c19b593f2e5, type: 3}
-  - {fileID: 2800000, guid: 75294a6b5e9f9c6448e93730fa9e094e, type: 3}
-  - {fileID: 2800000, guid: 3c47d1ce82d7b01469e875d4b25e7551, type: 3}
-  lightsOn: 1
+  - {fileID: 2800000, guid: 5f394446526a9c44197a0e2a51e32e5c, type: 3}
+  - {fileID: 2800000, guid: 901c572cc08a2df4a8d2a4660ca1ae9c, type: 3}
+  - {fileID: 2800000, guid: 628fc340978a3d34e93480b1d224f8cc, type: 3}
 --- !u!1 &1452795126
 GameObject:
   m_ObjectHideFlags: 0

@@ -95,6 +95,8 @@ public class Customer : MonoBehaviour
                 table.TableClearTimer();               
             }
 
+            table.patienceTimer += table.maxPatienceTimer / 10f;    //Add 10% patience, if food is recieved
+
             SetShowFoodSprite(value);
         }
     }
@@ -110,6 +112,8 @@ public class Customer : MonoBehaviour
             {
                 table.TableClearTimer();                
             }
+
+            table.patienceTimer += table.maxPatienceTimer / 7f;    //Add 7% patience, if drink is recieved
 
             SetShowDrinkSprite(value);
         }

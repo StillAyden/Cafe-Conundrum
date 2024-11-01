@@ -60,11 +60,17 @@ public class PlayerController : MonoBehaviour
             }
 
             GetMostRelevantInteraction(); // Update the most relevant interaction
+
+            if(activeInteraction)
+                activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
+        if (activeInteraction)
+            activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(false);
+
         if (col.TryGetComponent<Interactable>(out Interactable interactable))
         {
             if (interactionsInRange.Contains(interactable.gameObject))
@@ -78,10 +84,14 @@ public class PlayerController : MonoBehaviour
             {
                 activeInteraction = null; // Clear activeInteraction if it was the one removed
                 GetMostRelevantInteraction(); // Update the most relevant interaction
+
+                if (activeInteraction)
+                    activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(true);
             }
         }
 
         UIManager.Instance.HideOrderingInterface();
+
     }
     #endregion
 
@@ -454,6 +464,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+
+        
 
         //if (interactionsInRange.Count <= 0)
         //    activeInteraction = null;

@@ -32,8 +32,8 @@ public class Table : Interactable
     [Space]
     [Header("Patience Timer Settings")]
     [SerializeField] private Image patienceProgressBar;
-    private float patienceTimer;
-    private float maxPatienceTimer;
+    public float patienceTimer;
+    public float maxPatienceTimer;
 
     [Space]
     [Header("Progress Bar Colors")]

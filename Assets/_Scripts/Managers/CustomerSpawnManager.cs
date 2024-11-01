@@ -7,8 +7,8 @@ public class CustomerSpawnManager : MonoBehaviour
     private TableManager tableManager; 
 
     [Header("Spawn Settings")]
-    [SerializeField][Range(1,15)] private float minSpawnInterval = 1f;
-    [SerializeField][Range(15, 60)] private float maxSpawnInterval = 5f;
+    [SerializeField][Range(1,60)] private float minSpawnInterval = 1f;
+    [SerializeField][Range(15, 120)] private float maxSpawnInterval = 5f;
     [SerializeField] private int totalCustomers = 10; // Total number of customers to spawn
 
     [Space]

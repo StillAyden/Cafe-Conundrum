@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class UpgradeSystem : Interactable
 {
+    public static UpgradeSystem Instance;
+
     public bool shoesUpgraded = false;
     public bool chefUpgraded = false;
     public bool baristaUpgraded = false;
@@ -14,7 +16,10 @@ public class UpgradeSystem : Interactable
     //public bool sewerageFixed = false;
     //public bool roadFixed = false;
     //public bool refuseRemoved = false;
-
+    private void Awake()
+    {
+        Instance = this;
+    }
     public void UpgradeShoes()
     {
         if (shoesUpgraded == false)
@@ -22,7 +27,7 @@ public class UpgradeSystem : Interactable
             shoesUpgraded = true;
 
             //Increase movement speed
-            GameObject.FindWithTag("Player").GetComponent<PlayerController>().moveSpeed = 300f;
+            GameObject.FindWithTag("Player").GetComponent<PlayerController>().moveSpeed = 250f;
         }
     }
 

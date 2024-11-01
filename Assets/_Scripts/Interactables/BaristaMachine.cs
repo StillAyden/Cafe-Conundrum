@@ -20,6 +20,7 @@ public class BaristaMachine : Interactable
         }
         else if(canCollect && !isPreparing)
         {
+            canCollect = false;
             return GameManager.Instance.drink.items[(int)Drink.Coffee].prefab;
         }
 

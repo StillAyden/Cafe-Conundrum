@@ -294,6 +294,114 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cheats"",
+            ""id"": ""0ea54af5-d678-4ba5-87d3-5624d2e2b8f5"",
+            ""actions"": [
+                {
+                    ""name"": ""TriggerLoadshedding"",
+                    ""type"": ""Button"",
+                    ""id"": ""45dc5929-d74e-423b-b53a-80b18e663e52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActivateGenerator"",
+                    ""type"": ""Button"",
+                    ""id"": ""030917a0-dd8a-438f-8a10-7d05b68a719d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShowUpgrades"",
+                    ""type"": ""Button"",
+                    ""id"": ""54cb36f8-bc68-4664-92a3-49423ef75c02"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HideUpgrades"",
+                    ""type"": ""Button"",
+                    ""id"": ""05f99eb4-2822-4c76-a0ce-cf25cf310661"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TriggerSpeedUpgrade"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b937711-b917-4438-9cea-3b5ae9bef0a0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""878bec2c-07d3-47a6-a72d-b52ad2588883"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerLoadshedding"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6fdb6ec8-11cf-4da9-bfae-69f90a5ea87e"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActivateGenerator"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3a71bbdc-5c99-4f2e-9edc-69950aa59cd3"",
+                    ""path"": ""<Keyboard>/f3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowUpgrades"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28b06363-9828-4c98-b317-37c9428d4053"",
+                    ""path"": ""<Keyboard>/f4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HideUpgrades"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f7a2a8b-2371-44c0-86b2-d2043ffd4d23"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TriggerSpeedUpgrade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -306,6 +414,13 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
+        // Cheats
+        m_Cheats = asset.FindActionMap("Cheats", throwIfNotFound: true);
+        m_Cheats_TriggerLoadshedding = m_Cheats.FindAction("TriggerLoadshedding", throwIfNotFound: true);
+        m_Cheats_ActivateGenerator = m_Cheats.FindAction("ActivateGenerator", throwIfNotFound: true);
+        m_Cheats_ShowUpgrades = m_Cheats.FindAction("ShowUpgrades", throwIfNotFound: true);
+        m_Cheats_HideUpgrades = m_Cheats.FindAction("HideUpgrades", throwIfNotFound: true);
+        m_Cheats_TriggerSpeedUpgrade = m_Cheats.FindAction("TriggerSpeedUpgrade", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -471,6 +586,84 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Cheats
+    private readonly InputActionMap m_Cheats;
+    private List<ICheatsActions> m_CheatsActionsCallbackInterfaces = new List<ICheatsActions>();
+    private readonly InputAction m_Cheats_TriggerLoadshedding;
+    private readonly InputAction m_Cheats_ActivateGenerator;
+    private readonly InputAction m_Cheats_ShowUpgrades;
+    private readonly InputAction m_Cheats_HideUpgrades;
+    private readonly InputAction m_Cheats_TriggerSpeedUpgrade;
+    public struct CheatsActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public CheatsActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TriggerLoadshedding => m_Wrapper.m_Cheats_TriggerLoadshedding;
+        public InputAction @ActivateGenerator => m_Wrapper.m_Cheats_ActivateGenerator;
+        public InputAction @ShowUpgrades => m_Wrapper.m_Cheats_ShowUpgrades;
+        public InputAction @HideUpgrades => m_Wrapper.m_Cheats_HideUpgrades;
+        public InputAction @TriggerSpeedUpgrade => m_Wrapper.m_Cheats_TriggerSpeedUpgrade;
+        public InputActionMap Get() { return m_Wrapper.m_Cheats; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CheatsActions set) { return set.Get(); }
+        public void AddCallbacks(ICheatsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CheatsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Add(instance);
+            @TriggerLoadshedding.started += instance.OnTriggerLoadshedding;
+            @TriggerLoadshedding.performed += instance.OnTriggerLoadshedding;
+            @TriggerLoadshedding.canceled += instance.OnTriggerLoadshedding;
+            @ActivateGenerator.started += instance.OnActivateGenerator;
+            @ActivateGenerator.performed += instance.OnActivateGenerator;
+            @ActivateGenerator.canceled += instance.OnActivateGenerator;
+            @ShowUpgrades.started += instance.OnShowUpgrades;
+            @ShowUpgrades.performed += instance.OnShowUpgrades;
+            @ShowUpgrades.canceled += instance.OnShowUpgrades;
+            @HideUpgrades.started += instance.OnHideUpgrades;
+            @HideUpgrades.performed += instance.OnHideUpgrades;
+            @HideUpgrades.canceled += instance.OnHideUpgrades;
+            @TriggerSpeedUpgrade.started += instance.OnTriggerSpeedUpgrade;
+            @TriggerSpeedUpgrade.performed += instance.OnTriggerSpeedUpgrade;
+            @TriggerSpeedUpgrade.canceled += instance.OnTriggerSpeedUpgrade;
+        }
+
+        private void UnregisterCallbacks(ICheatsActions instance)
+        {
+            @TriggerLoadshedding.started -= instance.OnTriggerLoadshedding;
+            @TriggerLoadshedding.performed -= instance.OnTriggerLoadshedding;
+            @TriggerLoadshedding.canceled -= instance.OnTriggerLoadshedding;
+            @ActivateGenerator.started -= instance.OnActivateGenerator;
+            @ActivateGenerator.performed -= instance.OnActivateGenerator;
+            @ActivateGenerator.canceled -= instance.OnActivateGenerator;
+            @ShowUpgrades.started -= instance.OnShowUpgrades;
+            @ShowUpgrades.performed -= instance.OnShowUpgrades;
+            @ShowUpgrades.canceled -= instance.OnShowUpgrades;
+            @HideUpgrades.started -= instance.OnHideUpgrades;
+            @HideUpgrades.performed -= instance.OnHideUpgrades;
+            @HideUpgrades.canceled -= instance.OnHideUpgrades;
+            @TriggerSpeedUpgrade.started -= instance.OnTriggerSpeedUpgrade;
+            @TriggerSpeedUpgrade.performed -= instance.OnTriggerSpeedUpgrade;
+            @TriggerSpeedUpgrade.canceled -= instance.OnTriggerSpeedUpgrade;
+        }
+
+        public void RemoveCallbacks(ICheatsActions instance)
+        {
+            if (m_Wrapper.m_CheatsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICheatsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CheatsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CheatsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CheatsActions @Cheats => new CheatsActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -480,5 +673,13 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnSelect(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+    }
+    public interface ICheatsActions
+    {
+        void OnTriggerLoadshedding(InputAction.CallbackContext context);
+        void OnActivateGenerator(InputAction.CallbackContext context);
+        void OnShowUpgrades(InputAction.CallbackContext context);
+        void OnHideUpgrades(InputAction.CallbackContext context);
+        void OnTriggerSpeedUpgrade(InputAction.CallbackContext context);
     }
 }

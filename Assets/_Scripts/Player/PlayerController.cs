@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -42,6 +43,11 @@ public class PlayerController : MonoBehaviour
         InputManager.Instance.Interacted += Interact;
     }
 
+    private void FixedUpdate()
+    {
+        Rotate();
+    }
+
     private void Update()
     {
         Move();
@@ -61,14 +67,14 @@ public class PlayerController : MonoBehaviour
 
             GetMostRelevantInteraction(); // Update the most relevant interaction
 
-            if(activeInteraction)
-                activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(true);
+            if(activeInteraction && activeInteraction.transform.GetChild(0)?.GetComponent<Canvas>())
+                activeInteraction.transform.GetChild(0).GetComponent<Canvas>()?.gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
-        if (activeInteraction)
+        if (activeInteraction && activeInteraction.transform.GetChild(0)?.GetComponent<Canvas>())
             activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(false);
 
         if (col.TryGetComponent<Interactable>(out Interactable interactable))
@@ -85,8 +91,8 @@ public class PlayerController : MonoBehaviour
                 activeInteraction = null; // Clear activeInteraction if it was the one removed
                 GetMostRelevantInteraction(); // Update the most relevant interaction
 
-                if (activeInteraction)
-                    activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(true);
+                if (activeInteraction && activeInteraction.transform.GetChild(0)?.GetComponent<Canvas>())
+                    activeInteraction.transform.GetChild(0).GetComponent<Canvas>()?.gameObject.SetActive(true);
             }
         }
 
@@ -94,7 +100,16 @@ public class PlayerController : MonoBehaviour
 
     }
     #endregion
+    void Rotate()
+    {
 
+        if (moveDirection != Vector3.zero)
+        {
+            Quaternion rotateTo = Quaternion.LookRotation(new Vector3(moveDirection.x, 0, moveDirection.z), Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.fixedDeltaTime);
+        }
+    }
     void Move()
     {
         if (!enableSmoothMove)
@@ -105,12 +120,12 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = moveDirection;
 
-            if (moveDirection != Vector3.zero)
-            {
-                Quaternion rotateTo = Quaternion.LookRotation(new Vector3(moveDirection.x, 0, moveDirection.z), Vector3.up);
+            //if (moveDirection != Vector3.zero)
+            //{
+            //    Quaternion rotateTo = Quaternion.LookRotation(new Vector3(moveDirection.x, 0, moveDirection.z), Vector3.up);
 
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
-            }
+            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
+            //}
 
         }
         else if (enableSmoothMove)
@@ -122,18 +137,14 @@ public class PlayerController : MonoBehaviour
 
                 rb.AddForce(moveDirection, ForceMode.Force);
 
-                if (moveDirection != Vector3.zero)
-                {
-                    Quaternion rotateTo = Quaternion.LookRotation(moveDirection, Vector3.up);
+                //if (moveDirection != Vector3.zero)
+                //{
+                //    Quaternion rotateTo = Quaternion.LookRotation(moveDirection, Vector3.up);
 
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
-                }
+                //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
+                //}
             }
         }
-    }
-    void RotateToMove()
-    {
-
     }
     void Interact()
     {

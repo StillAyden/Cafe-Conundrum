@@ -194,7 +194,7 @@ public class Table : Interactable
             GameObject chair = chairs[currentCustomers];
 
             //Spawn customer at chair
-            GameObject obj = Instantiate(customerPrefab, chair.transform.position, Quaternion.identity, this.transform);
+            GameObject obj = Instantiate(customerPrefab, chair.transform.position, chair.transform.rotation, this.transform);
 
             //Add customer to customers List
             Customer cus = obj.GetComponent<Customer>();

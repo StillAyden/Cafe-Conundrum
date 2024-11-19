@@ -13,7 +13,7 @@ public class BaristaMachine : Interactable
 
     public GameObject Interact()
     {
-        if (!canCollect && !isPreparing) 
+        if (!canCollect && !isPreparing && !ConundrumManager.Instance.isLoadshedding) 
         {
             StartCoroutine(StartDrinkPrep());
             return null;

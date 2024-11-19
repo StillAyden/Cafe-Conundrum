@@ -64,21 +64,25 @@ public class UpgradeSystem : Interactable
 
     public void HireBodyguard()
     {
+        ConundrumManager.Instance.isCrimeTriggered = false;
         //Stops thieves
     }
 
     public void FixSewerage()
     {
+        ConundrumManager.Instance.isSewerageProblems = false;
         //Re-enables water supply
     }
 
     public void FixRoad()
     {
+        ConundrumManager.Instance.isRoadBad = false;
         //Customers come faster
     }
 
     public void RemoveRefuse()
     {
+        ConundrumManager.Instance.isRefuseFull = false;
         //Slower patience draining in customers
     }
 

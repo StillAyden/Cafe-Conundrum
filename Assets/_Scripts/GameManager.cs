@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -20,6 +19,12 @@ public class GameManager : MonoBehaviour
     public float roadDurabilty = 1f;
     public float refuseLevel = 0f;
 
+    [Header("Conundrums")]
+    [SerializeField] bool startConundrums = false;
+    Coroutine ConundrumTimerCoroutine;
+    float timePerConundrum = 60f;
+    float timePerConundrumVariance = 10f;
+
     private void Awake()
     {
         Instance = this;
@@ -33,5 +38,66 @@ public class GameManager : MonoBehaviour
         TutorialManager.Instance?.StartDialogue();
         yield return new WaitForSeconds(2f);
         startSpawningCustomers = true;
+
+        //Conundrums
+        TriggerStartOfRoundConundrums();
+        startConundrums = true;
     }
+
+    private void Update()
+    {
+        if (startConundrums && ConundrumTimerCoroutine == null)
+        {
+            ConundrumTimerCoroutine = StartCoroutine(ConundrumTimer());
+        }
+    }
+
+    void TriggerStartOfRoundConundrums()
+    {
+        //Sewerage, Road Maintenance and Refuse
+        float chanceOfSewerage, chanceOfBadRoad, chanceOfRefuse;
+
+        chanceOfSewerage = Random.Range(0, 100);
+        chanceOfBadRoad = Random.Range(0, 100);  
+        chanceOfRefuse = Random.Range(0, 100);   
+
+        if (chanceOfSewerage > 80)  // 20% Chance
+        {
+            ConundrumManager.Instance.TriggerConundrum(ConundrumTypes.Sewerage);
+        }
+        
+        if (chanceOfBadRoad > 75)   // 25% Chance
+        {
+            ConundrumManager.Instance.TriggerConundrum(ConundrumTypes.RoadMaintenance);
+        }
+
+        if (chanceOfRefuse > 60)    // 40% Chance
+        {
+            ConundrumManager.Instance.TriggerConundrum(ConundrumTypes.RefuseRemoval);
+        }
+    }
+
+    IEnumerator ConundrumTimer()
+    {
+        float time = Random.Range(timePerConundrum - timePerConundrumVariance, timePerConundrum + timePerConundrumVariance);
+
+        yield return new WaitForSeconds(time);
+
+        //Loadshedding, Water Shortage and Crime
+        int randomConundum = Random.Range(0, 3);
+
+        switch(randomConundum)
+        {
+            case 0: ConundrumManager.Instance.TriggerConundrum(ConundrumTypes.LoadShedding);
+                break;
+            case 1: ConundrumManager.Instance.TriggerConundrum(ConundrumTypes.WaterShortage);
+                break;
+            case 2: ConundrumManager.Instance.TriggerConundrum(ConundrumTypes.Crime);
+                break;
+            default: break;
+        }
+
+        ConundrumTimerCoroutine = null;
+    }
+
 }

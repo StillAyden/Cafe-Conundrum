@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class WaterDispensor : Interactable
 {
     private void Awake()
@@ -10,6 +12,17 @@ public class WaterDispensor : Interactable
     {
         GameManager.Instance.hasWaterDispensor = false;
     }
+
+    #region Functions
+
+    public void RefillWater()
+    {
+        BaristaMachine baristaMachine = GameObject.FindFirstObjectByType<BaristaMachine>();
+
+        baristaMachine.RefillWater();
+    }
+
+    #endregion
 
     #region Upgrade
 

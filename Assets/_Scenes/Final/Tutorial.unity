@@ -2506,10 +2506,10 @@ Light:
   m_GameObject: {fileID: 730052186}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 2
+  m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.6
+  m_Intensity: 0.79
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2548,7 +2548,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2567,19 +2567,69 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730052186}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.83, y: 1.851, z: -3.1281247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &785575921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6796116248111363557, guid: b4a64bb4a0c02fb4887aa427e827c6b6,
     type: 3}
   m_PrefabInstance: {fileID: 4925630253263073965}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &852514112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 852514113}
+  - component: {fileID: 852514114}
+  m_Layer: 0
+  m_Name: ConundrumManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &852514113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852514112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1654003954}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &852514114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852514112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64ef45a2877da84a89c8f9a12581411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoadshedding: 0
+  isWaterShortage: 0
+  isSewerageProblems: 0
+  isRoadBad: 0
+  isCrimeTriggered: 0
+  isRefuseFull: 0
 --- !u!1001 &919073704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5005,6 +5055,7 @@ Transform:
   m_Children:
   - {fileID: 2133802579}
   - {fileID: 1254356669}
+  - {fileID: 852514113}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1654003955
@@ -5027,6 +5078,7 @@ MonoBehaviour:
   isSewerageProblem: 0
   roadDurabilty: 1
   refuseLevel: 0
+  startConundrums: 0
 --- !u!114 &1654003956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7021,6 +7073,24 @@ MonoBehaviour:
   totalCustomers: 10
   customerPrefab: {fileID: 8734203729337020057, guid: 037c3ea5d9b6e904986584426909fea6,
     type: 3}
+--- !u!1 &2134689621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4774878643314851018, guid: b4a64bb4a0c02fb4887aa427e827c6b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4925630253263073965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2134689623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134689621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24170dbf0e7b4314abdb0f020d421520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2144961568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8043529586248411090, guid: b4a64bb4a0c02fb4887aa427e827c6b6,
@@ -7313,6 +7383,10 @@ PrefabInstance:
       insertIndex: 0
       addedObject: {fileID: 673766930}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4774878643314851018, guid: b4a64bb4a0c02fb4887aa427e827c6b6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2134689623}
     - targetCorrespondingSourceObject: {fileID: 3269226012656736735, guid: b4a64bb4a0c02fb4887aa427e827c6b6,
         type: 3}
       insertIndex: -1

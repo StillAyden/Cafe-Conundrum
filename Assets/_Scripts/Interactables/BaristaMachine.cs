@@ -36,14 +36,10 @@ public class BaristaMachine : Interactable
 
     public GameObject Interact()
     {
+
         // Determine if we have power
         bool hasPower = !GameManager.Instance.isLoadshedding || GameManager.Instance.hasGenerator;
         if (!hasPower)
-        {
-            // No power, cannot interact
-            Debug.Log("No power available.");
-            return null;
-        }
 
         // Checks if we need to check water levels
         bool needWater = GameManager.Instance.isWaterShortage;

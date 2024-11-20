@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +16,8 @@ public class GameManager : MonoBehaviour
     public bool isLoadshedding = false;
     public bool isWaterShortage = false;
     public bool isSewerageProblem = false;
+    public bool hasGenerator = false;
+    public bool hasWaterDispensor = false;
     public float roadDurabilty = 1f;
     public float refuseLevel = 0f;
 
@@ -26,8 +27,6 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
-        //Debug.unityLogger.logEnabled = false;                 //Uncomment to disable all "Debug.Log()"
-
         UX_Fade.Instance?.FadeIn();
         yield return new WaitForSeconds(2f);
         TutorialManager.Instance?.StartDialogue();

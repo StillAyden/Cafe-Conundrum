@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class UpgradeSystem : Interactable
 {
@@ -12,6 +9,7 @@ public class UpgradeSystem : Interactable
     public bool baristaUpgraded = false;
     public bool sodaMachineUpgraded = false;
     public bool generatorUpgraded = false;
+    public bool waterDispensorUpgraded = false;
     public bool bodyguardHired = false;
     //public bool sewerageFixed = false;
     //public bool roadFixed = false;
@@ -22,7 +20,7 @@ public class UpgradeSystem : Interactable
     }
     public void UpgradeShoes()
     {
-        if (shoesUpgraded == false)
+        if (!shoesUpgraded)
         {
             shoesUpgraded = true;
 
@@ -33,7 +31,7 @@ public class UpgradeSystem : Interactable
 
     public void UpgradeChef()
     {
-        if (chefUpgraded == false)
+        if (!chefUpgraded)
         {
             chefUpgraded = true;
 
@@ -44,22 +42,49 @@ public class UpgradeSystem : Interactable
 
     public void UpgradeBaristaMachine()
     {
-        //Faster Hot Drinks Preparation (and Larger water capacity?)
+        if(!baristaUpgraded)
+        {
+            baristaUpgraded= true;
+
+            BaristaMachine baristaMachine = GameObject.FindFirstObjectByType<BaristaMachine>();
+
+            baristaMachine.UpgradeBarista();
+        }
     }
 
     public void UpgradeSodaMachine()
     {
-        //Faster Cold Drinks Preparation (and Larger water capacity?)
-    }
+        if (!sodaMachineUpgraded)
+        {
+            sodaMachineUpgraded = true;
 
+            MiniFridge miniFridge = GameObject.FindFirstObjectByType<MiniFridge>();
+
+            miniFridge.UpgradeMiniFridge();
+        }
+    }
     public void PurchaseGenerator()
     {
-        //Allows power when loadshedding occurs
+        if (!generatorUpgraded)
+        {
+            generatorUpgraded = true;
+
+            Generator generator = GameObject.FindFirstObjectByType<Generator>();
+
+            generator.BuyGenerator();
+        }
     }
 
     public void PurchaseWaterDispenser()
     {
-        //Allows water when there is a water shortage
+        if (!waterDispensorUpgraded)
+        {
+            waterDispensorUpgraded = true;
+
+            WaterDispensor waterDispensor = GameObject.FindFirstObjectByType<WaterDispensor>();
+
+            waterDispensor.BuyWaterDispensor();
+        }
     }
 
     public void HireBodyguard()

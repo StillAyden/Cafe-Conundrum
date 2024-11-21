@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<OrderingSystem>())
             {
-                SoundManager.PlaySound(SoundType.CASH_REGISTER, SoundMode.VFX, this.transform.position, 1);
+                SoundManager.PlaySound(SoundType.CASH_REGISTER, SoundMode.VFX, this.transform.position);
                 //Debug.Log("Interacting with POS system");
                 if (UIManager.Instance.isOrderingInterfaceActive == false)
                 {

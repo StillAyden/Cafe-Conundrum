@@ -20,7 +20,7 @@ public class SettingsManager : MonoBehaviour
     {
         ApplyGameplaySettings();
         ApplyGraphicsSettings();
-        //ApplyAudioSettings();
+        ApplyAudioSettings();
     }
 
     void ApplyGameplaySettings()
@@ -67,16 +67,16 @@ public class SettingsManager : MonoBehaviour
     void ApplyAudioSettings()
     {
         // Assume you have an AudioMixer with exposed parameters
-        AudioMixer audioMixer = Resources.Load<AudioMixer>("MainAudioMixer"); // Replace with your AudioMixer path Kat
+        //AudioMixer audioMixer = Resources.Load<AudioMixer>("MainAudioMixer"); // Replace with your AudioMixer path Kat
 
         // Convert volume from linear [0,1] to logarithmic [-80dB, 0dB]
-        float masterVolume = Mathf.Log10(gameSettings.masterVolume) * 20;
-        float musicVolume = Mathf.Log10(gameSettings.musicVolume) * 20;
-        float sfxVolume = Mathf.Log10(gameSettings.sfxVolume) * 20;
+        //float masterVolume = Mathf.Log10(gameSettings.masterVolume) * 20;
+        //float musicVolume = Mathf.Log10(gameSettings.musicVolume) * 20;
+        //float sfxVolume = Mathf.Log10(gameSettings.sfxVolume) * 20;
 
-        audioMixer.SetFloat("MasterVolume", masterVolume);
-        audioMixer.SetFloat("MusicVolume", musicVolume);
-        audioMixer.SetFloat("SFXVolume", sfxVolume);
+        //audioMixer.SetFloat("MasterVolume", masterVolume);
+        //audioMixer.SetFloat("MusicVolume", musicVolume);
+        //audioMixer.SetFloat("SFXVolume", sfxVolume);
     }
 
     RefreshRate FindRefreshRate(int desiredRefreshRateValue, int width, int height)

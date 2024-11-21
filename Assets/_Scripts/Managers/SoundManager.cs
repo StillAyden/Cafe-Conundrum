@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -28,6 +26,7 @@ public enum SoundMode {Music, VFX }
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
 public class SoundManager : MonoBehaviour
 {
+    [SerializeField] private GameSettings gameSettings;
     [SerializeField] private SoundList[] soundList;
     private static SoundManager instance;
     private AudioSource audioSource;
@@ -39,12 +38,15 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public static void PlaySound(SoundType sound, SoundMode mode, Vector3 position, float volume = 1)
+    public static void PlaySound(SoundType sound, SoundMode mode, Vector3 position)
     {
+        // Calculate the final volume using the new GetAdjustedVolume method
+        float adjustedVolume = instance.GetAdjustedVolume(mode);
+
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;  
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
         //instance.audioSource.PlayOneShot(randomClip, volume);
-        AudioSource.PlayClipAtPoint(randomClip, position, volume);
+        AudioSource.PlayClipAtPoint(randomClip, position, adjustedVolume);
     }
 
 #if UNITY_EDITOR
@@ -61,6 +63,14 @@ public class SoundManager : MonoBehaviour
     }
 
 #endif
+
+    private float GetAdjustedVolume(SoundMode mode)
+    {
+        float baseVolume = mode == SoundMode.VFX ? gameSettings.sfxVolume : gameSettings.musicVolume;
+
+        // Final adjusted volume considering master volume
+        return  baseVolume * gameSettings.masterVolume;
+    }
 }
 
 [Serializable]

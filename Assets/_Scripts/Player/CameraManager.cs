@@ -18,6 +18,9 @@ public class CameraManager : MonoBehaviour
     [SerializeField] float zEulerRotation = 0;
     [Space]
     [SerializeField] float moveSpeed = 10f;
+
+    public GameSettings gameSettings;
+
     private void Awake()
     {
         cam = GetComponent<Camera>();
@@ -29,6 +32,8 @@ public class CameraManager : MonoBehaviour
             FollowCam();
         else if (type == CamTypes.LookAt)
             LookAtCam();
+
+        cam.fieldOfView = gameSettings.fieldOfView;
     }
 
     void FollowCam()

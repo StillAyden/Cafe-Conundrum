@@ -258,6 +258,13 @@ public class Table : Interactable
         patienceTimer = maxPatienceTimer;
         isPatienceTimerRunning = true;
         patienceProgressBar.gameObject.SetActive(true); // Show progress bar
+
+        if (ConundrumManager.Instance.isRefuseFull)
+        {
+            maxPatienceTimer /= 0.6f;
+            patienceTimer = maxPatienceTimer;
+        }
+
         StartCoroutine(PatienceTimerCoroutine());
     }
 

@@ -52,8 +52,13 @@ public class CustomerSpawnManager : MonoBehaviour
 
     private void ResetSpawnTimer()
     {
-        spawnTimer = Random.Range(minSpawnInterval, maxSpawnInterval);
-       // Debug.Log("Timer: "+spawnTimer);
+        if (ConundrumManager.Instance.isRoadBad)
+        {
+            spawnTimer = Random.Range(minSpawnInterval * 3, maxSpawnInterval * 3);
+        }
+        else spawnTimer = Random.Range(minSpawnInterval, maxSpawnInterval);
+
+        // Debug.Log("Timer: "+spawnTimer);
     }
 
     private IEnumerator SpawnCustomer()

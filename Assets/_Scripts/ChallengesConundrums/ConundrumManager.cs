@@ -63,6 +63,7 @@ public class ConundrumManager : MonoBehaviour
     {
         isLoadshedding = true;
         SwitchLights.Instance.LightsOff();
+        NotificationManager.Instance.ShowNotification("Loadshedding is Currently Active!");
         Debug.LogWarning("Power will turn OFF in x minutes: Pre-prepare food and hot drinks");
         //Trigger UI Indication
     }
@@ -70,6 +71,7 @@ public class ConundrumManager : MonoBehaviour
     private void StartWaterShortage()
     {
         isWaterShortage = true;
+        NotificationManager.Instance.ShowNotification("There is currently a water shortage!");
         Debug.LogWarning("No Water: Water Dispenser must be purchased");
         //Trigger "BREAKING NEWS: WATER SHORTAGE IN ** AREA" (Trigger UI Indication)
     }
@@ -77,6 +79,7 @@ public class ConundrumManager : MonoBehaviour
     private void StartSewerageProblems()
     {
         isSewerageProblems = true;
+        NotificationManager.Instance.ShowNotification("Sewerage Not in working order: Customer Satisfaction Reduced Dramatically!");
         Debug.LogWarning("Sewerage Not in working order: Customer Satisfaction Reduced Dramatically!");
         //Trigger "BREAKING NEWS: SEWERAGE LINE BURST IN ** AREA"(Trigger UI Indication)
     }
@@ -84,6 +87,7 @@ public class ConundrumManager : MonoBehaviour
     private void StartRoadMainenance()
     {
         isRoadBad = true;
+        NotificationManager.Instance.ShowNotification("Road not up to standard: Less customers will begin to arrive!");
         Debug.LogWarning("Road not up to standard: Less customers will begin to arrive!");
         //Trigger UI Indication
     }
@@ -91,6 +95,7 @@ public class ConundrumManager : MonoBehaviour
     private void StartCrime()
     {
         isCrimeTriggered = true;
+        NotificationManager.Instance.ShowNotification("Criminal in the area! Watch your tips!!");
         Debug.LogWarning("Criminal in the area! Watch your tips!!");
         //Trigger "CRIMINAL AUDIO CUE" (Trigger UI Indication)
     }
@@ -98,6 +103,7 @@ public class ConundrumManager : MonoBehaviour
     private void StartRefuseFull()
     {
         isRefuseFull = true;
+        NotificationManager.Instance.ShowNotification("Waste Content High: Customer Patience Reduced Dramatically!");
         Debug.LogWarning("Waste Content High: Customer Patience Reduced Dramatically!");
         //Trigger UI Indication
     }

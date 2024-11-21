@@ -66,6 +66,10 @@ public class Table : Interactable
     [SerializeField] float satisfactionTime = 0f;
     [SerializeField] float satisfactionModifier;
 
+    [Space]
+    [Header("Money Prefab")]
+    [SerializeField] private GameObject money;
+
     private bool isPatienceTimerRunning = false;
     private TableManager tableManager;
 
@@ -143,7 +147,9 @@ public class Table : Interactable
 
         // Add rewards
         ReputationManager.Instance?.AddReputation(reputationReward);
-        CurrencyManager.Instance?.AddCurrency(currencyReward);
+        //CurrencyManager.Instance?.AddCurrency(currencyReward);
+        GameObject moneyObj = Instantiate(money,this.gameObject.transform.position + new Vector3(0, 1.1f, 0), Quaternion.identity);
+        moneyObj.GetComponent<moneyAmount>().moneyAmout = currencyReward;
 
         // Clear the list of customers & Reset the customer count
         customers.Clear();

@@ -560,6 +560,10 @@ MonoBehaviour:
   reputationRewardMax: 5
   currencyRewardMin: 10
   currencyRewardMax: 50
+  satisfaction: 0
+  satisfactionTime: 0
+  satisfactionModifier: 0
+  money: {fileID: 7713908547593328522, guid: 209254167cd985343bb586f0f78595a4, type: 3}
 --- !u!135 &2899896583824580984
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ TagManager:
   - Interactable
   - Table
   - Chair
+  - Thief
   layers:
   - Default
   - TransparentFX

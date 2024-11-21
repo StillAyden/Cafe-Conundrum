@@ -23,24 +23,23 @@ public enum SoundType
 
 }
 
+public enum SoundMode {Music, VFX }
+
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private SoundList[] soundList;
     private static SoundManager instance;
-    //private AudioSource audioSource;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
-    private void Start()
-    {
-        //audioSource = GetComponent<AudioSource>();
-    }
 
-    public static void PlaySound(SoundType sound, Vector3 position, float volume = 1)
+    public static void PlaySound(SoundType sound, SoundMode mode, Vector3 position, float volume = 1)
     {
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;  
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];

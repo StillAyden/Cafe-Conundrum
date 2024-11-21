@@ -194,7 +194,10 @@ public class Table : Interactable
             GameObject chair = chairs[currentCustomers];
 
             //Spawn customer at chair
-            GameObject obj = Instantiate(customerPrefab, (chair.transform.position + new Vector3(0, 0.388f,0f)), chair.transform.rotation, this.transform);
+            GameObject obj = Instantiate(customerPrefab, (chair.transform.position + new Vector3(0, 0.388f,0f)), Quaternion.identity, this.transform);
+
+            // Set the customer's rotation to match the chair's rotation
+            obj.transform.rotation = chair.transform.rotation;
 
             //Add customer to customers List
             Customer cus = obj.GetComponent<Customer>();

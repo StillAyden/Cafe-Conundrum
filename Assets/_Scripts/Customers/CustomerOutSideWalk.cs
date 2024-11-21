@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomerOutSideWalk : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Customer Prefab")]
+    [SerializeField] public GameObject customer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Paths Prefab")]
+    [SerializeField] public Transform[] customerPath1;
+    [SerializeField] public Transform[] customerPath2;
 }

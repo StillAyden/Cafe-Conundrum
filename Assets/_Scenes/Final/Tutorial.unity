@@ -7071,8 +7071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99ad3c99aa453c488b8f892de0b44ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpawnInterval: 8.3
-  maxSpawnInterval: 41.9
+  minSpawnInterval: 1
+  maxSpawnInterval: 15
   totalCustomers: 10
   customerPrefab: {fileID: 8734203729337020057, guid: 625aee1b245f27148a00349a010bd1f2,
     type: 3}

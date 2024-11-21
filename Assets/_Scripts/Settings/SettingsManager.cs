@@ -20,7 +20,7 @@ public class SettingsManager : MonoBehaviour
     {
         ApplyGameplaySettings();
         ApplyGraphicsSettings();
-        ApplyAudioSettings();
+        //ApplyAudioSettings();
     }
 
     void ApplyGameplaySettings()

@@ -215,7 +215,7 @@ public class Table : Interactable
             obj.transform.rotation = rotationToTable;
 
             // Now parent the customer to the chair
-            //obj.transform.SetParent(chair.transform, true);
+            obj.transform.parent = this.transform;
 
             //Add customer to customers List
             Customer cus = obj.GetComponent<Customer>();

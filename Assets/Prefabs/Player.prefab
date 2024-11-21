@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableSmoothMove: 0
-  moveSpeed: 200
-  rotateSpeed: 700
+  moveSpeed: 150
+  rotateSpeed: 1000
   interactionsInRange: []
   activeInteraction: {fileID: 0}
   isHoldingItem: 0

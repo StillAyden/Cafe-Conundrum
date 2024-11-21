@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ReputationManager : MonoBehaviour
@@ -103,7 +102,7 @@ public class ReputationManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);        //[Ayden] Going to cause problems later on
     }
 
     #endregion

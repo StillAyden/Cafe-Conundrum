@@ -64,40 +64,42 @@ public class ConundrumManager : MonoBehaviour
         isLoadshedding = true;
         SwitchLights.Instance.LightsOff();
         Debug.LogWarning("Power will turn OFF in x minutes: Pre-prepare food and hot drinks");
-        throw new NotImplementedException();
+        //Trigger UI Indication
     }
 
     private void StartWaterShortage()
     {
         isWaterShortage = true;
-        //Trigger "BREAKING NEWS: WATER SHORTAGE IN ** AREA"
         Debug.LogWarning("No Water: Water Dispenser must be purchased");
+        //Trigger "BREAKING NEWS: WATER SHORTAGE IN ** AREA" (Trigger UI Indication)
     }
 
     private void StartSewerageProblems()
     {
         isSewerageProblems = true;
-        //Trigger "BREAKING NEWS: SEWERAGE LINE BURST IN ** AREA"
         Debug.LogWarning("Sewerage Not in working order: Customer Satisfaction Reduced Dramatically!");
+        //Trigger "BREAKING NEWS: SEWERAGE LINE BURST IN ** AREA"(Trigger UI Indication)
     }
 
     private void StartRoadMainenance()
     {
         isRoadBad = true;
         Debug.LogWarning("Road not up to standard: Less customers will begin to arrive!");
+        //Trigger UI Indication
     }
 
     private void StartCrime()
     {
         isCrimeTriggered = true;
-        //Trigger "CRIMINAL AUDIO CUE"
         Debug.LogWarning("Criminal in the area! Watch your tips!!");
+        //Trigger "CRIMINAL AUDIO CUE" (Trigger UI Indication)
     }
 
     private void StartRefuseFull()
     {
         isRefuseFull = true;
         Debug.LogWarning("Waste Content High: Customer Patience Reduced Dramatically!");
+        //Trigger UI Indication
     }
 
 }

@@ -12,10 +12,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] Canvas OrderingInterface;
     [SerializeField] Canvas UpgradesInterface;
 
+    [Header("Reputation")]
+    [SerializeField] Image imgRepBar;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Update()
+    {
+        UpdateReputationBar();
     }
 
     #region Ordering Interface
@@ -59,6 +66,13 @@ public class UIManager : MonoBehaviour
             isOrderingInterfaceActive = false;
         }
         else Debug.LogWarning("Could not find Upgrades Canvas!");
+    }
+    #endregion
+
+    #region Reputation
+    void UpdateReputationBar()
+    {
+        imgRepBar.fillAmount = ReputationManager.Instance.GetReputation() / 100;
     }
     #endregion
 }

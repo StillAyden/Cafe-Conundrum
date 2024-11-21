@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Generator : MonoBehaviour
+public class Generator : Interactable
 {
     private void Awake()
     {
@@ -10,6 +10,12 @@ public class Generator : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.hasGenerator = false;
+    }
+
+    public void Interact()
+    {
+        ConundrumManager.Instance.isLoadshedding = false;
+        SwitchLights.Instance.LightsOn();
     }
 
     #region Upgrade

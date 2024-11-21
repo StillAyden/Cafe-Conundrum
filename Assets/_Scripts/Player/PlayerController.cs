@@ -3,10 +3,8 @@
  *  This script controls all of the movement and interaction from the player
  */
 
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -57,7 +55,7 @@ public class PlayerController : MonoBehaviour
     #region OnTrigger Events
     private void OnTriggerEnter(Collider col)
     {
-        if (col.TryGetComponent<Interactable>(out Interactable interactable))
+        if (col.TryGetComponent(out Interactable interactable))
         {
             if (!interactionsInRange.Contains(interactable.gameObject))
             {
@@ -77,7 +75,8 @@ public class PlayerController : MonoBehaviour
         if (activeInteraction && activeInteraction.transform.GetChild(0)?.GetComponent<Canvas>())
             activeInteraction.transform.GetChild(0).GetComponent<Canvas>().gameObject.SetActive(false);
 
-        if (col.TryGetComponent<Interactable>(out Interactable interactable))
+
+        if (col.TryGetComponent(out Interactable interactable))
         {
             if (interactionsInRange.Contains(interactable.gameObject))
             {
@@ -120,13 +119,6 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = moveDirection;
 
-            //if (moveDirection != Vector3.zero)
-            //{
-            //    Quaternion rotateTo = Quaternion.LookRotation(new Vector3(moveDirection.x, 0, moveDirection.z), Vector3.up);
-
-            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
-            //}
-
         }
         else if (enableSmoothMove)
         {
@@ -136,13 +128,6 @@ public class PlayerController : MonoBehaviour
                                             InputManager.Instance.moveInput.y * 1000f * Time.deltaTime);
 
                 rb.AddForce(moveDirection, ForceMode.Force);
-
-                //if (moveDirection != Vector3.zero)
-                //{
-                //    Quaternion rotateTo = Quaternion.LookRotation(moveDirection, Vector3.up);
-
-                //    transform.rotation = Quaternion.RotateTowards(transform.rotation, rotateTo, rotateSpeed * Time.deltaTime);
-                //}
             }
         }
     }
@@ -465,6 +450,16 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
                 else if (interactionsInRange[k].GetComponent<Telephone>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<Generator>())
+                {
+                    activeInteraction = interactionsInRange[k];
+                    break;
+                }
+                else if (interactionsInRange[k].GetComponent<WaterDispenser>())
                 {
                     activeInteraction = interactionsInRange[k];
                     break;

@@ -60,6 +60,12 @@ public class Table : Interactable
     [SerializeField][Range(1f, 100f)] private int currencyRewardMin = 10;
     [SerializeField][Range(1f, 100f)] private int currencyRewardMax = 50;
 
+    [Space]
+    [Header("Customer/Table Satisfaction")]
+    [SerializeField] float satisfaction = 0f;
+    [SerializeField] float satisfactionTime = 0f;
+    [SerializeField] float satisfactionModifier;
+
     private bool isPatienceTimerRunning = false;
     private TableManager tableManager;
 
@@ -118,6 +124,7 @@ public class Table : Interactable
                 return false; // Return false if any customer is not done eating
             }
         }
+        CalculateCustomerSatisfaction(patienceTimer);
 
         int customerCount = customers.Count;
 
@@ -132,7 +139,7 @@ public class Table : Interactable
 
         // Calculate rewards
         int reputationReward = Random.Range(reputationRewardMin, reputationRewardMax + 1) * customerCount;
-        int currencyReward = Random.Range(currencyRewardMin, currencyRewardMax + 1) * customerCount;
+        int currencyReward = Mathf.RoundToInt(Random.Range(currencyRewardMin, currencyRewardMax + 1) * customerCount * satisfaction);
 
         // Add rewards
         ReputationManager.Instance?.AddReputation(reputationReward);
@@ -290,7 +297,7 @@ public class Table : Interactable
         }
 
         if (patienceTimer <= 0f)
-        {
+        { 
             // Timer ran out
             isPatienceTimerRunning = false;
             ForceClearTable();
@@ -299,6 +306,26 @@ public class Table : Interactable
             int penalty = Random.Range(reputationPenaltyMin, reputationPenaltyMax + 1);
             ReputationManager.Instance.RemoveReputation(penalty);
         }
+    }
+
+    void CalculateCustomerSatisfaction(float patienceTimer)
+    {
+        satisfactionTime = patienceTimer/maxPatienceTimer;
+
+        satisfactionModifier = 10f;
+        if (ConundrumManager.Instance.isLoadshedding)
+            satisfactionModifier -= 2f;   
+        
+        if (ConundrumManager.Instance.isRefuseFull)
+            satisfactionModifier -= 2f;
+        
+        if (ConundrumManager.Instance.isWaterShortage)
+            satisfactionModifier -= 1f;
+
+        if (ConundrumManager.Instance.isSewerageProblems)
+            satisfactionModifier -= 5f;
+
+        satisfaction = (satisfactionTime * satisfactionModifier) / 10;      // [0-1] * [1-10] 
     }
 
     #endregion

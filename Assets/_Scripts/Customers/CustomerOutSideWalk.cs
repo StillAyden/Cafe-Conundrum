@@ -8,4 +8,6 @@ public class CustomerOutSideWalk : MonoBehaviour
     [Header("Paths Prefab")]
     [SerializeField] public Transform[] customerPath1;
     [SerializeField] public Transform[] customerPath2;
+
+
 }

@@ -10,6 +10,9 @@ public class moneyAmount : MonoBehaviour
         {
             CurrencyManager.Instance?.AddCurrency(moneyAmout);
             Destroy(this.gameObject);
+
+            if (TutorialEvents.Instance)
+                TutorialEvents.Instance.collectTipTrigger = true;
         }
         else if(other.CompareTag("Thief"))
         {

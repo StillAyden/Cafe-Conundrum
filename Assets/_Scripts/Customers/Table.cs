@@ -125,6 +125,9 @@ public class Table : Interactable
         {
             if (cus != null && (!cus.HasGottenFood || !cus.HasGottenDrink))
             {
+                if (TutorialEvents.Instance)
+                    TutorialEvents.Instance.finishServingTrigger = true;
+
                 return false; // Return false if any customer is not done eating
             }
         }

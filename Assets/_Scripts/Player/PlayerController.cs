@@ -152,6 +152,9 @@ public class PlayerController : MonoBehaviour
                 if (!isHoldingItem)
                 {
                     PickupItem(activeInteraction);
+
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.getOrderTrigger = true;
                 }
             }
 
@@ -172,11 +175,20 @@ public class PlayerController : MonoBehaviour
                 if (isHoldingItem)
                 {
                     DeliverOrder(table);
+
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.serveDrinkTrigger = true;
+
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.deliverOrderTrigger = true;
                 }
                 else
                 {
                     table.IsOrderTaken = true; // Take the order at the table if not holding any item
                     Debug.Log("Order taken at the table!");
+
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.goToTableTrigger = true;
                 }
             }
 
@@ -187,8 +199,15 @@ public class PlayerController : MonoBehaviour
                 if (UIManager.Instance.isOrderingInterfaceActive == false)
                 {
                     UIManager.Instance.ShowOrderingInterface();
+
                 }
-                else UIManager.Instance.HideOrderingInterface();
+                else
+                {
+                    UIManager.Instance.HideOrderingInterface();
+                    
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.goToPOSSystemTrigger = true;
+                }
             }
 
             if (activeInteraction.GetComponent<Dustbin>())
@@ -213,6 +232,9 @@ public class PlayerController : MonoBehaviour
                 {
                     //GetItem(GameManager.Instance.drink.items[(int)Drink.Coffee].prefab);
                     GetItem(activeInteraction.GetComponent<BaristaMachine>().Interact());
+                    
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.getCustomerDrinkTrigger = true;
                 }
             }
 
@@ -221,6 +243,9 @@ public class PlayerController : MonoBehaviour
                 if (!isHoldingItem)
                 {
                     GetItem(activeInteraction.GetComponent<MiniFridge>().Interact());
+
+                    if (TutorialEvents.Instance)
+                        TutorialEvents.Instance.getCustomerDrinkTrigger = true;
                 }
             }
 

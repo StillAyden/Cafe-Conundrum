@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CustomeCharacter : MonoBehaviour
@@ -24,26 +25,26 @@ public class CustomeCharacter : MonoBehaviour
         if (Random.Range(0,2) == 0)
         {
             //Body
-            body = Instantiate(characterBody_1, this.transform.position, Quaternion.identity, this.transform);
+            body = Instantiate(characterBody_1, this.transform.position, this.transform.localRotation, this.transform);
 
             //Style
-            Instantiate(character_1_Styles[Random.Range(0, character_1_Styles.Length)],this.transform.position,Quaternion.identity,this.transform);
+            Instantiate(character_1_Styles[Random.Range(0, character_1_Styles.Length)],this.transform.position, this.transform.localRotation, this.transform);
 
             //Hat
             hatPivot = body.transform.GetChild(0);
-            Instantiate(character_Hats[Random.Range(0, character_Hats.Length)], hatPivot.position, Quaternion.identity, this.transform);
+            Instantiate(character_Hats[Random.Range(0, character_Hats.Length)], hatPivot.position, this.transform.localRotation, this.transform);
         }
         else
         {
             //Body
-            body = Instantiate(characterBody_2, this.transform.position, Quaternion.identity, this.transform);
+            body = Instantiate(characterBody_2, this.transform.position, this.transform.localRotation, this.transform);
 
             //Style
-            Instantiate(character_2_Styles[Random.Range(0, character_2_Styles.Length)], this.transform.position, Quaternion.identity, this.transform);
+            Instantiate(character_2_Styles[Random.Range(0, character_2_Styles.Length)], this.transform.position, this.transform.localRotation, this.transform);
 
             //Hat
             hatPivot = body.transform.GetChild(0);
-            Instantiate(character_Hats[Random.Range(0, character_Hats.Length)], hatPivot.position, Quaternion.identity, this.transform);
+            Instantiate(character_Hats[Random.Range(0, character_Hats.Length)], hatPivot.position, this.transform.localRotation, this.transform);
         }
 
 

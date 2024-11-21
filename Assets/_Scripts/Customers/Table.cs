@@ -194,26 +194,21 @@ public class Table : Interactable
             GameObject chair = chairs[currentCustomers];
 
             // Calculate spawn position offset
-            Vector3 spawnPosition = chair.transform.position + new Vector3(0f, 0.388f, 0f);
+            Vector3 spawnPosition = chair.gameObject.transform.position + new Vector3(0f, 0.388f, 0f);
 
             // Instantiate the customer at the spawn position without a parent
             GameObject obj = Instantiate(customerPrefab, spawnPosition, Quaternion.identity);
 
             // Calculate direction from the customer's position to the table's position
-            Vector3 direction = this.transform.position - obj.transform.position;
+            Vector3 directionToTable = this.transform.position - obj.transform.position;
+            directionToTable.y = 0f; // Zero out the Y component to prevent tilting
 
-            // Rotate customer to face the direction of table
-            if (direction != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(direction);
-                obj.transform.rotation = targetRotation;
-            }
-            else
-            {
-                obj.transform.rotation = Quaternion.identity;
-            }
+            // Rotate the customer to face the table
+            Quaternion rotationToTable = Quaternion.LookRotation(directionToTable);
+            obj.transform.rotation = rotationToTable;
 
-            obj.transform.parent = chair.transform;
+            // Now parent the customer to the chair
+            //obj.transform.SetParent(chair.transform, true);
 
             //Add customer to customers List
             Customer cus = obj.GetComponent<Customer>();

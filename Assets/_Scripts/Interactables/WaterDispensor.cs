@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public class WaterDispensor : Interactable
+public class WaterDispenser : Interactable
 {
     private void Awake()
     {

@@ -14,6 +14,9 @@ public class UpgradeSystem : Interactable
     //public bool sewerageFixed = false;
     //public bool roadFixed = false;
     //public bool refuseRemoved = false;
+
+    [SerializeField] Generator generator;
+    [SerializeField] WaterDispenser waterDispenser;
     private void Awake()
     {
         Instance = this;
@@ -83,7 +86,7 @@ public class UpgradeSystem : Interactable
             CurrencyManager.Instance.RemoveCurrency(1200);
 
             generatorUpgraded = true;
-            Generator generator = GameObject.FindFirstObjectByType<Generator>();
+            //Generator generator = GameObject.FindFirstObjectByType<Generator>();
             generator.BuyGenerator();
 
             UIManager.Instance.HideUpgradesInterface();
@@ -97,8 +100,8 @@ public class UpgradeSystem : Interactable
             CurrencyManager.Instance.RemoveCurrency(1100);
 
             waterDispensorUpgraded = true;
-            WaterDispensor waterDispensor = GameObject.FindFirstObjectByType<WaterDispensor>();
-            waterDispensor.BuyWaterDispensor();
+            //WaterDispensor waterDispensor = GameObject.FindFirstObjectByType<WaterDispensor>();
+            waterDispenser.BuyWaterDispensor();
 
             UIManager.Instance.HideUpgradesInterface();
         }

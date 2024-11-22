@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9051733606761265012}
   - component: {fileID: 8542811275521435605}
   - component: {fileID: 3082537624221194943}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Breakfast_Burrito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 7721881192702878476}
   - component: {fileID: 8484163842919952763}
   - component: {fileID: 5758740249931527693}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,6 +258,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burrito
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b6189cf501ccf74c9fbb0df2b64eb59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8492073581470150133}
   - component: {fileID: -7792224100906411636}
   - component: {fileID: -2085045941738103655}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Muffin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,6 +145,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Muffin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cca86d0166306eb41b82d89488ac6150,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

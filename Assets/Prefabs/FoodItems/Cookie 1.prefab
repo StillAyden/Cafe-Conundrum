@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6593534766301204868}
   - component: {fileID: 6583580456111348521}
   - component: {fileID: 8710824630572052528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6564025872813566980}
   - component: {fileID: 5929905324216866401}
   - component: {fileID: 7705954246579944281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7458181638153551522}
   - component: {fileID: 1573174536135136584}
   - component: {fileID: 3864716125946055791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 1130568831688515904}
   - component: {fileID: 4741073633035329661}
   - component: {fileID: 2018675543972647511}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3144631004929136734}
   - component: {fileID: 7600246387096170810}
   - component: {fileID: 616506708436518194}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 5335189017485764261}
   - component: {fileID: 5572313926298558158}
   - component: {fileID: 62664000663295715}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 8824524718083836249}
   - component: {fileID: 1686559115297304163}
   - component: {fileID: 2114601879890657671}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder.275 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,6 +589,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8717659679109997942, guid: 6ef305a1e23913f46b652787ff43e680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ef305a1e23913f46b652787ff43e680,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -644,6 +649,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b76ff0e63727f4f42aa81453c5dae029, type: 2}
+    - target: {fileID: -6489238004779481175, guid: 6ef305a1e23913f46b652787ff43e680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -4484156187155842976, guid: 6ef305a1e23913f46b652787ff43e680,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -668,6 +678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cookie 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6ef305a1e23913f46b652787ff43e680,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5102895705687458801}
   - component: {fileID: 3571828952060602858}
   - component: {fileID: 7246701538010137423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,6 +150,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cake
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c619e115d27838f4786ff582d132a67a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

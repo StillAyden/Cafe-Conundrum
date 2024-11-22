@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UX_Fade : MonoBehaviour
@@ -21,9 +22,9 @@ public class UX_Fade : MonoBehaviour
         StartCoroutine(IFadeIn());
     }
 
-    public void FadeOut()
+    public void FadeOut(string sceneName)
     {
-        StartCoroutine(IFadeOut());
+        StartCoroutine(IFadeOut(sceneName));
     }
 
 
@@ -40,7 +41,7 @@ public class UX_Fade : MonoBehaviour
         }
     }
 
-    IEnumerator IFadeOut()
+    IEnumerator IFadeOut(string scene)
     {
         imgBlack.color = Color.black;
         fadeDuration = 0;
@@ -50,6 +51,20 @@ public class UX_Fade : MonoBehaviour
             fadeDuration += fadeSpeed;
             imgBlack.color = new Color(0, 0, 0, fadeDuration);
             yield return new WaitForSeconds(0.0000001f);
+
+            
         }
+
+        yield return new WaitForSeconds(1.5f);
+
+        try
+        {
+            SceneManager.LoadScene(scene);
+        }
+        catch
+        {
+
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -65,20 +66,25 @@ public class GameManager : MonoBehaviour
         }
 
         //End of Game Condition
-        if (spawnManager.totalCustomers <= 0)
+        if (spawnManager.totalCustomers == 0)
         {
             int fullTables = 0;
             for (int i = 0; i < tableManager.tables.Count; i++)
             {
+                if (tableManager.tables[i].currentCustomers > 0)
                 fullTables++;
             }
 
             if (fullTables == 0)
             {
-                Debug.LogWarning("END GAME!!!!!!!!!!!!!");
+                UX_Fade.Instance.FadeOut("MainMenu");
+
             }
         }
+
     }
+
+        
 
     void TriggerStartOfRoundConundrums()
     {

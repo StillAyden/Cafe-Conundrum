@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6674829054864477338}
   - component: {fileID: -175406401851714681}
   - component: {fileID: 5024152049382452253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bread_Sticks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 6858906336281711576}
   - component: {fileID: 6103146137472019895}
   - component: {fileID: 2489284662973239596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,6 +253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BreadSticks
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4e6840c08e74ff84da2be0fdc8bf254a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

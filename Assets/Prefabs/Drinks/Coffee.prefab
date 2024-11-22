@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5896950846680336196}
   - component: {fileID: 5872102118097785150}
   - component: {fileID: 2473451150998846878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7851775510440443556}
   - component: {fileID: -3567333441826217510}
   - component: {fileID: 5050271135745281099}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Coffee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 1189208399173653712}
   - component: {fileID: 8579463867769659772}
   - component: {fileID: 2231366443872419439}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,6 +318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoffeeCup
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 78fb4c580f2eb0a41af319389fafb40e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -9,7 +9,7 @@ public class Table : Interactable
     [Header("Table Settings")]
     [SerializeField] private List<GameObject> chairs = new List<GameObject>(); // List of chairs of this table
     [SerializeField] private int maxCapacity = 4; // Maximum number of people the table can hold
-    [SerializeField] private int currentCustomers = 0; // Showes the current amount of customers
+    [SerializeField] public int currentCustomers = 0; // Showes the current amount of customers
     [SerializeField] public List<Customer> customers = new List<Customer>(); // List of customers at the table
     [SerializeField] private bool orderTaken = false;
 

@@ -50,6 +50,8 @@ public class SwitchLights : MonoBehaviour
 
         brightLightmap = blightmap.ToArray();
 
+        LightsOn();
+
     }
 
     public void LightsOn()

@@ -10,18 +10,21 @@ public class SettingNav : MonoBehaviour
 
     public void GamePlay()
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         HideAll();
         gamePlayPanel.SetActive(true);
     }
 
     public void Graphics()
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         HideAll();
         graphicsPanel.SetActive(true);
     }
 
     public void Audios() 
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         HideAll();
         audiosPanel.SetActive(true);
     }

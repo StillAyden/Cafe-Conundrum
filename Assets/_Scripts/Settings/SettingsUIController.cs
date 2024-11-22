@@ -105,16 +105,19 @@ public class SettingsUIController : MonoBehaviour
 
     public void OnQualityLevelChanged(int index)
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         gameSettings.qualityLevel = (GameSettings.QualityLevel)index;
     }
 
     public void OnFullscreenToggleChanged(bool isOn)
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         gameSettings.isFullscreen = isOn;
     }
 
     public void OnRefreshRateChanged(int index)
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         GameSettings.RefreshRate[] rates = {
             GameSettings.RefreshRate.Hz60,
             GameSettings.RefreshRate.Hz90,
@@ -144,6 +147,7 @@ public class SettingsUIController : MonoBehaviour
 
     public void OnApplyButtonPressed()
     {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         if (settingsManager != null)
         {
             // Apply the new settings

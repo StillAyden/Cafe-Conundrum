@@ -8,6 +8,7 @@ public class moneyAmount : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            SoundManager.PlaySound(SoundType.CASH, SoundMode.VFX, this.transform.position);
             CurrencyManager.Instance?.AddCurrency(moneyAmout);
             Destroy(this.gameObject);
 

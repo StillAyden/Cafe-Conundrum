@@ -6,6 +6,7 @@ public class MainMenuNav : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settings;
     [SerializeField] private GameObject credits;
+    [SerializeField] private GameObject startPanel;
 
     public void MainMenu()
     {
@@ -28,10 +29,20 @@ public class MainMenuNav : MonoBehaviour
         credits.SetActive(true);
     }
 
-    public void StartGame()
+    public void StartPanel()
+    {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
+        startPanel.SetActive(!startPanel.activeSelf);
+    }
+    public void StartTutorial()
     {
         SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
         SceneManager.LoadScene("Tutorial");
+    }
+    public void StartGame()
+    {
+        SoundManager.PlaySound(SoundType.BUTTON_CLICKING, SoundMode.VFX, this.transform.position);
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void QuitGame()

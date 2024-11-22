@@ -262,6 +262,12 @@ public class PlayerController : MonoBehaviour
                     UIManager.Instance.ShowUpgradesInterface();
                 else UIManager.Instance.HideUpgradesInterface();
             }
+
+            if (activeInteraction.GetComponent<Generator>())
+            {
+                SoundManager.PlaySound(SoundType.TELEPHONE_INTERACTION, SoundMode.VFX, this.transform.position);
+                activeInteraction.GetComponent<Generator>().Interact();
+            }
         }
     }
 

@@ -54,7 +54,7 @@ MonoBehaviour:
   - type: 1
     actorName: 
     actorDialogue: 
-    tutorialImage: {fileID: 21300000, guid: 33722416dd7ce2a49b33fddc2ff1422e, type: 3}
+    tutorialImage: {fileID: 21300000, guid: 626272010cadea744a6410b1f9c55446, type: 3}
     hasEventTriggererd: 0
     taskText: 
   - type: 2

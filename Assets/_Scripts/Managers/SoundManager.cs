@@ -46,9 +46,12 @@ public class SoundManager : MonoBehaviour
         float adjustedVolume = instance.GetAdjustedVolume(mode);
 
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;  
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
         //instance.audioSource.PlayOneShot(randomClip, volume);
-        AudioSource.PlayClipAtPoint(randomClip, position, adjustedVolume);
+        if (clips.Length <= 0)
+        {
+            AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            AudioSource.PlayClipAtPoint(randomClip, position, adjustedVolume);
+        }
     }
 
 #if UNITY_EDITOR

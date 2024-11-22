@@ -667,7 +667,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6ef305a1e23913f46b652787ff43e680,
         type: 3}
       propertyPath: m_Name
-      value: Cookie
+      value: Cookie 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

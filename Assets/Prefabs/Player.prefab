@@ -334,10 +334,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7404155304484482356}
     m_Modifications:
+    - target: {fileID: 1079078638955620939, guid: 75db73322a090dc489bdde43a8e90c92,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1079078638955620939, guid: 75db73322a090dc489bdde43a8e90c92,
+        type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1583389370218892190, guid: 75db73322a090dc489bdde43a8e90c92,
         type: 3}
       propertyPath: m_Name
       value: MainCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583389370218892190, guid: 75db73322a090dc489bdde43a8e90c92,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2211976132339077412, guid: 75db73322a090dc489bdde43a8e90c92,
         type: 3}

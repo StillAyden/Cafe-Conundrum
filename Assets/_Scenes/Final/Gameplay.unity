@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 2ebd5af3e5f1cca4da47221e21704a13,
+  m_LightingDataAsset: {fileID: 112000000, guid: bad01eed5f86e1141b8a52c3bb035d25,
     type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 72aa0c1cde0dda241a21bd1527843722,
     type: 2}
@@ -4695,25 +4695,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   darkLightmapDir:
-  - {fileID: 2800000, guid: 228574c6485154640af756ad3b13880e, type: 3}
-  - {fileID: 2800000, guid: d7f98252e9a1e8d48a1ece289217c02d, type: 3}
-  - {fileID: 2800000, guid: 0fa5fcc3862f53b4b9e3866212371162, type: 3}
-  - {fileID: 2800000, guid: 543ec317e97e2a64ea1916c8dbccc859, type: 3}
+  - {fileID: 2800000, guid: 1a1099b34ee7e4646a23f33428b8a351, type: 3}
+  - {fileID: 2800000, guid: 2771c33cebbaacd4480656f42e18205c, type: 3}
   darkLightmapColor:
-  - {fileID: 2800000, guid: 7b2215f04829ca64580b2ad47c76220b, type: 3}
-  - {fileID: 2800000, guid: 61ac0300bb78aba4c892145338fb5dc5, type: 3}
-  - {fileID: 2800000, guid: 7da301fb52d490b44bb0f168bf224334, type: 3}
-  - {fileID: 2800000, guid: db2f20ce26c486c46b4a11e1f8854161, type: 3}
+  - {fileID: 2800000, guid: a0dbdae1c43203d4481d52ec00b83421, type: 3}
+  - {fileID: 2800000, guid: abc4e1c11f215c74fa1a0d103a824c6f, type: 3}
   brightLightmapDir:
-  - {fileID: 2800000, guid: 3978ff37c6bac96469fc12e65d89a45a, type: 3}
-  - {fileID: 2800000, guid: f1dccaa86cdd90d41b55bc6170b010f2, type: 3}
-  - {fileID: 2800000, guid: fa8f66cdb040345429366bbb8fd38ad6, type: 3}
-  - {fileID: 2800000, guid: c58fda6dbc4335e43bf7023ffa421186, type: 3}
+  - {fileID: 2800000, guid: 6d5e2dbfacc90c54a80546eea8c37011, type: 3}
+  - {fileID: 2800000, guid: 45db97a0f7e5f404b948c76b5920334a, type: 3}
   brightLightmapColor:
-  - {fileID: 2800000, guid: b265ccafde196f749b9c0a08ce59e7b3, type: 3}
-  - {fileID: 2800000, guid: 6f7e65f4661c4c648887e1b0bb0e6db8, type: 3}
-  - {fileID: 2800000, guid: ea577283ff0551f4bba2da2ef003d723, type: 3}
-  - {fileID: 2800000, guid: 43fbfdf33a637e94c9ee73786aed79a4, type: 3}
+  - {fileID: 2800000, guid: a23267b9556620947a8f595f814eee35, type: 3}
+  - {fileID: 2800000, guid: 4632097ae904e744a852cdbc4ebfb613, type: 3}
 --- !u!114 &1421889870 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4513313640805778140, guid: 0b25940543411a1458f3b0d1291ef0f0,

@@ -9,7 +9,7 @@ public class CustomerSpawnManager : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField][Range(1,60)] private float minSpawnInterval = 1f;
     [SerializeField][Range(15, 120)] private float maxSpawnInterval = 5f;
-    [SerializeField] private int totalCustomers = 10; // Total number of customers to spawn
+    [SerializeField] public int totalCustomers = 10; // Total number of customers to spawn
 
     [Space]
     [Header("Customer Prefab")]

@@ -15,20 +15,20 @@ MonoBehaviour:
   node:
   - type: 0
     actorName: NPC
-    actorDialogue: "Ok, there\u2019s our first customer, lets go over the basics
-      again."
+    actorDialogue: Hey, Let me walk you through how this all works real quick.
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 
   - type: 0
     actorName: Player
-    actorDialogue: Alright. Remind me of what I need to do again.
+    actorDialogue: Ok... I'm ready!
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 
   - type: 0
     actorName: NPC
-    actorDialogue: First off, go to that customer over there and collect her order
+    actorDialogue: First, go over to those customers over there and collect their
+      order.
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 
@@ -38,9 +38,22 @@ MonoBehaviour:
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 
+  - type: 2
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: Go to the table and take their order.
   - type: 0
-    actorName: Player
-    actorDialogue: 'Ok, got it. '
+    actorName: NPC
+    actorDialogue: Nice! Now go over to the POS System and enter the order for kitchen
+      to start preparing.
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 1
+    actorName: 
+    actorDialogue: 
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 
@@ -48,89 +61,81 @@ MonoBehaviour:
     actorName: 
     actorDialogue: 
     tutorialImage: {fileID: 0}
-    hasEventTriggererd: 1
-    taskText: Go to the customer and take their order usign "E"
+    hasEventTriggererd: 0
+    taskText: Head to the POS System and enter the customers orders.
   - type: 0
+    actorName: NPC
+    actorDialogue: Alrighty. While the kitchen is preparing the order, go make the
+      customers drink.
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 1
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 2
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: Prepare/Get the customers drink.
+  - type: 2
+    actorName: 
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: Serve the customer(s) their drink
+  - type: 0
+    actorName: NPC
+    actorDialogue: See that? The kitchen is done, go and grab that.
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 2
     actorName: NPC
     actorDialogue: 
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
-    taskText: 
-  - type: 0
+    taskText: Get order from window
+  - type: 2
     actorName: 
     actorDialogue: 
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
-    taskText: 
+    taskText: Deliver order to customer
+  - type: 2
+    actorName: NPC
+    actorDialogue: 
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: Finish serving customers
   - type: 0
+    actorName: NPC
+    actorDialogue: Remember to collect your tip once you've served a table.
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 1
     actorName: 
     actorDialogue: 
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
+    taskText: Collect Tip
+  - type: 2
+    actorName: NPC
     actorDialogue: 
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
-    taskText: 
+    taskText: Collect Tip
   - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
-    tutorialImage: {fileID: 0}
-    hasEventTriggererd: 0
-    taskText: 
-  - type: 0
-    actorName: 
-    actorDialogue: 
+    actorName: NPC
+    actorDialogue: "Alright, with that being done. That\u2019s how this all works
+      in a nutshell. More customers are coming in. Remember what I showed you and
+      give those customers a good time. If you run into any problems, let me know.
+      Good luck bro. "
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 

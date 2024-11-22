@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public drinkData drink;
 
     [Header("Customer Spawning")]
+    CustomerSpawnManager spawnManager;
+    TableManager tableManager;
     public bool startSpawningCustomers = false;
 
     [Header("Challenge Variables")]
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        spawnManager = GetComponentInChildren<CustomerSpawnManager>();
+        tableManager = GetComponentInChildren<TableManager>();
     }
     private IEnumerator Start()
     {
@@ -49,6 +53,21 @@ public class GameManager : MonoBehaviour
         if (startConundrums && ConundrumTimerCoroutine == null)
         {
             ConundrumTimerCoroutine = StartCoroutine(ConundrumTimer());
+        }
+
+        //End of Game Condition
+        if (spawnManager.totalCustomers <= 0)
+        {
+            int fullTables = 0;
+            for (int i = 0; i < tableManager.tables.Count; i++)
+            {
+                fullTables++;
+            }
+
+            if (fullTables == 0)
+            {
+                Debug.LogWarning("END GAME!!!!!!!!!!!!!");
+            }
         }
     }
 

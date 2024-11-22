@@ -5,9 +5,9 @@ public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
 
-    [SerializeField] TutorialScript_SO currentScript;
+    [SerializeField] public TutorialScript_SO currentScript;
 
-    [SerializeField] int index;
+    [SerializeField] public int index;
 
     [Header("Dialogue Components")]
     [SerializeField] GameObject pnlDialogue;
@@ -121,14 +121,15 @@ public class TutorialManager : MonoBehaviour
                 EnableUIInput();
                 //TODO: Pause Gameplay
                 ShowPanel(TutorialNodeType.TutorialPanel);
-                UpdateTutorialNode(TutorialNodeType.Dialogue);
+                UpdateTutorialNode(TutorialNodeType.TutorialPanel);
             }
             else if (currentScript.node[index].type == TutorialNodeType.Event)
             {
                 DisableUIInput();               //Call NextDialogue() when a task is complete
                 //TODO: Unpause Game Here
                 ShowPanel(TutorialNodeType.Event);
-                UpdateTutorialNode(TutorialNodeType.Dialogue);
+                UpdateTutorialNode(TutorialNodeType.Event);
+                
             }
         }
         else
@@ -191,7 +192,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_type == TutorialNodeType.Event)
         {
-            txtTask.text = currentScript.node[index].taskText;
+            txtTask.text = "TO DO \n" + currentScript.node[index].taskText;
         }
         else Debug.LogWarning("Tutorial Node Type not found");
     }

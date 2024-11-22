@@ -1,7 +1,5 @@
-using Codice.Client.BaseCommands.Merge.Xml;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CustomEditor(typeof(TutorialScript_SO))]
 public class TutorialEditor : Editor

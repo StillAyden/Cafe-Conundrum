@@ -32,6 +32,8 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
+        InputManager.Instance.DisablePlayerMovement();
+
         if (Instance != this)
         {
             Debug.LogWarning("There are multiple instances of the " + this.name + " class. Please ensure there is only one!");

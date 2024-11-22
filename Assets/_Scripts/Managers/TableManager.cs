@@ -12,8 +12,8 @@ public class TableManager : MonoBehaviour
     [SerializeField][Range(0f, 10f)] private float SpriteDistance = 2;
 
     [Header("Patience Timer Settings")]
-    [SerializeField][Range(5f, 60f)] private float minPatienceTime = 30f;
-    [SerializeField][Range(5f, 60f)] private float maxPatienceTime = 60f;
+    [SerializeField][Range(5f, 300f)] private float minPatienceTime = 30f;
+    [SerializeField][Range(5f, 300f)] private float maxPatienceTime = 60f;
 
     #endregion
 

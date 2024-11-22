@@ -61,7 +61,7 @@ public class CurrencyManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);        //[Ayden] Going to cause problems later on
     }
 
     #endregion

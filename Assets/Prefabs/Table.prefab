@@ -563,7 +563,7 @@ MonoBehaviour:
   satisfaction: 0
   satisfactionTime: 0
   satisfactionModifier: 0
-  money: {fileID: 7713908547593328522, guid: 209254167cd985343bb586f0f78595a4, type: 3}
+  money: {fileID: 574434051483473995, guid: 0bffee92c9882a54d8a4ce069e95f5b0, type: 3}
 --- !u!135 &2899896583824580984
 SphereCollider:
   m_ObjectHideFlags: 0

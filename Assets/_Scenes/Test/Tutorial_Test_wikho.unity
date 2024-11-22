@@ -5105,6 +5105,9 @@ MonoBehaviour:
     sound: []
   - name: TELEPHONE_INTERACTION
     sound: []
+  - name: TRASH_CAN
+    sound:
+    - {fileID: 8300000, guid: e739c87bcfa32a04e8607af32e5b849f, type: 3}
 --- !u!82 &1319933136
 AudioSource:
   m_ObjectHideFlags: 0

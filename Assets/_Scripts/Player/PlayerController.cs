@@ -137,6 +137,7 @@ public class PlayerController : MonoBehaviour
         {
             if (activeInteraction.GetComponent<DropLocation>())
             {
+                SoundManager.PlaySound(SoundType.TRASH_CAN, SoundMode.VFX, this.transform.position);
                 //TODO: Get a better/cleaner way to do this
                 if (isHoldingItem && activeInteraction.GetComponent<DropLocation>().occupied == false)
                 {
@@ -148,6 +149,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<FoodItem>())
             {
+                SoundManager.PlaySound(SoundType.PLATE_CUP_CLINKING, SoundMode.VFX, this.transform.position);
                 //If item is food -> Pick up
                 if (!isHoldingItem)
                 {

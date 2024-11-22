@@ -132,6 +132,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2651118864082602698, guid: 731a01d342227924480e7fdae3d8208c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6558850277574628531, guid: 731a01d342227924480e7fdae3d8208c,
         type: 3}
       propertyPath: canvas_POS
@@ -195,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 8519086552524515181, guid: 731a01d342227924480e7fdae3d8208c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1716,18 +1721,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e158e95c5f93904899d4dbe37e5fef0, type: 3}
---- !u!114 &374630748 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 95640642444373668, guid: 0b25940543411a1458f3b0d1291ef0f0,
-    type: 3}
-  m_PrefabInstance: {fileID: 1884917778}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &384641918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,6 +4551,10 @@ MonoBehaviour:
     sound: []
   - name: TELEPHONE_INTERACTION
     sound: []
+  - name: TRASH_CAN
+    sound: []
+  - name: CASH
+    sound: []
 --- !u!82 &1319933136
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4774,7 +4771,7 @@ MonoBehaviour:
   isUpgradesInterfaceActive: 0
   OrderingInterface: {fileID: 299717498}
   UpgradesInterface: {fileID: 0}
-  imgRepBar: {fileID: 374630748}
+  imgRepBar: {fileID: 0}
 --- !u!1 &1454518243
 GameObject:
   m_ObjectHideFlags: 0

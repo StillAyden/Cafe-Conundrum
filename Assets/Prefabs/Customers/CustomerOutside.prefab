@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3214017230543890593}
-  - component: {fileID: 7205530562046708004}
   - component: {fileID: -8309430128809767011}
+  - component: {fileID: 8503323234855561208}
   m_Layer: 0
   m_Name: CustomerOutside
   m_TagString: Untagged
@@ -33,33 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7205530562046708004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8734203729337020057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 177218dd37c700341bb1b5da887acf02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterBody_1: {fileID: 4442479406825096521, guid: f520f41e41f17fb4a892238a6ec4e0c7,
-    type: 3}
-  character_1_Styles:
-  - {fileID: 3514418860780494738, guid: 954a24f69d7d8564d988ca40229088fc, type: 3}
-  - {fileID: 8228350538789861349, guid: aa4768332126d664da24b97f47f2666c, type: 3}
-  characterBody_2: {fileID: 3450178770272495060, guid: 10c174abdb675154381a3d8a4a0ab071,
-    type: 3}
-  character_2_Styles:
-  - {fileID: 8626974765421305340, guid: 45dfe23ae574c394398d4f8d6d278a1a, type: 3}
-  - {fileID: 2165741040055871824, guid: b799881c4db87b64ab8f1f3deb8c32c6, type: 3}
-  character_Hats:
-  - {fileID: 8300090228358463586, guid: 27db63b53056b4d478e0cb085bfb2169, type: 3}
-  - {fileID: 1231308665390338028, guid: fd91b9e0fffb81448ae0d1d1acd1d6c2, type: 3}
-  - {fileID: 102793572320040862, guid: 25e3ec3fb7660104583c01b81525fc25, type: 3}
-  - {fileID: 963943379930185874, guid: b24a3f23d71c9e746a6e1eff5faeacea, type: 3}
 --- !u!114 &-8309430128809767011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,3 +45,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a099f1667c795ca47a10f88bb5e26718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8503323234855561208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734203729337020057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177218dd37c700341bb1b5da887acf02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maleCharacterBody_1: {fileID: 4442479406825096521, guid: f520f41e41f17fb4a892238a6ec4e0c7,
+    type: 3}
+  maleCharacter_1_Styles:
+  - {fileID: 3514418860780494738, guid: 954a24f69d7d8564d988ca40229088fc, type: 3}
+  - {fileID: 8228350538789861349, guid: aa4768332126d664da24b97f47f2666c, type: 3}
+  maleCharacterBody_2: {fileID: 3450178770272495060, guid: 10c174abdb675154381a3d8a4a0ab071,
+    type: 3}
+  maleCharacter_2_Styles:
+  - {fileID: 8626974765421305340, guid: 45dfe23ae574c394398d4f8d6d278a1a, type: 3}
+  - {fileID: 2165741040055871824, guid: b799881c4db87b64ab8f1f3deb8c32c6, type: 3}
+  maleCharacter_Hats:
+  - {fileID: 8300090228358463586, guid: 27db63b53056b4d478e0cb085bfb2169, type: 3}
+  - {fileID: 963943379930185874, guid: b24a3f23d71c9e746a6e1eff5faeacea, type: 3}
+  - {fileID: 1231308665390338028, guid: fd91b9e0fffb81448ae0d1d1acd1d6c2, type: 3}
+  - {fileID: 102793572320040862, guid: 25e3ec3fb7660104583c01b81525fc25, type: 3}
+  femaleCharacterBody_1: {fileID: 1775533373456185061, guid: 2ed7195bbef1c6146ba8045c15a96eac,
+    type: 3}
+  femaleCharacter_1_Styles:
+  - {fileID: 4389800320747665268, guid: 2d57e19f88905e940a46e09b9e54a4e1, type: 3}
+  - {fileID: 2686672032984096544, guid: d9af7044d1c498942a645eef9b96d503, type: 3}
+  femaleCharacterBody_2: {fileID: 4527691972713770470, guid: 75fa167d77cf84f41a0da9f7ce273f4b,
+    type: 3}
+  femaleCharacter_2_Styles:
+  - {fileID: 5034160546824716088, guid: e2e4a34ccaba58c41b85789c1801cad7, type: 3}
+  - {fileID: 8715595594002883055, guid: fb23eb4571af6b241b258c618bb04033, type: 3}
+  - {fileID: 7799708896127600078, guid: ec24a7a6c14bda54c8f547ae4da2893c, type: 3}
+  femaleCharacter_Hats:
+  - {fileID: 8300090228358463586, guid: 500786b6ee7e77e44bcf732bc40e5b1f, type: 3}
+  - {fileID: 7789574546323606444, guid: 674ef8674b9d6f04498c260f01f1eae9, type: 3}
+  - {fileID: 3886141290605822492, guid: bfcc339d051a42c4a96a3ffc13621361, type: 3}

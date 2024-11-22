@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
-        InputManager.Instance.DisablePlayerMovement();
+        
         UX_Fade.Instance?.FadeIn();
         yield return new WaitForSeconds(2f);
         TutorialManager.Instance?.StartDialogue();

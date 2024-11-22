@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1394643427676616607}
   - component: {fileID: 1856860355394983504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TriggerSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 2599336391538412467}
   - component: {fileID: 8726082515781831878}
   - component: {fileID: 601800701548051751}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TEMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 8764597952970518507}
   - component: {fileID: 4851447758669410681}
   - component: {fileID: 2651118864082602698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6260842347017061931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ItemHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,6 +348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583389370218892190, guid: 75db73322a090dc489bdde43a8e90c92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1583389370218892190, guid: 75db73322a090dc489bdde43a8e90c92,
         type: 3}

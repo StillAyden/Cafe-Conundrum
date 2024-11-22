@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class SwitchLights : MonoBehaviour
 {
+
     public static SwitchLights Instance;
+
+    public Light poeple;
 
     public Texture2D[] darkLightmapDir, darkLightmapColor;
 
     public Texture2D[] brightLightmapDir, brightLightmapColor;
 
     private LightmapData[] darkLightmap, brightLightmap;
+
 
     private void Start()
     {
@@ -51,10 +55,12 @@ public class SwitchLights : MonoBehaviour
     public void LightsOn()
     {
         LightmapSettings.lightmaps = brightLightmap;
+        poeple.intensity = 1;
     }
 
     public void LightsOff()
     {
         LightmapSettings.lightmaps = darkLightmap;
+        poeple.intensity = 0.1f;
     }
 }

@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     float timePerConundrum = 60f;
     float timePerConundrumVariance = 10f;
 
+    [Header("Fly Cam")]
+    [SerializeField] Camera flyCam;
+
     private void Awake()
     {
         Instance = this;
@@ -38,6 +41,12 @@ public class GameManager : MonoBehaviour
     private IEnumerator Start()
     {
         
+        //Enabling Ability to use cam mode
+        InputManager.Instance.Inputs.Cheats.Enable();
+        InputManager.Instance.Inputs.Cheats.PhotoMode.performed += x => TogglePhotoMode();
+
+
+        InputManager.Instance.DisablePlayerMovement();
         UX_Fade.Instance?.FadeIn();
         yield return new WaitForSeconds(2f);
         TutorialManager.Instance?.StartDialogue();
@@ -118,6 +127,25 @@ public class GameManager : MonoBehaviour
         }
 
         ConundrumTimerCoroutine = null;
+    }
+
+    void TogglePhotoMode()
+    {
+        if (flyCam)
+        {
+            if (flyCam.gameObject.activeSelf == false && InputManager.Instance.Inputs.Player.enabled)
+            {
+                Debug.Log("Enable Fly Cam");
+                flyCam.gameObject.SetActive(true);
+                InputManager.Instance.DisablePlayerMovement();
+            }
+            else if (flyCam.gameObject.activeSelf && InputManager.Instance.Inputs.Player.enabled == false)
+            {
+                Debug.Log("Disable Fly Cam");
+                flyCam.gameObject.SetActive(false);
+                InputManager.Instance.EnablePlayerMovement();
+            }
+        }
     }
 
 }

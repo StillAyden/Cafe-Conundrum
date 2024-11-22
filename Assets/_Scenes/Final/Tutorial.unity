@@ -1276,7 +1276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &281465794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -4430,6 +4430,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1452795127}
     m_Modifications:
+    - target: {fileID: 964279844090618052, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 964279844090618052, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 283.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2481254316690239344, guid: 074505617b1506f498d3e8b65ca9f482,
         type: 3}
       propertyPath: currentScript
@@ -4446,6 +4456,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3734803562115344307, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 4962295175161911673, guid: 074505617b1506f498d3e8b65ca9f482,
         type: 3}
       propertyPath: m_IsActive
@@ -4460,6 +4475,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595582078554089364, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7595582078554089364, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870310276138210724, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7982216135745518838, guid: 074505617b1506f498d3e8b65ca9f482,
         type: 3}
@@ -4561,6 +4591,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8460963229925757467, guid: 074505617b1506f498d3e8b65ca9f482,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 104.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8931619540605200389, guid: 074505617b1506f498d3e8b65ca9f482,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -4621,7 +4656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1219528014
 Transform:
   m_ObjectHideFlags: 0
@@ -5941,6 +5976,7 @@ MonoBehaviour:
   roadDurabilty: 1
   refuseLevel: 0
   startConundrums: 0
+  flyCam: {fileID: 281465797}
 --- !u!114 &1654003956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7439,6 +7475,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1004.01416
       objectReference: {fileID: 0}
+    - target: {fileID: 4243888863699990821, guid: 0b25940543411a1458f3b0d1291ef0f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4513963329738956920, guid: 0b25940543411a1458f3b0d1291ef0f0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -7473,6 +7514,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -383.0142
+      objectReference: {fileID: 0}
+    - target: {fileID: 6407681168424413954, guid: 0b25940543411a1458f3b0d1291ef0f0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 6616306190798643179, guid: 0b25940543411a1458f3b0d1291ef0f0,
         type: 3}

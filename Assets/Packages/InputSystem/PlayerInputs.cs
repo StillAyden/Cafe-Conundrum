@@ -343,6 +343,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PhotoMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa040348-cbf2-4cb0-aa9e-9e42dfd5b10a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -400,6 +409,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""TriggerSpeedUpgrade"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""195245aa-7f88-44a7-a794-3f5b61144c0d"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PhotoMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -421,6 +441,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Cheats_ShowUpgrades = m_Cheats.FindAction("ShowUpgrades", throwIfNotFound: true);
         m_Cheats_HideUpgrades = m_Cheats.FindAction("HideUpgrades", throwIfNotFound: true);
         m_Cheats_TriggerSpeedUpgrade = m_Cheats.FindAction("TriggerSpeedUpgrade", throwIfNotFound: true);
+        m_Cheats_PhotoMode = m_Cheats.FindAction("PhotoMode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -595,6 +616,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Cheats_ShowUpgrades;
     private readonly InputAction m_Cheats_HideUpgrades;
     private readonly InputAction m_Cheats_TriggerSpeedUpgrade;
+    private readonly InputAction m_Cheats_PhotoMode;
     public struct CheatsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -604,6 +626,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @ShowUpgrades => m_Wrapper.m_Cheats_ShowUpgrades;
         public InputAction @HideUpgrades => m_Wrapper.m_Cheats_HideUpgrades;
         public InputAction @TriggerSpeedUpgrade => m_Wrapper.m_Cheats_TriggerSpeedUpgrade;
+        public InputAction @PhotoMode => m_Wrapper.m_Cheats_PhotoMode;
         public InputActionMap Get() { return m_Wrapper.m_Cheats; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -628,6 +651,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @TriggerSpeedUpgrade.started += instance.OnTriggerSpeedUpgrade;
             @TriggerSpeedUpgrade.performed += instance.OnTriggerSpeedUpgrade;
             @TriggerSpeedUpgrade.canceled += instance.OnTriggerSpeedUpgrade;
+            @PhotoMode.started += instance.OnPhotoMode;
+            @PhotoMode.performed += instance.OnPhotoMode;
+            @PhotoMode.canceled += instance.OnPhotoMode;
         }
 
         private void UnregisterCallbacks(ICheatsActions instance)
@@ -647,6 +673,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @TriggerSpeedUpgrade.started -= instance.OnTriggerSpeedUpgrade;
             @TriggerSpeedUpgrade.performed -= instance.OnTriggerSpeedUpgrade;
             @TriggerSpeedUpgrade.canceled -= instance.OnTriggerSpeedUpgrade;
+            @PhotoMode.started -= instance.OnPhotoMode;
+            @PhotoMode.performed -= instance.OnPhotoMode;
+            @PhotoMode.canceled -= instance.OnPhotoMode;
         }
 
         public void RemoveCallbacks(ICheatsActions instance)
@@ -681,5 +710,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnShowUpgrades(InputAction.CallbackContext context);
         void OnHideUpgrades(InputAction.CallbackContext context);
         void OnTriggerSpeedUpgrade(InputAction.CallbackContext context);
+        void OnPhotoMode(InputAction.CallbackContext context);
     }
 }

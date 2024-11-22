@@ -321,6 +321,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PhotoMode",
+                    "type": "Button",
+                    "id": "fa040348-cbf2-4cb0-aa9e-9e42dfd5b10a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -376,6 +385,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TriggerSpeedUpgrade",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "195245aa-7f88-44a7-a794-3f5b61144c0d",
+                    "path": "<Keyboard>/f12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PhotoMode",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

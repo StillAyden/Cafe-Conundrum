@@ -48,6 +48,11 @@ public class InputManager : MonoBehaviour
         Inputs.Player.Disable();
     }
 
+    public void EnablePlayerMovement()
+    {
+        Inputs.Player.Enable();
+    }
+
     private void Update()
     {
         moveInput = GetMoveAxis();

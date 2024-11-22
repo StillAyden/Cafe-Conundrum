@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8677457242435393887}
   - component: {fileID: 8437431053077944932}
   - component: {fileID: 2973823646021108603}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: imgFood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2080655307871524263}
   - component: {fileID: 4569322217341545496}
   - component: {fileID: 5007221510206856582}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 162938776878780634}
   - component: {fileID: 3247258267455256287}
   - component: {fileID: 1276529596665012171}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: imgDrink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 876699020979484967}
   - component: {fileID: 558531065512551877}
   - component: {fileID: 7205530562046708004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Customer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177218dd37c700341bb1b5da887acf02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setLayerToPeople: 1
   maleCharacterBody_1: {fileID: 4442479406825096521, guid: f520f41e41f17fb4a892238a6ec4e0c7,
     type: 3}
   maleCharacter_1_Styles:

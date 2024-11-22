@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class MainMusic : MonoBehaviour
 {
-    [SerializeField] private AudioSource source;
+    private AudioSource source;
     [SerializeField] private AudioClip clip;
     [SerializeField] private GameSettings gameSettings;
 
     private void Start()
     {
-        source = GetComponent<AudioSource>();
+        source = gameObject.AddComponent<AudioSource>();
 
         source.loop = true;
         source.clip = clip;

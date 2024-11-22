@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         InputManager.Instance.Interacted += Interact;
+
+        InputManager.Instance.Paused += Pause;
+        InputManager.Instance.Unpaused += Unpause;
     }
 
     private void FixedUpdate()
@@ -544,5 +547,23 @@ public class PlayerController : MonoBehaviour
         {
             activeInteraction = null; // Reset to null if the reference is missing or inactive
         }
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.ShowPauseInterface();
+        
+        InputManager.Instance.DisablePlayerMovement();
+        InputManager.Instance.Inputs.UI.Enable();
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        UIManager.Instance.HidePauseInterface();
+
+        InputManager.Instance.EnablePlayerMovement();
+        InputManager.Instance.Inputs.UI.Disable();
     }
 }

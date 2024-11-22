@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator Start()
     {
-        
+        Time.timeScale = 1;
         //Enabling Ability to use cam mode
         InputManager.Instance.Inputs.Cheats.Enable();
         InputManager.Instance.Inputs.Cheats.PhotoMode.performed += x => TogglePhotoMode();

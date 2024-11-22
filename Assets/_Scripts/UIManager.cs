@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,10 +8,12 @@ public class UIManager : MonoBehaviour
 
     public bool isOrderingInterfaceActive = false;
     public bool isUpgradesInterfaceActive = false;
+    public bool isPauseInterfaceActive = false;
 
     [Header("Canvases")]
     [SerializeField] Canvas OrderingInterface;
     [SerializeField] Canvas UpgradesInterface;
+    [SerializeField] Canvas PauseInterface;
 
     [Header("Reputation")]
     [SerializeField] Image imgRepBar;
@@ -85,4 +88,31 @@ public class UIManager : MonoBehaviour
         imgRepBar.fillAmount = ReputationManager.Instance.GetReputation() / 100;
     }
     #endregion
+
+
+
+    public void ShowPauseInterface()
+    {
+        if (PauseInterface)
+        {
+            PauseInterface.gameObject.SetActive(true);
+            isPauseInterfaceActive = true;
+        }
+        else Debug.LogWarning("Could not find Pause Interface Canvas");
+    }
+
+    public void HidePauseInterface()
+    {
+        if (PauseInterface)
+        {
+            PauseInterface.gameObject.SetActive(false);
+            isPauseInterfaceActive = false;
+        }
+        else Debug.LogWarning("Could not find Ordering Interface Canvas");
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

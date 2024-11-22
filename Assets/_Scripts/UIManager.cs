@@ -72,7 +72,7 @@ public class UIManager : MonoBehaviour
         if (UpgradesInterface)
         {
             UpgradesInterface.gameObject.SetActive(false);
-            isOrderingInterfaceActive = false;
+            isUpgradesInterfaceActive = false;
             Debug.LogWarning("HideUpgradesInterface!");
         }
         else Debug.LogWarning("Could not find Upgrades Canvas!");

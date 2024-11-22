@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<DrinkItem>())
             {
+                SoundManager.PlaySound(SoundType.PLATE_CUP_CLINKING, SoundMode.VFX, this.transform.position);
                 //If item is drink -> Pick up
                 if (!isHoldingItem)
                 {
@@ -171,6 +172,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<Table>())
             {
+                SoundManager.PlaySound(SoundType.CUSTOMER_REQUEST, SoundMode.VFX, this.transform.position);
                 Table table = activeInteraction.GetComponent<Table>();
 
                 // Check if the player is holding an item and deliver it
@@ -230,6 +232,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<BaristaMachine>())
             {
+                SoundManager.PlaySound(SoundType.BAR_FRIDGE, SoundMode.VFX, this.transform.position);
                 if (!isHoldingItem)
                 {
                     //GetItem(GameManager.Instance.drink.items[(int)Drink.Coffee].prefab);
@@ -242,6 +245,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<MiniFridge>())
             {
+                SoundManager.PlaySound(SoundType.BAR_FRIDGE, SoundMode.VFX, this.transform.position);
                 if (!isHoldingItem)
                 {
                     GetItem(activeInteraction.GetComponent<MiniFridge>().Interact());
@@ -253,6 +257,7 @@ public class PlayerController : MonoBehaviour
 
             if (activeInteraction.GetComponent<Telephone>())
             {
+                SoundManager.PlaySound(SoundType.TELEPHONE_INTERACTION, SoundMode.VFX, this.transform.position);
                 if (UIManager.Instance.isUpgradesInterfaceActive == false)
                     UIManager.Instance.ShowUpgradesInterface();
                 else UIManager.Instance.HideUpgradesInterface();

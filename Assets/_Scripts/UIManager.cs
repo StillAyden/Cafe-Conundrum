@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     [Header("Reputation")]
     [SerializeField] Image imgRepBar;
 
+    [Header("Money")]
+    [SerializeField] public Text[] allTextMoney;
+
     private void Awake()
     {
         Instance = this;
@@ -23,6 +26,11 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         UpdateReputationBar();
+
+        for (int i = 0; i < allTextMoney.Length; i++)
+        {
+            allTextMoney[i].text = CurrencyManager.Instance.GetCurrency().ToString();
+        }
     }
 
     #region Ordering Interface
@@ -54,6 +62,7 @@ public class UIManager : MonoBehaviour
         {
             UpgradesInterface.gameObject.SetActive(true);
             isUpgradesInterfaceActive = true;
+            Debug.LogWarning("ShowUpgradesInterface");
         }
         else Debug.LogWarning("Could not find Upgrades Canvas!");
     }
@@ -64,6 +73,7 @@ public class UIManager : MonoBehaviour
         {
             UpgradesInterface.gameObject.SetActive(false);
             isOrderingInterfaceActive = false;
+            Debug.LogWarning("HideUpgradesInterface!");
         }
         else Debug.LogWarning("Could not find Upgrades Canvas!");
     }

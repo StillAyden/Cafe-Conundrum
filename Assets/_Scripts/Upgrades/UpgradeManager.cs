@@ -26,89 +26,131 @@ public class UpgradeSystem : Interactable
 
             //Increase movement speed
             GameObject.FindWithTag("Player").GetComponent<PlayerController>().moveSpeed = 250f;
+            
+            UIManager.Instance.HideUpgradesInterface();
         }
+
     }
 
     public void UpgradeChef()
     {
-        if (!chefUpgraded)
+        if (!chefUpgraded && CurrencyManager.Instance.GetCurrency() > 450)
         {
+            CurrencyManager.Instance.RemoveCurrency(450);
+
             chefUpgraded = true;
 
             //Faster food preparation
             Kitchen.Instance.foodPrepTime /= 2;
+
+            UIManager.Instance.HideUpgradesInterface();
         }
+
+
     }
 
     public void UpgradeBaristaMachine()
     {
-        if(!baristaUpgraded)
+        if(!baristaUpgraded && CurrencyManager.Instance.GetCurrency() > 600)
         {
-            baristaUpgraded= true;
+            CurrencyManager.Instance.RemoveCurrency(600);
 
+            baristaUpgraded = true;
             BaristaMachine baristaMachine = GameObject.FindFirstObjectByType<BaristaMachine>();
-
             baristaMachine.UpgradeBarista();
+
+            UIManager.Instance.HideUpgradesInterface();
         }
     }
 
     public void UpgradeSodaMachine()
     {
-        if (!sodaMachineUpgraded)
+        if (!sodaMachineUpgraded && CurrencyManager.Instance.GetCurrency() > 550)
         {
+            CurrencyManager.Instance.RemoveCurrency(550);
+
             sodaMachineUpgraded = true;
-
             MiniFridge miniFridge = GameObject.FindFirstObjectByType<MiniFridge>();
-
             miniFridge.UpgradeMiniFridge();
+
+            UIManager.Instance.HideUpgradesInterface();
         }
     }
     public void PurchaseGenerator()
     {
-        if (!generatorUpgraded)
+        if (!generatorUpgraded && CurrencyManager.Instance.GetCurrency() > 1200)
         {
+            CurrencyManager.Instance.RemoveCurrency(1200);
+
             generatorUpgraded = true;
-
             Generator generator = GameObject.FindFirstObjectByType<Generator>();
-
             generator.BuyGenerator();
+
+            UIManager.Instance.HideUpgradesInterface();
         }
     }
 
     public void PurchaseWaterDispenser()
     {
-        if (!waterDispensorUpgraded)
+        if (!waterDispensorUpgraded && CurrencyManager.Instance.GetCurrency() > 1100)
         {
+            CurrencyManager.Instance.RemoveCurrency(1100);
+
             waterDispensorUpgraded = true;
-
             WaterDispensor waterDispensor = GameObject.FindFirstObjectByType<WaterDispensor>();
-
             waterDispensor.BuyWaterDispensor();
+
+            UIManager.Instance.HideUpgradesInterface();
         }
     }
 
     public void HireBodyguard()
     {
-        ConundrumManager.Instance.isCrimeTriggered = false;
-        //Stops thieves
+        if (CurrencyManager.Instance.GetCurrency() > 2500)
+        {
+            CurrencyManager.Instance.RemoveCurrency(2500);
+
+            ConundrumManager.Instance.isCrimeTriggered = false;
+            //Stops thieves
+            UIManager.Instance.HideUpgradesInterface();
+
+        }
     }
 
     public void FixSewerage()
     {
-        ConundrumManager.Instance.isSewerageProblems = false;
-        //Re-enables water supply
+        if (ConundrumManager.Instance.isSewerageProblems == true && CurrencyManager.Instance.GetCurrency() > 150)
+        {
+            CurrencyManager.Instance.RemoveCurrency(150);
+
+            ConundrumManager.Instance.isSewerageProblems = false;
+            //Re-enables water supply
+            UIManager.Instance.HideUpgradesInterface();
+        }
     }
 
     public void FixRoad()
     {
-        ConundrumManager.Instance.isRoadBad = false;
-        //Customers come faster
+        if (ConundrumManager.Instance.isRoadBad == true && CurrencyManager.Instance.GetCurrency() > 1000)
+        {
+            CurrencyManager.Instance.RemoveCurrency(1000);
+
+            ConundrumManager.Instance.isRoadBad = false;
+            //Customers come faster
+            UIManager.Instance.HideUpgradesInterface();
+        }
     }
 
     public void RemoveRefuse()
     {
-        ConundrumManager.Instance.isRefuseFull = false;
-        //Slower patience draining in customers
+        if (ConundrumManager.Instance.isRefuseFull == true && CurrencyManager.Instance.GetCurrency() > 300) 
+        {
+            CurrencyManager.Instance.RemoveCurrency(300);
+
+            ConundrumManager.Instance.isRefuseFull = false;
+            //Slower patience draining in customers
+            UIManager.Instance.HideUpgradesInterface();
+        }
     }
 
 }

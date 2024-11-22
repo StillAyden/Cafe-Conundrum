@@ -46,7 +46,7 @@ public class CurrencyManager : MonoBehaviour
     public float GetCurrency() { return currency; }
     private void SetCurrency(float value) { currency = value; }
     public void AddCurrency(float currencyAdded) { currency += currencyAdded; }
-    private void RemoveCurrency(float currencyRemoved) { currency -= currencyRemoved; }
+    public void RemoveCurrency(float currencyRemoved) { currency -= currencyRemoved; }
     #endregion
 
     #region Singleton

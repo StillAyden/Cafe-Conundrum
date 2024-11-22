@@ -35,7 +35,7 @@ MonoBehaviour:
   - type: 1
     actorName: 
     actorDialogue: 
-    tutorialImage: {fileID: 0}
+    tutorialImage: {fileID: 21300000, guid: ffd8043301f6a3b409038e25324f8eff, type: 3}
     hasEventTriggererd: 0
     taskText: 
   - type: 2
@@ -54,7 +54,7 @@ MonoBehaviour:
   - type: 1
     actorName: 
     actorDialogue: 
-    tutorialImage: {fileID: 0}
+    tutorialImage: {fileID: 21300000, guid: 33722416dd7ce2a49b33fddc2ff1422e, type: 3}
     hasEventTriggererd: 0
     taskText: 
   - type: 2
@@ -73,7 +73,7 @@ MonoBehaviour:
   - type: 1
     actorName: 
     actorDialogue: 
-    tutorialImage: {fileID: 0}
+    tutorialImage: {fileID: 21300000, guid: 2d149552bb78e9741b37b795e93eb7fe, type: 3}
     hasEventTriggererd: 0
     taskText: 
   - type: 2
@@ -121,7 +121,7 @@ MonoBehaviour:
   - type: 1
     actorName: 
     actorDialogue: 
-    tutorialImage: {fileID: 0}
+    tutorialImage: {fileID: 21300000, guid: 7cd0e23641c616f4d9f8d8c2b489c10e, type: 3}
     hasEventTriggererd: 0
     taskText: Collect Tip
   - type: 2
@@ -136,6 +136,12 @@ MonoBehaviour:
       in a nutshell. More customers are coming in. Remember what I showed you and
       give those customers a good time. If you run into any problems, let me know.
       Good luck bro. "
+    tutorialImage: {fileID: 0}
+    hasEventTriggererd: 0
+    taskText: 
+  - type: 0
+    actorName: 
+    actorDialogue: 
     tutorialImage: {fileID: 0}
     hasEventTriggererd: 0
     taskText: 

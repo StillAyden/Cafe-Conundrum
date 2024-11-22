@@ -15,7 +15,7 @@ public struct TutorialNode
     public string actorName;
     [TextArea] public string actorDialogue;
 
-    public Image tutorialImage;
+    public Sprite tutorialImage;
 
     public bool hasEventTriggererd;
     public string taskText;

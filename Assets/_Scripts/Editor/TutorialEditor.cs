@@ -34,7 +34,7 @@ public class TutorialEditor : Editor
                     break;
 
                 case TutorialNodeType.TutorialPanel:
-                    script.node[i].tutorialImage = (Image)EditorGUILayout.ObjectField("Tutorial Image", script.node[i].tutorialImage, typeof(Image), false);
+                    script.node[i].tutorialImage = (Sprite)EditorGUILayout.ObjectField("Tutorial Image", script.node[i].tutorialImage, typeof(Sprite), false);
                     break;
 
                 case TutorialNodeType.Event:

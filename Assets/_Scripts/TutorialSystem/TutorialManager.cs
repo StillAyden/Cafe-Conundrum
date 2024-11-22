@@ -188,7 +188,7 @@ public class TutorialManager : MonoBehaviour
         }
         else if (_type == TutorialNodeType.TutorialPanel)
         {
-            imgTutorial.sprite = currentScript.node[index].tutorialImage.sprite;
+            imgTutorial.sprite = currentScript.node[index].tutorialImage;
         }
         else if (_type == TutorialNodeType.Event)
         {

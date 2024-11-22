@@ -121,7 +121,7 @@ MonoBehaviour:
   - type: 1
     actorName: 
     actorDialogue: 
-    tutorialImage: {fileID: 21300000, guid: 7cd0e23641c616f4d9f8d8c2b489c10e, type: 3}
+    tutorialImage: {fileID: 21300000, guid: 39d567d6b8f9fe944b28052199f1de9f, type: 3}
     hasEventTriggererd: 0
     taskText: Collect Tip
   - type: 2

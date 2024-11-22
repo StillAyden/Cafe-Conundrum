@@ -4,7 +4,9 @@ using UnityEngine;
 public class ConundrumManager : MonoBehaviour
 {
     public static ConundrumManager Instance;
-
+    [Space]
+    public bool allowConundrums = true;
+    [Space]
     #region Bools
     public bool isLoadshedding = false;
     public bool isWaterShortage = false;
@@ -20,38 +22,41 @@ public class ConundrumManager : MonoBehaviour
     }
     public void TriggerConundrum(ConundrumTypes type)
     {
-        switch (type)
-        {
-            case ConundrumTypes.LoadShedding:
-                {
-                    StartLoadshedding();
-                    break;
-                }
-            case ConundrumTypes.WaterShortage:
-                {
-                    StartWaterShortage();
-                    break;
-                }
-            case ConundrumTypes.Sewerage:
-                {
-                    StartSewerageProblems();
-                    break;
-                }
-            case ConundrumTypes.RoadMaintenance:
-                {
-                    StartRoadMainenance();
-                    break;
-                }
-            case ConundrumTypes.Crime:
-                {
-                    StartCrime();
-                    break;
-                }
-            case ConundrumTypes.RefuseRemoval:
-                {
-                    StartRefuseFull();
-                    break;
-                }
+        if (allowConundrums) 
+        { 
+            switch (type)
+            {
+                case ConundrumTypes.LoadShedding:
+                    {
+                        StartLoadshedding();
+                        break;
+                    }
+                case ConundrumTypes.WaterShortage:
+                    {
+                        StartWaterShortage();
+                        break;
+                    }
+                case ConundrumTypes.Sewerage:
+                    {
+                        StartSewerageProblems();
+                        break;
+                    }
+                case ConundrumTypes.RoadMaintenance:
+                    {
+                        StartRoadMainenance();
+                        break;
+                    }
+                case ConundrumTypes.Crime:
+                    {
+                        StartCrime();
+                        break;
+                    }
+                case ConundrumTypes.RefuseRemoval:
+                    {
+                        StartRefuseFull();
+                        break;
+                    }
+            }
         }
     }
 

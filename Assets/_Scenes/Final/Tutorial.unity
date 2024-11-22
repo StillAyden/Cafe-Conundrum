@@ -2886,6 +2886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64ef45a2877da84a89c8f9a12581411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowConundrums: 0
   isLoadshedding: 0
   isWaterShortage: 0
   isSewerageProblems: 0
@@ -4656,7 +4657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1219528014
 Transform:
   m_ObjectHideFlags: 0
@@ -7514,11 +7515,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -383.0142
-      objectReference: {fileID: 0}
-    - target: {fileID: 6407681168424413954, guid: 0b25940543411a1458f3b0d1291ef0f0,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 6616306190798643179, guid: 0b25940543411a1458f3b0d1291ef0f0,
         type: 3}

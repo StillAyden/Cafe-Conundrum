@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
         InputManager.Instance.Inputs.Cheats.PhotoMode.performed += x => TogglePhotoMode();
 
 
-        InputManager.Instance.DisablePlayerMovement();
         UX_Fade.Instance?.FadeIn();
         yield return new WaitForSeconds(2f);
         TutorialManager.Instance?.StartDialogue();
